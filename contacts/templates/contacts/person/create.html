@@ -1,0 +1,24 @@
+{% extends "contacts/person/base.html" %}
+{% load i18n %}
+{% load bootstrap_toolkit %}
+
+{% block title %}{{ block.super }}: {% trans "Add a new Person" %}{% endblock %}
+
+{% block content_title %}
+    {% trans "Add a new Person" %}
+{% endblock %}
+
+{% block content %}
+    <form action="." method="post" accept-charset="utf-8"  class="form-horizontal">
+        {% csrf_token %}
+        {{ form|as_bootstrap }}
+        <div class="form-actions">
+            <button type="submit" value="Submit" class="btn btn-primary">{% trans 'Create and continue' %} <i class="icon-white icon-chevron-right"></i></button>
+        </div>
+    </form>
+{% endblock %}
+
+
+{% block actions %}
+<a href="{%  url contacts_person_list %}"  class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+{% endblock %}

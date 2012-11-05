@@ -1,0 +1,39 @@
+{% extends "contacts/person/base.html" %}
+{% load i18n %}
+{% load django_tables2 %}
+{% load contacts_tags %}
+
+{% block title %}{{ block.super }}: {% trans "Inscription stats" %}{% endblock %}
+
+{% block content_title %}
+    {% trans "Inscription stats" %}
+{% endblock %}
+
+{% block content %}
+    <table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+        <th>{% trans "contact type" %}</th>
+        <th>{% trans "status" %}</th>
+        <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stat in inscription_stats %}
+        {% for reg in stat.regs %}
+        <tr>
+        {% if forloop.first %}
+        <td rowspan="{{ stat.regs.count }}">{{ stat.contact_type_display }}</td>
+        {% endif %}
+        <td>{{ reg.status|status_display }}</td>        
+        <td>{{ reg.id__count }}</td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
+
+{% block actions %}
+    <a href="{%  url contacts_person_list %}" class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+{% endblock %}

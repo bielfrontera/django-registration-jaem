@@ -1,0 +1,32 @@
+{% extends "contacts/person/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }}: {% trans "Revision" %} {{ object }}{% endblock %}
+
+{% block content_title %}
+    <h2>{% trans "Revision" %} {{ object }}</h2>
+{% endblock %}
+
+{% block content %}
+    <form action="." method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        {{ form.errors }}
+        
+        <fieldset id="revision">
+            <legend>{% trans "Revision" %}</legend>
+            <label for="id_result">{{ form.result.label }}</label>{{ form.result }}
+            <br/>
+            <label for="id_observ">{{ form.observ.label }}</label>{{  form.observ }}
+        </fieldset>
+        <p><input type="submit" value="{% trans 'Save' %}" class="default"></p>
+    </form>
+    
+{% endblock %}
+
+{% block actions %}
+                <div class="alignleft">
+                    <a href="{{ object.get_absolute_url }}" class="nav-return">{% trans "Return to record" %}</a>
+                </div>
+                <div class="alignright">
+                </div>
+{% endblock %}

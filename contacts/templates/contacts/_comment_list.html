@@ -1,0 +1,25 @@
+{% load i18n comments %}
+{% get_comment_form for object as form %}
+
+<div id="contact_notes">
+    {% if object.note.all %}
+    <h3>{% trans "Notes" %}</h3>
+
+    {% for note in object.note.all %}
+    <div id="note-{{ note.id }}">
+        <h4>
+            {{ note.submit_date }}
+            <span class="alt">
+                {% if user.name %}
+                ({{ note.user.name }})
+                {% else %}
+                ({{ note.user.username }})
+                {% endif %}
+            </span>
+            <a href="#note-{{ note.id }}">#</a>
+        </h4>
+        {{ note.comment|linebreaks }}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,52 @@
+{% extends "contacts/person/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }}: {% trans "Import people from CSV" %}{% endblock %}
+
+{% block content_title %}
+    {% trans "Import people from CSV" %}
+{% endblock %}
+
+{% block content %}
+    
+   {% if registres %}
+        <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>Fitxer carregat!</h4>
+        S'han donat d'alta {{ registres }} inscripcions a la base de dades.
+        </div>   
+   {% else %}    
+
+        <div class="alert alert-info alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>Pendent!</h4>
+        Aquesta pantalla encara no està desenvolupada.
+        </div>   
+
+    <form action="." method="post" accept-charset="utf-8" enctype="multipart/form-data" >
+        {% csrf_token %} 
+        {% if lform.errors  %}
+            <div class="alert alert-error alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <h4>{% trans 'Error' %} %}</h4>
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        <label for="id_fitxer">{{ form.fitxer.label }}</label>{{ form.fitxer }}
+        <br/>
+        <button type="submit" value="Submit" class="btn btn-primary"><i class="icon-arrow-down"></i> {% trans 'Load file' %}</button>        
+    </form>
+    <p>
+        <h3>Especificacions del fitxer de contactes</h3>
+        El programa permet carregar contactes a partir d'un fitxer CSV. S'ha d'utilitzar com a separador la coma (,), i per el text ha d'anar entre cometes dobles (").<br />
+        Aquest és l'ordre dels camps:
+            
+        
+    </p>    
+    
+    {% endif %}
+
+{% endblock %}
+{% block actions %}
+<a href="{%  url contacts_person_list %}" class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+{% endblock %}

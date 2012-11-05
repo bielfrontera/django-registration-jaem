@@ -1,0 +1,33 @@
+{% extends "contacts/base.html" %}
+{% load i18n %}
+
+{% block content_title %}
+    {% trans 'Welcome to Inscripcions-JAEM' %}
+{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+    <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {% trans 'Your username and password didn''t match. Please try again.' %}
+    </div>
+{% endif %}
+
+<form method="post" action="{% url django.contrib.auth.views.login %}">
+    {% csrf_token %}
+       <fieldset id="login">
+        <legend>{% trans "Login" %}</legend>
+            <label for="id_username">{{ form.username.label }}</label>{{  form.username }}
+            <label for="id_password">{{ form.password.label }}</label>{{  form.password }}            
+        </fieldset>
+        <button type="submit" value="Submit" class="btn btn-primary">{% trans 'Login' %}</button>
+{% if next %}
+    <input type="hidden" name="next" value="{{ next }}" />
+{% else %}  
+    <input type="hidden" name="next" value="{% url contacts_person_list %}" />
+{% endif %} 
+</form>
+
+{% endblock %}
+

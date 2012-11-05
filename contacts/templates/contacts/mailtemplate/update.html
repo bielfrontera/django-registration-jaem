@@ -1,0 +1,30 @@
+{% extends "contacts/mailtemplate/base.html" %}
+{% load i18n %}
+{% load bootstrap_toolkit %}
+
+{% block title %}{{ block.super }}: {% trans "Edit" %} {{ object }}{% endblock %}
+
+{% block content_title %}
+    {{ object }}
+{% endblock %}
+
+{% block content %}
+    <form action="." method="post" accept-charset="utf-8" enctype="multipart/form-data" class="form-horizontal">
+        {% csrf_token %}
+        {{ form|as_bootstrap }}
+        <div class="form-actions">
+            <button type="submit" value="Submit" class="btn btn-primary"><i class="icon-white icon-ok"></i> {% trans 'Save' %}</button>
+        </div>
+    </form>
+    <small>
+        {% trans 'Record created in' %} {{ object.date_added }}{% if object.user_add %} {% trans 'by' %} {{ object.user_add }}{% endif %}. {% trans 'Modified in' %} {{ object.date_modified }}{% if object.user_modify %} {% trans 'by' %} {{ object.user_modify }}{% endif %}.
+    </small>
+{% endblock %}
+
+{% block actions %}
+<a href="{%  url contacts_mailtemplate_list %}" class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+<a href="{{ object.get_absolute_url }}" class="btn"><i class="icon-eye-open"></i> {% trans "Read" %}</a>
+<a href="{{ object.get_copy_url }}" class="btn"><i class="icon-repeat"></i> {% trans "Copy" %}</a>
+<a href="{{ object.get_delete_url }}" class="btn"><i class="icon-trash"></i> {% trans "Delete" %}</a>          
+{% endblock %}
+

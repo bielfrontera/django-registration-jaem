@@ -1,0 +1,19 @@
+{% extends "contacts/person/base.html" %}
+{% load i18n %}
+{% load django_tables2 %}
+
+{% block title %}{{ block.super }}: {% trans "List of mail templates" %}{% endblock %}
+
+{% block content_title %}
+    {% trans "List of mail templates" %}
+{% endblock %}
+
+{% block content %}
+    <div class="table table-hover">
+    {% render_table table %}
+    </div>
+{% endblock %}
+
+{% block actions %}
+    <a href="{%  url contacts_mailtemplate_create %}" class="btn"><i class="icon-plus"></i> {% trans "Create" %}</a>
+{% endblock %}

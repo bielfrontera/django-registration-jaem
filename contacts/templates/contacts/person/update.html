@@ -1,0 +1,165 @@
+{% extends "contacts/person/base.html" %}
+{% load i18n %}
+{% load bootstrap_toolkit %}
+
+{% block title %}{{ block.super }}: {% trans "Edit" %} {{ object }}{% endblock %}
+
+{% block content_title %}
+    {{ object }}
+    <div class="pull-right"><span class="label label-{{ object.get_label }}">{{ object.get_status_display }}</span></div>
+{% endblock %}
+
+{% block content %}
+{% if id_form.errors  %}
+    <div class="alert alert-error alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>{% trans 'Error at' %} {% trans 'Identification' %}</h4>
+        {{ id_form.errors }}
+    </div>
+{% endif %}
+{% if reg_form.errors  %}
+    <div class="alert alert-error alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>{% trans 'Error at' %} {% trans 'JAEM registration' %}</h4>
+        {{ reg_form.errors }}
+    </div>
+{% endif %}
+{% if adr_form.errors  %}
+    <div class="alert alert-error alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>{% trans 'Error at' %} {% trans 'Contact information' %}</h4>
+        {{ adr_form.errors }}
+    </div>
+{% endif %}
+{% if lab_form.errors  %}
+    <div class="alert alert-error alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>{% trans 'Error at' %} {% trans 'Laboral data' %}</h4>
+        {{ lab_form.errors }}
+    </div>
+{% endif %}
+
+    <form action="." method="post" accept-charset="utf-8" enctype="multipart/form-data" class="form-horizontal">
+        {% csrf_token %}
+        <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#form_id" data-toggle="tab">Identificació</a></li>
+            <li><a href="#form_reg" data-toggle="tab">Registre JAEM</a></li>
+            <li><a href="#form_adr" data-toggle="tab">Dades de contacte</a></li>
+            <li><a href="#form_lab" data-toggle="tab">Dades laborals</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="form_id">
+                {{ id_form|as_bootstrap }}
+            </div>
+            <div class="tab-pane" id="form_reg">
+                {{ reg_form|as_bootstrap }}
+            </div>
+            <div class="tab-pane" id="form_adr">
+                {{ adr_form|as_bootstrap }}
+            </div>
+            <div class="tab-pane" id="form_lab">
+                {{ lab_form|as_bootstrap }}
+                <div class="control-group">
+                    <label class="control-label">{{ level_form.laboral_levels.label }}</label>                
+                    <div class="controls">
+                    {{ level_form.laboral_levels }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" value="Submit" class="btn btn-primary"><i class="icon-white icon-ok"></i> {% trans 'Save' %}</button>
+        </div>
+    </form>
+    <small>
+        {% trans 'Record created in' %} {{ object.date_added }}{% if object.user_add %} {% trans 'by' %} {{ object.user_add }}{% endif %}. {% trans 'Modified in' %} {{ object.date_modified }}{% if object.user_modify %} {% trans 'by' %} {{ object.user_modify }}{% endif %}.
+    </small>
+
+
+    
+{% endblock %}
+
+{% block actions %}
+
+
+<a href="{%  url contacts_person_list %}" class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+<a href="{{ object.get_absolute_url }}" class="btn"><i class="icon-eye-open"></i> {% trans "Read" %}</a>
+{% if object.paid %}
+<a href="{{ object.get_justificantpagament_url }}" class="btn"><i class="icon-file"></i> {% trans "Justificant de pagament" %}</a>
+{% if object.date_mailregister == None %}
+    <a href="#modal_mail_pagament" role="button" data-toggle="modal" class="btn"><i class="icon-envelope"></i> {% trans 'Send mail inscription ok' %}</a>
+{% endif %}
+{% endif %}
+{% if object.status == 'cancelled' %}            
+    <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-up"></i> {% trans 'Get inscription back' %}</a>
+{% else %}
+    <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-down"></i> {% trans 'Cancel inscription' %}</a>
+{% endif %}
+<a href="{{ object.get_delete_url }}" class="btn"><i class="icon-trash"></i> {% trans "Delete" %}</a>  
+</div>
+<div class="btn-group" style="float:right;margin-top: -50px;" id="list-sendmail">        
+<a href="#" id="btn-sendmail" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-envelope"></i> {% trans "Send mail" %} <span class="caret"></span></a>
+
+{% if object.paid and object.date_mailregister == None %}
+<div id="modal_mail_pagament" class="modal hide fade" tabindex="-1" role="dialog">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">{% trans "Send mail inscription ok" %}</h3>
+    </div>
+    <div class="modal-body"><h5>{% trans "You are about to send the inscription ok mail" %}</h5></div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
+    <button class="btn btn-primary btn-mail" formaction="{{ object.get_mailjustificantpagament_url }}" data-loading-text="{% trans "sending" %}..." >{% trans "Send mail" %}</button>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+{% block page_js %}
+    <script type="text/javascript">
+        $(function() {
+            $('#id_date_registration').datepicker({ format: 'dd/mm/yyyy',weekStart: 1 });
+            $('#id_date_paid').datepicker({ format: 'dd/mm/yyyy', weekStart: 1 });
+            // load_location();
+
+        
+            var btnSendmailClicked = false;
+            $('#btn-sendmail').click(function() {
+                if (!btnSendmailClicked)
+                    $.getJSON( "{% url contacts_mailtemplate_lookup %}", function(data) {
+                        var items = [];
+                        var itemsDiv = [];
+                        $.each(data, function(key, val) {
+                            linkmail="{{ object.get_mail_url }}";
+                            new_link=linkmail.replace("None",val.value);
+                            items.push('<li><a href="#' + val.value + '" role="button" data-toggle="modal" >' + val.label + '</a></li>');
+                            itemsDiv.push('<div id="'+ val.value +'" class="modal hide fade" tabindex="-1" role="dialog"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h3 id="myModalLabel">{% trans "Send mail" %}</h3></div>'+
+                            '<div class="modal-body"><h5>{% trans "You are about to send the mail with subject: " %}<br />&nbsp;&nbsp;'+ val.label +'</h5></div><div class="modal-footer"><button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button><button class="btn btn-primary btn-mail" formaction="'+new_link+
+                            '" data-loading-text="{% trans "sending" %}..." >{% trans "Send mail" %}</button></div></div>');
+
+                        });
+                        $('<ul/>', {
+                            'class': 'dropdown-menu',
+                            html: items.join('')
+                        }).appendTo('#list-sendmail');
+                        $(itemsDiv.join('')).appendTo('#list-sendmail');
+                     });
+                btnSendmailClicked = true;
+
+            });
+            $('.btn-mail')
+                .click(function () {
+                    var btn = $(this)
+                    btn.button('loading')                                
+                    $.ajax({
+                        url: btn.attr('formaction'),
+                        success: function(data) {
+                            $('.modal-body h5').html(data);
+                        }
+                    });
+             });
+        });
+    </script>
+{% endblock page_js %}
