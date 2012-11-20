@@ -55,7 +55,7 @@ def fetch_resources(uri, rel):
     path = os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ""))
     return path    
     
-def justificantPagament(request, slug,template='contacts/person/justificant_pagament.html' ):
+def justificantPagament(request, slug,template='contacts/person/justificant_pagament_es.pdf.html' ):
     """
         Genera el pdf del justificant de Pagament a les JAEM
     """
@@ -72,7 +72,12 @@ def justificantPagament(request, slug,template='contacts/person/justificant_paga
     kwvars = {
         'object': person,
     }
-
+    
+    # revisam si la template ha de ser en catala
+    if person.lang == '2':
+        template = 'contacts/person/justificant_pagament_ca.pdf.html'
+    
+    
     template = get_template(template)
     context = Context(kwvars)
     html = template.render(context)

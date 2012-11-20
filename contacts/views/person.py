@@ -17,7 +17,7 @@ from contacts.models import Person
 from contacts.forms import PersonCreateForm, PersonUpdateForm, PersonFilterForm, ImportCSVForm, PersonIdentificationForm,PersonRegistrationForm, PersonAddressForm,                             PersonLaboralForm, SynchronizeSPIPForm, PersonLaboralLevelsForm
 from contacts.tables import PersonTable, ExportPersonTable
 
-import sys
+import sys, ast
 
 
 def check_pending_sync():
@@ -304,7 +304,7 @@ def synchronizeSPIPForm(request, template='contacts/person/synchronize.html'):
                     elif row[2] == 'ligne_10':
                         person.laboral_nrp = row[3]
                     elif row[2] == 'num_1':
-                        person.laboral_years = row[3]
+                        person.laboral_years = float(row[3]) if '.' in row[3] else int(row[3])
                     elif row[2] == 'select_2':
                         person.laboral_cuerpo = row[4]
                     elif row[2] == 'ligne_11':

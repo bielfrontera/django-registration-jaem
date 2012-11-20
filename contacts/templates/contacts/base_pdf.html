@@ -20,7 +20,10 @@
             text-align:center;
        }
       .header-row { padding-bottom: 30px;}
-      
+      @page {
+      size: a4;
+      margin: 0cm;
+} 
 
     </style>
 
@@ -37,20 +40,25 @@
   </head>
 
   <body>
-    <table border="0" width="100%"> 
+  <table border="0" width="85%" height="38px"><tr><td>&nbsp;</td></tr><table>
+    <table border="0" width="85%" height="" align="center"> 
         <tr class="header-row">
-        <td><img src="contactes/img/logo_jaem_simple.png" title="XVI JAEM" alt="Logo JAEM" /></td>
-        <td colspan="2" class="center"><h1>{% block content_title %}{% endblock content_title %}</h1></td>
+        <td><br/>
+        <img src="contactes/img/logo_simple219x150_300ppp.png"  height="150" width="219" title="XVI JAEM" alt="Logo JAEM" /></td>
+        <td colspan="2" class="center"><h1><font size="18pt">&nbsp;&nbsp;&nbsp;{% block content_title %}{% endblock content_title %}</font></h1></td>
         </tr>
-        <tr><td colspan="3" >
-        {% block content %}{% endblock content %}        
+        <tr><td colspan="3" ><font face="times new roman" size="13pt">
+        {% block content %}{% endblock content %}
+        <br/><br/></font>
         </td>
         </tr>
         <tr>
-        <td class="center"><img src="contactes/img/logo-xeix.png" title="FESPM" alt="Logo FESPM" /></td>
+        <td class="center">&nbsp;&nbsp;&nbsp;<img src="contactes/img/logoxeix177x124_300ppp.png" height="124" width="177" title="FESPM" alt="Logo FESPM" /></td>
         <td>&nbsp;</td>
-        <td class="center"><img src="contactes/img/logo-fespm-letras.png" title="FESPM" alt="Logo FESPM" /></td>
-        </tr>
+        <td class="center"><img src="contactes/img/fespm_263x144_300ppp.png" height="144" width="263" title="FESPM" alt="Logo FESPM" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>      
     </table>
-  </body>
+    <table border="0" width="85%" ><tr><td><font size="114.5px">&nbsp;</font></td></tr><table>
+
+    <img src="contactes/img/peu744x95_300ppp.png"  height="115" width="900" title="XVI JAEM" alt="Logo JAEM" />
 </html>
