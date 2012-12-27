@@ -1,5 +1,6 @@
 {% extends "contacts/base_pdf.html" %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE2 %}
 
 {% block title %}Justificante de pago{% endblock %}
 
@@ -15,7 +16,7 @@ Hemos recibido de <b>{{ object.first_name }} {{ object.last_name }}</b>, con DNI
 </p>
 <br/>
 <p>
-<i>Palma, a {% now "d" %} de {% now "M" %} de {% now "Y" %}</i>
+<i>Palma, a {{ avui }}</i>
 </p>
 
 <table border="0" width="100%" align="center"> 
@@ -28,4 +29,8 @@ Hemos recibido de <b>{{ object.first_name }} {{ object.last_name }}</b>, con DNI
 	</tr>
 </table>
 
+{% endblock %}
+
+{% block footer_img %}
+    <img src="contactes/img/pie744x95_300ppp.png"  height="115" width="900" title="XVI JAEM" alt="Logo JAEM" />
 {% endblock %}

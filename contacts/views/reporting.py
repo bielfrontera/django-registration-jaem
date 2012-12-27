@@ -23,6 +23,9 @@ from xhtml2pdf import pisa
 
 from contacts.functions.mailtemplate import sendTemplateMail
 
+from django.utils import translation
+from django.template.defaultfilters import date as _date
+
 '''def fetch_resources(uri, rel):
     """
     Callback to allow xhtml2pdf/reportlab to retrieve Images,Stylesheets, etc.
@@ -69,8 +72,21 @@ def justificantPagament(request, slug,template='contacts/person/justificant_paga
     except Person.DoesNotExist:
         raise Http404
     
+    # avui = datetime.today().strftime('%d de %B de %Y')
+    avui = _date(datetime.now(), "d \d\e F \d\e Y")
+    
+    
+    if person.lang == '1':
+        cur_language = translation.get_language()
+        try:
+            translation.activate('es')
+            avui = _date(datetime.now(), "d \d\e F \d\e Y")
+        finally:
+            translation.activate(cur_language)
+        
     kwvars = {
         'object': person,
+        'avui': avui
     }
     
     # revisam si la template ha de ser en catala

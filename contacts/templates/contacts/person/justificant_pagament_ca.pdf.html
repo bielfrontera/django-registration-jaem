@@ -15,7 +15,7 @@ Hem rebut de <b>{{ object.first_name }} {{ object.last_name }}</b>, amb DNI <b>{
 </p>
 <br/>
 <p>
-<i>Palma, a {% now "d" %} de {% now "M" %} de {% now "Y" %}</i>
+<i>Palma, a {{ avui }}</i>
 </p>
 
 <table border="0" width="100%" align="center"> 
@@ -29,3 +29,8 @@ Hem rebut de <b>{{ object.first_name }} {{ object.last_name }}</b>, amb DNI <b>{
 </table>
 
 {% endblock %}
+
+{% block footer_img %}
+    <img src="contactes/img/peu744x95_300ppp.png"  height="115" width="900" title="XVI JAEM" alt="Logo JAEM" />
+{% endblock %}
+

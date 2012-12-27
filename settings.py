@@ -40,6 +40,12 @@ TIME_ZONE = 'Europe/Madrid'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'ca'
 
+LANGUAGES = (
+  ('ca', 'Catalan'),
+  ('en', 'English'),
+  ('es', 'Spanish'),
+)
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
