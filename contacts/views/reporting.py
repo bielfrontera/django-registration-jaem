@@ -121,8 +121,20 @@ def mail(request,slug,code):
     except Person.DoesNotExist:
         raise Http404
     
+    avui = _date(datetime.now(), "d \d\e F \d\e Y")
+    
+    
+    if person.lang == '1':
+        cur_language = translation.get_language()
+        try:
+            translation.activate('es')
+            avui = _date(datetime.now(), "d \d\e F \d\e Y")
+        finally:
+            translation.activate(cur_language)
+        
     kwvars = {
         'object': person,
+        'avui': avui
     }
     context = Context(kwvars)
     status = sendTemplateMail(context,code,[person.email_address])
@@ -143,13 +155,27 @@ def mailJustificantPagament(request,slug):
     except Person.DoesNotExist:
         raise Http404
     
+    avui = _date(datetime.now(), "d \d\e F \d\e Y")
+    
+    
+    if person.lang == '1':
+        cur_language = translation.get_language()
+        try:
+            translation.activate('es')
+            avui = _date(datetime.now(), "d \d\e F \d\e Y")
+        finally:
+            translation.activate(cur_language)
+        
     kwvars = {
         'object': person,
+        'avui': avui
     }
+    
     if person.lang == '2':
         mailtemplate = 'justpagament_cat'
     else:
         mailtemplate = 'justpagament_esp'
+        
     context = Context(kwvars)
     status = sendTemplateMail(context,mailtemplate,[person.email_address])
     if status == _('Mail sent'):
