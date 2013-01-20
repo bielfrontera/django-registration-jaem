@@ -192,6 +192,36 @@ def mailJustificantPagament(request,slug):
     json = simplejson.dumps(status)
     return HttpResponse(json, mimetype='application/json')
 
+def mailPagamentRetrasat(request,slug):
+    """
+        Envia un mail avisant que el pagament de la inscripció de les JAEM no s'ha efectuat
+    """
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/login/?next=%s' % request.path)
+
+    try:
+        person = Person.objects.get(slug__iexact=slug)
+    except Person.DoesNotExist:
+        raise Http404
+
+
+    kwvars = {
+        'object': person,
+    }
+    if person.lang == '2':
+        mailtemplate = 'pagamentretrasat_cat'
+    else:
+        mailtemplate = 'pagamentretrasat_esp'
+
+    context = Context(kwvars)
+    status = sendTemplateMail(context,mailtemplate,[person.email_address])
+    if status == _('Mail sent'):
+        person.date_mailnotpaid = datetime.now()
+        person.save()
+
+    json = simplejson.dumps(status)
+    return HttpResponse(json, mimetype='application/json')
+
 def justificantRegistre(request, slug,template='contacts/person/justificant_registre_es.pdf.html' ):
     """
         Genera el pdf del justificant de Registre a les JAEM

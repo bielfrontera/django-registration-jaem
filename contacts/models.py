@@ -281,6 +281,13 @@ class Person(models.Model):
             'slug': self.slug,
         })
 
+    @permalink
+    def get_mailpagamentretrasat_url(self):
+        return ('contacts_person_mailpagamentretrasat', None, {
+            'slug': self.slug,
+        })
+
+
 class MailTemplate(models.Model):
     code = models.CharField(_('code'), max_length=20, unique=True)
     subject = models.CharField(_('subject'), max_length=200)

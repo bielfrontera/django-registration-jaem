@@ -63,7 +63,10 @@ urlpatterns = patterns('contacts.views',
         view = 'reporting.mailJustificantPagament',
         name = 'contacts_person_mailjustificantpagament'
     ),
-
+    url(r'^people/(?P<slug>[-\w]+)/mailpagamentretrasat$',
+        view = 'reporting.mailPagamentRetrasat',
+        name = 'contacts_person_mailpagamentretrasat'
+    ),
     url(r'^people/(?P<slug>[-\w]+)/mail/(?P<code>[-\w]+)$',
         view = 'reporting.mail',
         name = 'contacts_person_mail'

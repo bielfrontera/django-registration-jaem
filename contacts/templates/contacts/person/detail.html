@@ -85,6 +85,9 @@
 {% if object.status == 'ok_all' and object.date_mailregister == None %}
     <a href="#modal_mail_pagament" role="button" data-toggle="modal" class="btn"><i class="icon-envelope"></i> {% trans 'Send mail inscription ok' %}</a>
 {% endif %}
+{% if object.status == 'notpaid_late' and object.date_mailnotpaid == None %}
+    <a href="#modal_mail_pagamentretrasat" role="button" data-toggle="modal" class="btn"><i class="icon-envelope"></i> {% trans 'Send mail payment overdue' %}</a>
+{% endif %}
 {% if object.status == 'cancelled' %}
     <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-up"></i> {% trans 'Get inscription back' %}</a>
 {% else %}
@@ -105,6 +108,20 @@
     <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
     <button class="btn btn-primary btn-mail" formaction="{{ object.get_mailjustificantpagament_url }}" data-loading-text="{% trans "sending" %}..." >{% trans "Send mail" %}</button>
+    </div>
+</div>
+{% endif %}
+
+
+{% if object.status == 'notpaid_late' and object.date_mailnotpaid == None %}
+<div id="modal_mail_pagamentretrasat" class="modal hide fade" tabindex="-1" role="dialog">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">{% trans "Send mail payment overdue" %}</h3>
+    </div>
+    <div class="modal-body"><h5>{% trans "You are about to send a payment overdue mail" %}</h5></div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
+    <button class="btn btn-primary btn-mail" formaction="{{ object.get_mailpagamentretrasat_url }}" data-loading-text="{% trans "sending" %}..." >{% trans "Send mail" %}</button>
     </div>
 </div>
 {% endif %}

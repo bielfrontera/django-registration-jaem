@@ -259,6 +259,7 @@ def synchronizeSPIPForm(request, template='contacts/person/synchronize.html'):
                     WHERE insc.id_donnee = camp.id_donnee
                     AND insc.id_donnee > %s
                     AND insc.id_form = 1
+                    AND insc.statut = 'publie'
                     ORDER BY insc.id_donnee, camp.champ
                 """ % lastperson.external_id )
 
