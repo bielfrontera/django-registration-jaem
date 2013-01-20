@@ -1,0 +1,24 @@
+{% extends "contacts/person/base.html" %}
+{% load i18n %}
+{% load bootstrap_toolkit %}
+
+{% block title %}{{ block.super }}: {% trans "Update records status" %}{% endblock %}
+
+{% block content_title %}
+    {% trans "Update records status" %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <h4>Procés d'actualització  realitat!</h4>
+    S'han actualitzat {{ registres }} inscripcions a la base de dades.
+    </div>
+
+{% endblock %}
+{% block actions %}
+<a href="{%  url contacts_person_list %}"  class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+<a href="{%  url contacts_stats_inscription %}" class="btn"><i class="icon-list-alt"></i> {% trans "Inscription stats" %}</a>
+
+{% endblock %}

@@ -15,24 +15,25 @@
         <button type="button" class="close" data-dismiss="alert">×</button>
         <h4>{% trans "Warning!" %}</h4>
         Hi ha {{ regs_not_sync }} inscripcions a la pàgina web pendents de sincronitzar. Vés a <a href="{%  url contacts_person_synchronize %}">{% trans "Synchronize" %}</a>.
-        </div>   
-   {% endif %}    
+        </div>
+   {% endif %}
 
 
 <form action="." method="get" accept-charset="utf-8" class="form-inline form-filtre">
         <button type="button" class="close" data-dismiss="alert">×</button>
         {% csrf_token %}
         {{ form.errors }}
-        <fieldset id="filter">
+        <fieldset id="filter" class="filter">
             <legend>{% trans "Filter" %}</legend>
-            <br/>
-            <label for="id_last_name">{{ form.last_name.label }}</label> {{  form.last_name }}
-            <label for="id_id_card">{{ form.id_card.label }}</label> {{  form.id_card }}
-            <label for="id_contact_type">{{ form.contact_type.label }}</label> {{  form.contact_type }}
+            <div><label for="id_last_name">{{ form.last_name.label }}</label> {{  form.last_name }}</div>
+            <div><label for="id_id_card">{{ form.id_card.label }}</label> {{  form.id_card }}</div>
+            <div><label for="id_contact_type">{{ form.contact_type.label }}</label> {{  form.contact_type }}</div>
+            <div><label for="id_status">{{ form.status.label }}</label> {{  form.status }}</div>
+            <div><label for="id_mailnotpaid_unsent">{{ form.mailnotpaid_unsent.label }}</label> {{  form.mailnotpaid_unsent }}</div>
+            <div><label for="id_mailregister_unsent">{{ form.mailregister_unsent.label }}</label> {{  form.mailregister_unsent }}</div>
         </fieldset>
-        <br/>
         <button type="submit" value="Submit" class="btn btn-primary"><i class="icon-white icon-search"></i> {% trans "Filter" %}</button>
-    </form>    
+    </form>
     <div class="table table-hover">
     {% render_table table %}
     </div>
@@ -40,10 +41,12 @@
 
 {% block actions %}
     <a href="{%  url contacts_person_create %}" class="btn"><i class="icon-plus"></i> {% trans "Create" %}</a>
-    <a href="{%  url contacts_person_synchronize %}" class="btn"><i class="icon-refresh"></i> {% trans "Synchronize" %}</a>                    
-    <a href="{%  url contacts_person_export %}" class="btn"><i class="icon-arrow-up"></i> {% trans "Export" %}</a>                    
-    <a href="{%  url contacts_person_import %}" class="btn"><i class="icon-arrow-down"></i> {% trans "Import" %}</a>                    
-    <a href="{%  url contacts_person_map %}" class="btn"><i class="icon-map-marker"></i> {% trans "Map" %}</a>     
-    <a href="{%  url contacts_stats_inscription %}" class="btn"><i class="icon-list-alt"></i> {% trans "Inscription stats" %}</a>     
+    <a href="{%  url contacts_person_synchronize %}" class="btn"><i class="icon-refresh"></i> {% trans "Synchronize" %}</a>
+    <a href="{%  url contacts_person_export %}" class="btn"><i class="icon-arrow-up"></i> {% trans "Export" %}</a>
+    <a href="{%  url contacts_person_import %}" class="btn"><i class="icon-arrow-down"></i> {% trans "Import" %}</a>
+    <a href="{%  url contacts_person_map %}" class="btn"><i class="icon-map-marker"></i> {% trans "Map" %}</a>
+    <a href="{%  url contacts_stats_inscription %}" class="btn"><i class="icon-list-alt"></i> {% trans "Inscription stats" %}</a>
+    <a href="{%  url contacts_person_updatestatus %}" class="btn"><i class="icon-refresh"></i> {% trans "Update records status" %}</a>
+
 
 {% endblock %}

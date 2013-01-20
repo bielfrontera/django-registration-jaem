@@ -1,0 +1,36 @@
+{% extends "contacts/base_pdf.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE2 %}
+
+{% block title %}Inscripción en las XVI JAEM{% endblock %}
+
+{% block content_title %}
+    Inscripción en las XVI JAEM
+{% endblock %}
+
+{% block content %}
+<br/>
+<br/>
+    <p>
+Confirmamos la inscripción de <b>{{ object.first_name }} {{ object.last_name }}</b>, con DNI <b>{{ object.id_card }}</b>, en las XVI JAEM (Jornadas sobre el Aprendizaje y la Enseñanza de las Matemáticas), que se celebrarán en Palma del 2 al 5 de julio de 2013.
+</p>
+<br/>
+<p>
+<i>Palma, a {{ avui }}</i>
+</p>
+
+<table border="0" width="100%" align="center">
+        <tr class="header-row">
+        <td colspan="1">&nbsp;</td>
+        <td aling="center" width="400px"><center><img src="contactes/img/signatura_214x125_300ppp.png"  height="125" width="214" title="XVI JAEM" alt="Logo JAEM" />
+	<br>
+	<b>Josep Lluís Pol i Llompart</b><br/>
+	<i>Presidente del comité organizador</i></td></center>
+	</tr>
+</table>
+
+{% endblock %}
+
+{% block footer_img %}
+    <img src="contactes/img/pie744x95_300ppp.png"  height="115" width="900" title="XVI JAEM" alt="Logo JAEM" />
+{% endblock %}

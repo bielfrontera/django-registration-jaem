@@ -1,54 +1,54 @@
 #actions a.nav-return{
-       padding-left: 25px !important;       
+       padding-left: 25px !important;
        background-image: url('../images/b_prevpage.png');
        background-position: 5px center;
        background-repeat: no-repeat;
 }
 #actions a.nav-edit{
-       padding-left: 25px !important;       
+       padding-left: 25px !important;
        background-image: url('../images/b_edit.png');
        background-position: 5px center;
        background-repeat: no-repeat;
 }
 #actions a.nav-read{
-       padding-left: 25px !important;       
+       padding-left: 25px !important;
        background-image: url('../images/b_view.png');
        background-position: 5px center;
        background-repeat: no-repeat;
 }
 #actions a.nav-delete{
-       padding-left: 25px !important;       
+       padding-left: 25px !important;
        background-image: url('../images/b_drop.png');
        background-position: 5px center;
        background-repeat: no-repeat;
 }
 #actions a.nav-new{
-       padding-left: 25px !important;       
+       padding-left: 25px !important;
        background-image: url('../images/b_new.png');
        background-position: 5px center;
        background-repeat: no-repeat;
 }
 #actions a.nav-import{
-       padding-left: 25px !important;       
+       padding-left: 25px !important;
        background-image: url('../images/b_import.png');
        background-position: 5px center;
        background-repeat: no-repeat;
 }
 #actions a.nav-export{
-       padding-left: 25px !important;       
+       padding-left: 25px !important;
        background-image: url('../images/b_export.png');
        background-position: 5px center;
        background-repeat: no-repeat;
 }
 #actions a.nav-map{
-       padding-left: 25px !important;       
+       padding-left: 25px !important;
        background-image: url('../images/b_map.png');
        background-position: 5px center;
        background-repeat: no-repeat;
 }
 
 #actions a.nav-revision{
-       padding-left: 25px !important;       
+       padding-left: 25px !important;
        background-image: url('../images/b_check.png');
        background-position: 5px center;
        background-repeat: no-repeat;
@@ -78,19 +78,19 @@ form ul{
 /* TAULA */
 a.actions-read, a.actions-edit, a.actions-delete {
     display: block;
-    float: left;    
-    text-indent:-3000px; 
-    white-space: nowrap;   
+    float: left;
+    text-indent:-3000px;
+    white-space: nowrap;
     width: 16px;
-    height: 16px;    
-    overflow: hidden;   
+    height: 16px;
+    overflow: hidden;
 }
 a.actions-read {
-    background-image: url('../images/b_view.png');   
-    margin-left: 5px; 
+    background-image: url('../images/b_view.png');
+    margin-left: 5px;
 }
 a.actions-edit {
-    background-image: url('../images/b_edit.png');    
+    background-image: url('../images/b_edit.png');
 }
 a.actions-delete  {
     background-image: url('../images/b_drop.png');
@@ -159,12 +159,12 @@ html,body {
     height: 100%;
         /* The html and body elements cannot have any padding or margin. */
 }
-      
+
 /* Wrapper for page content to push down footer */
 #wrap {
     min-height: 50%;
 }
-      
+
 footer{
     background-color:#f7f7f9;
     color: #444444;
@@ -185,4 +185,21 @@ footer{
     }
 
 
+}
+.filter {
+  margin-bottom: 20px;
+}
+.filter div {
+  display: inline-block;
+  margin-top: 10px;
+
+}
+.filter div label{
+  min-width: 100px;
+  text-align: right;
+  margin-left: 10px;
+}
+
+.filter div input[type=text], .filter div select{
+  width: 155px;
 }

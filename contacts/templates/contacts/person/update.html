@@ -61,7 +61,7 @@
             <div class="tab-pane" id="form_lab">
                 {{ lab_form|as_bootstrap }}
                 <div class="control-group">
-                    <label class="control-label">{{ level_form.laboral_levels.label }}</label>                
+                    <label class="control-label">{{ level_form.laboral_levels.label }}</label>
                     <div class="controls">
                     {{ level_form.laboral_levels }}
                     </div>
@@ -79,7 +79,7 @@
     </small>
 
 
-    
+
 {% endblock %}
 
 {% block actions %}
@@ -89,21 +89,25 @@
 <a href="{{ object.get_absolute_url }}" class="btn"><i class="icon-eye-open"></i> {% trans "Read" %}</a>
 {% if object.paid %}
 <a href="{{ object.get_justificantpagament_url }}" class="btn"><i class="icon-file"></i> {% trans "Justificant de pagament" %}</a>
-{% if object.date_mailregister == None %}
+{% endif %}
+{% if object.status == 'ok_all' and object.contact_type != 'R' %}
+<a href="{{ object.get_justificantregistre_url }}" class="btn"><i class="icon-file"></i> {% trans "Justificant de inscripcio" %}</a>
+{% endif %}
+{% if object.status == 'ok_all' and object.date_mailregister == None %}
     <a href="#modal_mail_pagament" role="button" data-toggle="modal" class="btn"><i class="icon-envelope"></i> {% trans 'Send mail inscription ok' %}</a>
 {% endif %}
-{% endif %}
-{% if object.status == 'cancelled' %}            
+{% if object.status == 'cancelled' %}
     <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-up"></i> {% trans 'Get inscription back' %}</a>
 {% else %}
     <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-down"></i> {% trans 'Cancel inscription' %}</a>
 {% endif %}
-<a href="{{ object.get_delete_url }}" class="btn"><i class="icon-trash"></i> {% trans "Delete" %}</a>  
+<a href="{{ object.get_delete_url }}" class="btn"><i class="icon-trash"></i> {% trans "Delete" %}</a>
 </div>
-<div class="btn-group" style="float:right;margin-top: -50px;" id="list-sendmail">        
+<div class="btn-group" style="float:right;margin-top: -50px;" id="list-sendmail">
 <a href="#" id="btn-sendmail" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-envelope"></i> {% trans "Send mail" %} <span class="caret"></span></a>
 
-{% if object.paid and object.date_mailregister == None %}
+
+{% if object.status == 'ok_all' and object.date_mailregister == None %}
 <div id="modal_mail_pagament" class="modal hide fade" tabindex="-1" role="dialog">
     <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">{% trans "Send mail inscription ok" %}</h3>
@@ -119,47 +123,13 @@
 {% endblock %}
 {% block page_js %}
     <script type="text/javascript">
-        $(function() {
-            $('#id_date_registration').datepicker({ format: 'dd/mm/yyyy',weekStart: 1 });
-            $('#id_date_paid').datepicker({ format: 'dd/mm/yyyy', weekStart: 1 });
-            // load_location();
-
-        
-            var btnSendmailClicked = false;
-            $('#btn-sendmail').click(function() {
-                if (!btnSendmailClicked)
-                    $.getJSON( "{% url contacts_mailtemplate_lookup %}", function(data) {
-                        var items = [];
-                        var itemsDiv = [];
-                        $.each(data, function(key, val) {
-                            linkmail="{{ object.get_mail_url }}";
-                            new_link=linkmail.replace("None",val.value);
-                            items.push('<li><a href="#' + val.value + '" role="button" data-toggle="modal" >' + val.label + '</a></li>');
-                            itemsDiv.push('<div id="'+ val.value +'" class="modal hide fade" tabindex="-1" role="dialog"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h3 id="myModalLabel">{% trans "Send mail" %}</h3></div>'+
-                            '<div class="modal-body"><h5>{% trans "You are about to send the mail with subject: " %}<br />&nbsp;&nbsp;'+ val.label +'</h5></div><div class="modal-footer"><button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button><button class="btn btn-primary btn-mail" formaction="'+new_link+
-                            '" data-loading-text="{% trans "sending" %}..." >{% trans "Send mail" %}</button></div></div>');
-
-                        });
-                        $('<ul/>', {
-                            'class': 'dropdown-menu',
-                            html: items.join('')
-                        }).appendTo('#list-sendmail');
-                        $(itemsDiv.join('')).appendTo('#list-sendmail');
-                     });
-                btnSendmailClicked = true;
-
-            });
-            $('.btn-mail')
-                .click(function () {
-                    var btn = $(this)
-                    btn.button('loading')                                
-                    $.ajax({
-                        url: btn.attr('formaction'),
-                        success: function(data) {
-                            $('.modal-body h5').html(data);
-                        }
-                    });
-             });
-        });
+        var URL_MAILTEMPLATE_LOOKUP = '{% url contacts_mailtemplate_lookup %}';
+        var LINKMAIL = '{{ object.get_mail_url }}';
+        var TRADUCTION = { sendmail : '{% trans "Send mail" %}' ,
+                           close : '{% trans "Close" %}',
+                           message_about_to_send : '{% trans "You are about to send the mail with subject: " %}',
+                           sending : '{% trans "sending" %}',
+                        };
     </script>
+    <script src="/contactes/js/person_mail.js"></script>
 {% endblock page_js %}

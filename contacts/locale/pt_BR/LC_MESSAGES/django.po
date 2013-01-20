@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-17 16:04+0200\n"
+"POT-Creation-Date: 2013-01-20 03:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,499 +17,555 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: forms.py:51 models.py:13
-msgid "Sympathizer"
+#: forms.py:118 models.py:144 templates/contacts/person/detail.html:54
+msgid "laboral levels"
 msgstr ""
 
-#: forms.py:52 models.py:14
-msgid "Affiliated"
+#: forms.py:123 models.py:21
+msgid "Registrant"
 msgstr ""
 
-#: forms.py:53 models.py:15
-msgid "Contact"
+#: forms.py:124 models.py:22
+msgid "Guest"
 msgstr ""
 
-#: models.py:20
-msgid "first name"
+#: forms.py:125 models.py:23
+msgid "Sponsor"
 msgstr ""
 
-#: models.py:21
+#: forms.py:126 models.py:24
+msgid "Organizer"
+msgstr ""
+
+#: forms.py:131 models.py:94
+msgid "Data ok"
+msgstr ""
+
+#: forms.py:132 models.py:95
+msgid "Incorrect data"
+msgstr ""
+
+#: forms.py:133 models.py:96
+msgid "Missed data"
+msgstr ""
+
+#: forms.py:134
+msgid "Unknown person"
+msgstr ""
+
+#: forms.py:138 models.py:119
 msgid "last name"
 msgstr ""
 
-#: models.py:22
-msgid "second last name"
-msgstr ""
-
-#: models.py:23
-msgid "middle name"
-msgstr ""
-
-#: models.py:24 models.py:171
-msgid "nickname"
-msgstr ""
-
-#: models.py:25 models.py:173 models.py:265
-msgid "slug"
-msgstr ""
-
-#: models.py:26 models.py:174 models.py:266
-msgid "about"
-msgstr ""
-
-#: models.py:27 models.py:175
-msgid "photo"
-msgstr ""
-
-#: models.py:28
-msgid "birthday"
-msgstr ""
-
-#: models.py:29
+#: forms.py:139 models.py:124 templates/contacts/person/stats.html:16
 msgid "contact type"
 msgstr ""
 
-#: models.py:31
+#: forms.py:140 models.py:126 tables.py:43
 msgid "ID card"
 msgstr ""
 
-#: models.py:32
-msgid "membership fee"
+#: forms.py:141 models.py:177 tables.py:22
+#: templates/contacts/person/stats.html:17
+msgid "status"
 msgstr ""
 
-#: models.py:33
-msgid "job"
+#: forms.py:142
+msgid "mail not paid unsent"
 msgstr ""
 
-#: models.py:34
-msgid "interests"
+#: forms.py:143
+msgid "mail registration unsent"
 msgstr ""
 
-#: models.py:35
-msgid "equo"
+#: models.py:97
+msgid "Pendent"
 msgstr ""
 
-#: models.py:36
-msgid "CCC Bank"
+#: models.py:118
+msgid "first name"
 msgstr ""
 
-#: models.py:37
-msgid "CCC Office"
+#: models.py:120
+msgid "nickname"
 msgstr ""
 
-#: models.py:38
-msgid "CCC DC"
+#: models.py:121
+msgid "slug"
 msgstr ""
 
-#: models.py:39
-msgid "CCC Account"
+#: models.py:122
+msgid "about"
 msgstr ""
 
-#: models.py:55 models.py:189 models.py:271 models.py:326 models.py:353
-#: models.py:390 models.py:411 models.py:441 models.py:462 models.py:484
-#: models.py:506
-msgid "date added"
+#: models.py:123
+msgid "photo"
 msgstr ""
 
-#: models.py:58 models.py:190 models.py:272 models.py:327 models.py:354
-#: models.py:391 models.py:412 models.py:442 models.py:463 models.py:485
-#: models.py:507
-msgid "date modified"
+#: models.py:129 models.py:155 templates/contacts/person/detail.html:43
+#: templates/contacts/person/detail.html:65
+msgid "address"
 msgstr ""
 
-#: models.py:65
-msgid "person"
-msgstr ""
-
-#: models.py:66
-msgid "people"
-msgstr ""
-
-#: models.py:170 models.py:264
-msgid "name"
-msgstr ""
-
-#: models.py:195
-msgid "company"
-msgstr ""
-
-#: models.py:196
-msgid "companies"
-msgstr ""
-
-#: models.py:277
-msgid "group"
-msgstr ""
-
-#: models.py:278
-msgid "groups"
-msgstr ""
-
-#: models.py:307 models.py:338
-msgid "Work"
-msgstr ""
-
-#: models.py:308
-msgid "Mobile"
-msgstr ""
-
-#: models.py:309
-msgid "Fax"
-msgstr ""
-
-#: models.py:310
-msgid "Pager"
-msgstr ""
-
-#: models.py:311
-msgid "Home"
-msgstr ""
-
-#: models.py:312 models.py:340 models.py:375
-msgid "Other"
-msgstr ""
-
-#: models.py:322
-msgid "number"
-msgstr ""
-
-#: models.py:323 models.py:350 models.py:385 models.py:408 models.py:438
-msgid "location"
-msgstr ""
-
-#: models.py:339
-msgid "Personal"
-msgstr ""
-
-#: models.py:349
-msgid "email address"
-msgstr ""
-
-#: models.py:384
-msgid "im account"
-msgstr ""
-
-#: models.py:387
-msgid "service"
-msgstr ""
-
-#: models.py:407
-msgid "URL"
-msgstr ""
-
-#: models.py:419
-msgid "web site"
-msgstr ""
-
-#: models.py:420
-msgid "web sites"
-msgstr ""
-
-#: models.py:431
-msgid "street"
-msgstr ""
-
-#: models.py:432
-msgid "district"
-msgstr ""
-
-#: models.py:433
-msgid "town"
-msgstr ""
-
-#: models.py:434
-msgid "city"
-msgstr ""
-
-#: models.py:435
-msgid "province"
-msgstr ""
-
-#: models.py:436
+#: models.py:130 models.py:156
 msgid "postal code"
 msgstr ""
 
-#: models.py:437
-msgid "country"
+#: models.py:131 models.py:157
+msgid "town"
 msgstr ""
 
-#: models.py:449
-msgid "street address"
+#: models.py:132 models.py:158
+msgid "province"
 msgstr ""
 
-#: models.py:450
-msgid "street addresses"
+#: models.py:134 tables.py:16 tables.py:45
+#: templates/contacts/person/detail.html:45
+msgid "email address"
 msgstr ""
 
-#: models.py:458
-msgid "occasion"
+#: models.py:135 models.py:159 tables.py:44
+#: templates/contacts/person/detail.html:46
+#: templates/contacts/person/detail.html:67
+msgid "phone number"
 msgstr ""
 
-#: models.py:459
-msgid "date"
+#: models.py:136 templates/contacts/person/detail.html:47
+msgid "mobile number"
 msgstr ""
 
-#: models.py:460
-msgid "every year"
+#: models.py:137 templates/contacts/person/detail.html:48
+msgid "twitter"
 msgstr ""
 
-#: models.py:470
-msgid "special date"
+#: models.py:140 templates/contacts/person/detail.html:53
+msgid "laboral category"
 msgstr ""
 
-#: models.py:471
-msgid "special dates"
+#: models.py:145 templates/contacts/person/detail.html:55
+msgid "NRP"
 msgstr ""
 
-#: models.py:479 models.py:501
-msgid "charge"
+#: models.py:146 templates/contacts/person/detail.html:56
+msgid "years experience"
 msgstr ""
 
-#: models.py:480 models.py:502 models.py:523 models.py:531
-msgid "unactive"
+#: models.py:147 templates/contacts/person/detail.html:57
+msgid "cos docent"
 msgstr ""
 
-#: templates/admin/contacts/company/change_form.html:9
-msgid "People"
+#: models.py:149 templates/contacts/person/detail.html:58
+msgid "degree"
 msgstr ""
 
-#: templates/admin/contacts/company/change_form.html:11
-#: templates/admin/contacts/person/change_form.html:13
-msgid "History"
+#: models.py:153 templates/contacts/person/detail.html:64
+msgid "center name"
 msgstr ""
 
-#: templates/admin/contacts/company/change_form.html:12
-#: templates/admin/contacts/person/change_form.html:14
-msgid "View on site"
+#: models.py:154
+msgid "center code"
 msgstr ""
 
-#: templates/admin/contacts/person/change_form.html:10
-msgid "Company"
+#: models.py:162 templates/contacts/person/detail.html:30
+msgid "math society"
+msgstr ""
+
+#: models.py:166 templates/contacts/person/detail.html:37
+msgid "remarks"
+msgstr ""
+
+#: models.py:167 templates/contacts/person/detail.html:36
+msgid "lang"
+msgstr ""
+
+#: models.py:168
+msgid "external id"
+msgstr ""
+
+#: models.py:172
+msgid "location"
+msgstr ""
+
+#: models.py:175 templates/contacts/person/detail.html:28
+msgid "date registration"
+msgstr ""
+
+#: models.py:176 templates/contacts/person/detail.html:31
+msgid "revision"
+msgstr ""
+
+#: models.py:178 templates/contacts/person/detail.html:32
+msgid "paid"
+msgstr ""
+
+#: models.py:179 templates/contacts/person/detail.html:33
+msgid "date paid"
+msgstr ""
+
+#: models.py:180 templates/contacts/person/detail.html:34
+msgid "date mail not paid"
+msgstr ""
+
+#: models.py:181 templates/contacts/person/detail.html:35
+msgid "date mail registration"
+msgstr ""
+
+#: models.py:187 models.py:292
+msgid "date added"
+msgstr ""
+
+#: models.py:190 models.py:294
+msgid "date modified"
+msgstr ""
+
+#: models.py:197
+msgid "person"
+msgstr ""
+
+#: models.py:198
+msgid "people"
+msgstr ""
+
+#: models.py:285
+msgid "code"
+msgstr ""
+
+#: models.py:286
+msgid "subject"
+msgstr ""
+
+#: models.py:287
+msgid "description"
+msgstr ""
+
+#: models.py:288
+msgid "body"
+msgstr ""
+
+#: models.py:289
+msgid "attachment"
+msgstr ""
+
+#: models.py:290
+msgid "second attachment"
+msgstr ""
+
+#: models.py:299
+msgid "Mail template"
+msgstr ""
+
+#: models.py:300
+msgid "Mail templates"
+msgstr ""
+
+#: tables.py:12 tables.py:30
+msgid "Actions"
+msgstr ""
+
+#: functions/mailtemplate.py:26
+msgid "Mail not sent"
+msgstr ""
+
+#: functions/mailtemplate.py:45
+msgid "Error generating pdf"
+msgstr ""
+
+#: functions/mailtemplate.py:51 views/reporting.py:188
+msgid "Mail sent"
+msgstr ""
+
+#: functions/mailtemplate.py:55
+msgid "Error sending mail"
 msgstr ""
 
 #: templates/contacts/_comment_list.html:6
 msgid "Notes"
 msgstr ""
 
-#: templates/contacts/_email_address_form.html:4
-msgid "Email addresses"
-msgstr ""
-
-#: templates/contacts/_email_address_list.html:5
-msgid "Email Addresses"
-msgstr ""
-
-#: templates/contacts/_instant_messenger_form.html:4
-msgid "Instant messengers"
-msgstr ""
-
-#: templates/contacts/_instant_messenger_list.html:5
-msgid "Instant Messengers"
-msgstr ""
-
-#: templates/contacts/_internal_charges_form.html:4
-msgid "Internal Charges"
-msgstr ""
-
-#: templates/contacts/_internal_charges_list.html:5
-msgid "Internal charges"
-msgstr ""
-
-#: templates/contacts/_phone_number_form.html:4
-msgid "Phone numbers"
-msgstr ""
-
-#: templates/contacts/_phone_number_list.html:5
-msgid "Phone Numbers"
-msgstr ""
-
-#: templates/contacts/_special_date_form.html:4
-msgid "Special Dates"
-msgstr ""
-
-#: templates/contacts/_special_date_list.html:5
-msgid "Special dates"
-msgstr ""
-
-#: templates/contacts/_street_address_form.html:4
-msgid "Street addresses"
-msgstr ""
-
-#: templates/contacts/_street_address_list.html:5
-msgid "Street Addresses"
-msgstr ""
-
-#: templates/contacts/_web_site_form.html:4
-#: templates/contacts/_web_site_list.html:5
-msgid "Web sites"
-msgstr ""
-
-#: templates/contacts/base.html:4 templates/contacts/base_old.html:5
+#: templates/contacts/base.html:6 templates/contacts/base_pdf.html:6
 msgid "Contacts"
 msgstr ""
 
-#: templates/contacts/base.html:42
+#: templates/contacts/base.html:63
 msgid "Logout"
 msgstr ""
 
-#: templates/contacts/login.html:14
+#: templates/contacts/base.html:90
+msgid "Latest records"
+msgstr ""
+
+#: templates/contacts/login.html:5
+msgid "Welcome to Inscripcions-JAEM"
+msgstr ""
+
+#: templates/contacts/login.html:13
+msgid "Your username and password didn"
+msgstr ""
+
+#: templates/contacts/login.html:20 templates/contacts/login.html.py:24
 msgid "Login"
 msgstr ""
 
-#: templates/contacts/company/create.html:4
-#: templates/contacts/company/create.html:7
-msgid "Create a new Company"
+#: templates/contacts/mailtemplate/create.html:5
+#: templates/contacts/mailtemplate/create.html:8
+msgid "Add a new mail template"
 msgstr ""
 
-#: templates/contacts/company/create.html:14
-#: templates/contacts/group/create.html:15
-#: templates/contacts/person/create.html:26
+#: templates/contacts/mailtemplate/create.html:16
+#: templates/contacts/person/create.html:16
 msgid "Create and continue"
 msgstr ""
 
-#: templates/contacts/company/create.html:20
-#: templates/contacts/company/detail.html:40
-#: templates/contacts/company/update.html:40
-#: templates/contacts/group/create.html:20
-#: templates/contacts/group/detail.html:38
-#: templates/contacts/group/update.html:34
-#: templates/contacts/person/create.html:33
-#: templates/contacts/person/detail.html:64
-#: templates/contacts/person/update.html:104
+#: templates/contacts/mailtemplate/create.html:23
+#: templates/contacts/mailtemplate/delete.html:36
+#: templates/contacts/mailtemplate/detail.html:25
+#: templates/contacts/mailtemplate/update.html:25
+#: templates/contacts/person/cancel.html:58
+#: templates/contacts/person/create.html:23
+#: templates/contacts/person/delete.html:36
+#: templates/contacts/person/detail.html:77
+#: templates/contacts/person/import.html:51
+#: templates/contacts/person/map.html:79
+#: templates/contacts/person/stats.html:38
+#: templates/contacts/person/synchronize.html:29
+#: templates/contacts/person/update.html:88
+#: templates/contacts/person/update_status.html:21
 msgid "Return to list"
 msgstr ""
 
-#: templates/contacts/company/delete.html:4
-#: templates/contacts/company/delete.html:7
-#: templates/contacts/company/detail.html:42
-#: templates/contacts/company/update.html:42
-#: templates/contacts/group/delete.html:4
-#: templates/contacts/group/delete.html:7
-#: templates/contacts/group/detail.html:40
-#: templates/contacts/group/update.html:36
+#: templates/contacts/mailtemplate/delete.html:4
+#: templates/contacts/mailtemplate/delete.html:7
+#: templates/contacts/mailtemplate/delete.html:29
+#: templates/contacts/mailtemplate/detail.html:28
+#: templates/contacts/mailtemplate/update.html:28
 #: templates/contacts/person/delete.html:4
 #: templates/contacts/person/delete.html:7
-#: templates/contacts/person/detail.html:66
-#: templates/contacts/person/update.html:106
+#: templates/contacts/person/delete.html:29
+#: templates/contacts/person/detail.html:93
+#: templates/contacts/person/update.html:104
 msgid "Delete"
 msgstr ""
 
-#: templates/contacts/company/delete.html:15
-#: templates/contacts/group/delete.html:15
-#: templates/contacts/person/delete.html:15
+#: templates/contacts/mailtemplate/delete.html:13
+#: templates/contacts/person/cancel.html:25
+#: templates/contacts/person/delete.html:13
+#: templates/contacts/person/list.html:16
+msgid "Warning!"
+msgstr ""
+
+#: templates/contacts/mailtemplate/delete.html:14
+#: templates/contacts/person/delete.html:14
+msgid "You are about to delete this record. Do you want to continue?"
+msgstr ""
+
+#: templates/contacts/mailtemplate/delete.html:20
+#: templates/contacts/person/cancel.html:36
+#: templates/contacts/person/delete.html:20
+msgid "Confirm"
+msgstr ""
+
+#: templates/contacts/mailtemplate/delete.html:23
+#: templates/contacts/person/cancel.html:39
+#: templates/contacts/person/delete.html:23
 msgid "No"
 msgstr ""
 
-#: templates/contacts/company/delete.html:16
-#: templates/contacts/group/delete.html:16
-#: templates/contacts/person/delete.html:16
+#: templates/contacts/mailtemplate/delete.html:24
+#: templates/contacts/person/cancel.html:40
+#: templates/contacts/person/delete.html:24
 msgid "Yes"
 msgstr ""
 
-#: templates/contacts/company/delete.html:18
-#: templates/contacts/group/delete.html:18
-#: templates/contacts/person/delete.html:18
-msgid "Submit"
+#: templates/contacts/mailtemplate/detail.html:12
+msgid "Code"
 msgstr ""
 
-#: templates/contacts/company/detail.html:27
-#: templates/contacts/company/update.html:27
-msgid "People in this company"
+#: templates/contacts/mailtemplate/detail.html:13
+msgid "Subject"
 msgstr ""
 
-#: templates/contacts/company/detail.html:41
-#: templates/contacts/group/detail.html:39
-#: templates/contacts/person/detail.html:65
-#: templates/contacts/person/update.html:4
+#: templates/contacts/mailtemplate/detail.html:14
+msgid "Description"
+msgstr ""
+
+#: templates/contacts/mailtemplate/detail.html:15
+msgid "Body"
+msgstr ""
+
+#: templates/contacts/mailtemplate/detail.html:16
+msgid "Attachment"
+msgstr ""
+
+#: templates/contacts/mailtemplate/detail.html:17
+msgid "Second attachment"
+msgstr ""
+
+#: templates/contacts/mailtemplate/detail.html:20
+#: templates/contacts/mailtemplate/update.html:20
+#: templates/contacts/person/detail.html:72
+#: templates/contacts/person/update.html:78
+msgid "Record created in"
+msgstr ""
+
+#: templates/contacts/mailtemplate/detail.html:20
+#: templates/contacts/mailtemplate/update.html:20
+#: templates/contacts/person/detail.html:72
+#: templates/contacts/person/update.html:78
+msgid "by"
+msgstr ""
+
+#: templates/contacts/mailtemplate/detail.html:20
+#: templates/contacts/mailtemplate/update.html:20
+#: templates/contacts/person/detail.html:72
+#: templates/contacts/person/update.html:78
+msgid "Modified in"
+msgstr ""
+
+#: templates/contacts/mailtemplate/detail.html:26
+#: templates/contacts/mailtemplate/update.html:5
+#: templates/contacts/person/cancel.html:60
+#: templates/contacts/person/detail.html:78
+#: templates/contacts/person/update.html:5
 msgid "Edit"
 msgstr ""
 
-#: templates/contacts/company/list.html:5
-#: templates/contacts/company/list.html:8
-msgid "List of companies"
+#: templates/contacts/mailtemplate/detail.html:27
+#: templates/contacts/mailtemplate/update.html:27
+msgid "Copy"
 msgstr ""
 
-#: templates/contacts/company/list.html:17
-#: templates/contacts/group/list.html:17
-#: templates/contacts/person/list.html:37
+#: templates/contacts/mailtemplate/list.html:5
+#: templates/contacts/mailtemplate/list.html:8
+msgid "List of mail templates"
+msgstr ""
+
+#: templates/contacts/mailtemplate/list.html:18
+#: templates/contacts/person/list.html:43
 msgid "Create"
 msgstr ""
 
-#: templates/contacts/company/update.html:22
-#: templates/contacts/group/update.html:15
-#: templates/contacts/person/update.html:98
+#: templates/contacts/mailtemplate/update.html:16
+#: templates/contacts/person/revision.html:21
+#: templates/contacts/person/update.html:74
 msgid "Save"
 msgstr ""
 
-#: templates/contacts/company/update.html:41
-#: templates/contacts/group/update.html:35
-#: templates/contacts/person/update.html:105
+#: templates/contacts/mailtemplate/update.html:26
+#: templates/contacts/person/cancel.html:59
+#: templates/contacts/person/update.html:89
 msgid "Read"
 msgstr ""
 
-#: templates/contacts/group/create.html:4
-#: templates/contacts/group/create.html:7
-msgid "Create a new Group"
+#: templates/contacts/person/cancel.html:6
+#: templates/contacts/person/cancel.html:15
+#: templates/contacts/person/cancel.html:47
+#: templates/contacts/person/detail.html:89
+#: templates/contacts/person/update.html:100
+msgid "Get inscription back"
 msgstr ""
 
-#: templates/contacts/group/detail.html:26
-#: templates/contacts/group/update.html:21
-msgid "People in this group"
+#: templates/contacts/person/cancel.html:8
+#: templates/contacts/person/cancel.html:17
+#: templates/contacts/person/cancel.html:49
+#: templates/contacts/person/detail.html:91
+#: templates/contacts/person/update.html:102
+msgid "Cancel inscription"
 msgstr ""
 
-#: templates/contacts/group/list.html:5 templates/contacts/group/list.html:8
-msgid "List of groups"
+#: templates/contacts/person/cancel.html:27
+msgid "You are about to get this inscription back. Do you want to continue?"
 msgstr ""
 
-#: templates/contacts/person/create.html:4
-#: templates/contacts/person/create.html:7
+#: templates/contacts/person/cancel.html:29
+msgid "You are about to cancel this inscription. Do you want to continue?"
+msgstr ""
+
+#: templates/contacts/person/create.html:5
+#: templates/contacts/person/create.html:8
 msgid "Add a new Person"
 msgstr ""
 
-#: templates/contacts/person/detail.html:17
-#: templates/contacts/person/update.html:16
+#: templates/contacts/person/detail.html:16
+#: templates/contacts/person/update_form_old.html:3
 msgid "Personal Data"
 msgstr ""
 
-#: templates/contacts/person/detail.html:19
+#: templates/contacts/person/detail.html:18
+msgid "Nom"
+msgstr ""
+
+#: templates/contacts/person/detail.html:23
 msgid "ID Card"
 msgstr ""
 
-#: templates/contacts/person/detail.html:20
-msgid "Birthday"
+#: templates/contacts/person/detail.html:27
+msgid "Registre JAEM"
 msgstr ""
 
-#: templates/contacts/person/detail.html:21
-msgid "Interests"
-msgstr ""
-
-#: templates/contacts/person/detail.html:25
+#: templates/contacts/person/detail.html:29
 msgid "Contact type"
 msgstr ""
 
-#: templates/contacts/person/detail.html:26
-msgid "Membership fee"
+#: templates/contacts/person/detail.html:42
+msgid "Dades de contacte"
 msgstr ""
 
-#: templates/contacts/person/detail.html:27
-msgid "Equo"
+#: templates/contacts/person/detail.html:52
+msgid "Dades laborals"
 msgstr ""
 
-#: templates/contacts/person/detail.html:28
-msgid "Bank account"
+#: templates/contacts/person/detail.html:63
+msgid "Centre de feina"
 msgstr ""
 
-#: templates/contacts/person/detail.html:33
-msgid "Member of these groups"
+#: templates/contacts/person/detail.html:80
+#: templates/contacts/person/update.html:91
+msgid "Justificant de pagament"
 msgstr ""
 
-#: templates/contacts/person/detail.html:36
-#: templates/contacts/person/detail.html:47
-msgid "at"
+#: templates/contacts/person/detail.html:83
+#: templates/contacts/person/update.html:94
+msgid "Justificant de inscripcio"
 msgstr ""
 
-#: templates/contacts/person/detail.html:44
-msgid "Member of these companies"
+#: templates/contacts/person/detail.html:86
+#: templates/contacts/person/detail.html:102
+#: templates/contacts/person/update.html:97
+#: templates/contacts/person/update.html:113
+msgid "Send mail inscription ok"
+msgstr ""
+
+#: templates/contacts/person/detail.html:96
+#: templates/contacts/person/detail.html:107
+#: templates/contacts/person/detail.html:118
+#: templates/contacts/person/update.html:107
+#: templates/contacts/person/update.html:118
+#: templates/contacts/person/update.html:128
+msgid "Send mail"
+msgstr ""
+
+#: templates/contacts/person/detail.html:104
+#: templates/contacts/person/update.html:115
+msgid "You are about to send the inscription ok mail"
+msgstr ""
+
+#: templates/contacts/person/detail.html:106
+#: templates/contacts/person/detail.html:119
+#: templates/contacts/person/update.html:117
+#: templates/contacts/person/update.html:129
+msgid "Close"
+msgstr ""
+
+#: templates/contacts/person/detail.html:107
+#: templates/contacts/person/detail.html:121
+#: templates/contacts/person/update.html:118
+#: templates/contacts/person/update.html:131
+msgid "sending"
+msgstr ""
+
+#: templates/contacts/person/detail.html:120
+#: templates/contacts/person/update.html:130
+msgid "You are about to send the mail with subject: "
 msgstr ""
 
 #: templates/contacts/person/import.html:4
@@ -517,27 +573,109 @@ msgstr ""
 msgid "Import people from CSV"
 msgstr ""
 
+#: templates/contacts/person/import.html:31
+msgid "Error"
+msgstr ""
+
+#: templates/contacts/person/import.html:37
+msgid "Load file"
+msgstr ""
+
 #: templates/contacts/person/list.html:5 templates/contacts/person/list.html:8
 msgid "List of contacts"
 msgstr ""
 
 #: templates/contacts/person/list.html:17
-#: templates/contacts/person/list.html:29
+#: templates/contacts/person/list.html:44
+#: templates/contacts/person/synchronize.html:23
+msgid "Synchronize"
+msgstr ""
+
+#: templates/contacts/person/list.html:27
+#: templates/contacts/person/list.html:35
+#: templates/contacts/person/map.html:16 templates/contacts/person/map.html:28
 msgid "Filter"
 msgstr ""
 
-#: templates/contacts/person/list.html:38
+#: templates/contacts/person/list.html:45
 msgid "Export"
 msgstr ""
 
-#: templates/contacts/person/list.html:39
+#: templates/contacts/person/list.html:46
 msgid "Import"
 msgstr ""
 
-#: templates/contacts/person/update.html:63
-msgid "Groups"
+#: templates/contacts/person/list.html:47
+msgid "Map"
 msgstr ""
 
-#: templates/contacts/person/update.html:77
-msgid "Companies"
+#: templates/contacts/person/list.html:48
+#: templates/contacts/person/stats.html:6
+#: templates/contacts/person/stats.html:9
+#: templates/contacts/person/update_status.html:22
+msgid "Inscription stats"
+msgstr ""
+
+#: templates/contacts/person/list.html:49
+#: templates/contacts/person/stats.html:39
+#: templates/contacts/person/update_status.html:5
+msgid "Update records status"
+msgstr ""
+
+#: templates/contacts/person/map.html:4 templates/contacts/person/map.html:7
+msgid "Map of contacts"
+msgstr ""
+
+#: templates/contacts/person/revision.html:4
+#: templates/contacts/person/revision.html:7
+#: templates/contacts/person/revision.html:16
+msgid "Revision"
+msgstr ""
+
+#: templates/contacts/person/revision.html:28
+msgid "Return to record"
+msgstr ""
+
+#: templates/contacts/person/synchronize.html:5
+#: templates/contacts/person/synchronize.html:8
+msgid "Synchronize inscriptions from SPIP"
+msgstr ""
+
+#: templates/contacts/person/update.html:16
+#: templates/contacts/person/update.html:23
+#: templates/contacts/person/update.html:30
+#: templates/contacts/person/update.html:37
+msgid "Error at"
+msgstr ""
+
+#: templates/contacts/person/update.html:16
+msgid "Identification"
+msgstr ""
+
+#: templates/contacts/person/update.html:23
+msgid "JAEM registration"
+msgstr ""
+
+#: templates/contacts/person/update.html:30
+msgid "Contact information"
+msgstr ""
+
+#: templates/contacts/person/update.html:37
+msgid "Laboral data"
+msgstr ""
+
+#: templates/contacts/person/update_form_old.html:15
+msgid "Registration info"
+msgstr ""
+
+#: templates/contacts/person/update_form_old.html:20
+msgid "Contact info"
+msgstr ""
+
+#: templates/contacts/person/update_form_old.html:34
+msgid "Location"
+msgstr ""
+
+#: templates/contacts/person/update_status.html:8
+msgid "Update records statusP"
 msgstr ""

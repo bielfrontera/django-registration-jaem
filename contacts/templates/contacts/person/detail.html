@@ -6,7 +6,7 @@
 {% block content_title %}
         <span class="fn">{{ object }}</span>
         {% if object.nickname %}
-        <span class="alt">(<span class="nickname">{{ object.nickname }}</span>)</span>        
+        <span class="alt">(<span class="nickname">{{ object.nickname }}</span>)</span>
         {% endif %}
         <div class="pull-right"><span class="label label-{{ object.get_label }}">{{ object.get_status_display }}</span></div>
 {% endblock %}
@@ -14,12 +14,12 @@
 {% block content %}
     <p>
         <h3>{% trans "Personal Data" %}</h3>
-        {% if object.photo %}<div style="float:right;">{{ object.photo }}</div>{% endif %}   
+        {% if object.photo %}<div style="float:right;">{{ object.photo }}</div>{% endif %}
         <b>{% trans "Nom" %}:</b> {{ object.first_name }} {{ object.last_name }}
         {% if object.nickname %}
         ({{ object.nickname }})
         {% endif %}<br />
-        {% if object.about %}{{ object.about|linebreaks }}{% endif %}   
+        {% if object.about %}{{ object.about|linebreaks }}{% endif %}
         <b>{% trans "ID Card" %}:</b> {{ object.id_card }}<br />
     </p>
     <hr/>
@@ -34,7 +34,7 @@
         <b>{% trans "date mail not paid" %}:</b> {{ object.date_mailnotpaid|date:"d/m/Y" }}<br />
         <b>{% trans "date mail registration" %}:</b> {{ object.date_mailregister|date:"d/m/Y" }}<br />
         <b>{% trans "lang" %}:</b> {{ object.get_lang_display }}<br />
-        {% if object.remarks %}<b>{% trans "remarks" %}:</b> {{ object.remarks|linebreaks }}{% endif %}   
+        {% if object.remarks %}<b>{% trans "remarks" %}:</b> {{ object.remarks|linebreaks }}{% endif %}
 
     </p>
     <hr/>
@@ -66,8 +66,8 @@
         {{ object.laboral_centerpostalcode }} {{ object.laboral_centertown }} {% if object.laboral_centerprovince %}({{ object.laboral_centerprovince }}){% endif %}   <br />
         <b>{% trans "phone number" %}:</b> {{ object.laboral_centerphone }}<br />
     </p>
-    
-    
+
+
     <small>
         {% trans 'Record created in' %} {{ object.date_added }}{% if object.user_add %} {% trans 'by' %} {{ object.user_add }}{% endif %}. {% trans 'Modified in' %} {{ object.date_modified }}{% if object.user_modify %} {% trans 'by' %} {{ object.user_modify }}{% endif %}.
     </small>
@@ -77,12 +77,49 @@
     <a href="{%  url contacts_person_list %}"  class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
     <a href="{{ object.get_update_url }}" class="btn"><i class="icon-edit"></i> {% trans "Edit" %}</a>
 {% if object.paid %}
-    <a href="{{ object.get_justificantpagament_url }}" class="btn"><i class="icon-file"></i> {% trans "Justificant de pagament" %}</a>
+<a href="{{ object.get_justificantpagament_url }}" class="btn"><i class="icon-file"></i> {% trans "Justificant de pagament" %}</a>
 {% endif %}
-{% if object.status == 'cancelled' %}            
+{% if object.status == 'ok_all' and object.contact_type != 'R' %}
+<a href="{{ object.get_justificantregistre_url }}" class="btn"><i class="icon-file"></i> {% trans "Justificant de inscripcio" %}</a>
+{% endif %}
+{% if object.status == 'ok_all' and object.date_mailregister == None %}
+    <a href="#modal_mail_pagament" role="button" data-toggle="modal" class="btn"><i class="icon-envelope"></i> {% trans 'Send mail inscription ok' %}</a>
+{% endif %}
+{% if object.status == 'cancelled' %}
     <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-up"></i> {% trans 'Get inscription back' %}</a>
 {% else %}
     <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-down"></i> {% trans 'Cancel inscription' %}</a>
 {% endif %}
-    <a href="{{ object.get_delete_url }}" class="btn"><i class="icon-trash"></i> {% trans "Delete" %}</a>          
+<a href="{{ object.get_delete_url }}" class="btn"><i class="icon-trash"></i> {% trans "Delete" %}</a>
+</div>
+<div class="btn-group" style="float:right;margin-top: -50px;" id="list-sendmail">
+<a href="#" id="btn-sendmail" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-envelope"></i> {% trans "Send mail" %} <span class="caret"></span></a>
+
+
+{% if object.status == 'ok_all' and object.date_mailregister == None %}
+<div id="modal_mail_pagament" class="modal hide fade" tabindex="-1" role="dialog">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">{% trans "Send mail inscription ok" %}</h3>
+    </div>
+    <div class="modal-body"><h5>{% trans "You are about to send the inscription ok mail" %}</h5></div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
+    <button class="btn btn-primary btn-mail" formaction="{{ object.get_mailjustificantpagament_url }}" data-loading-text="{% trans "sending" %}..." >{% trans "Send mail" %}</button>
+    </div>
+</div>
+{% endif %}
+
 {% endblock %}
+
+{% block page_js %}
+    <script type="text/javascript">
+        var URL_MAILTEMPLATE_LOOKUP = '{% url contacts_mailtemplate_lookup %}';
+        var LINKMAIL = '{{ object.get_mail_url }}';
+        var TRADUCTION = { sendmail : '{% trans "Send mail" %}' ,
+                           close : '{% trans "Close" %}',
+                           message_about_to_send : '{% trans "You are about to send the mail with subject: " %}',
+                           sending : '{% trans "sending" %}',
+                        };
+    </script>
+    <script src="/contactes/js/person_mail.js"></script>
+{% endblock page_js %}
