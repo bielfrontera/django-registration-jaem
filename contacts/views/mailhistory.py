@@ -74,9 +74,10 @@ def get_mail_history(email_address):
 def get_message_body(message):
     for part in message.walk():
         if part.get_content_type() == 'text/plain':
-            body = part.get_payload()
+            body = part.get_payload().decode(part.get_content_charset())
             if len(body) > 250:
                 body = body[0:250] + ' (...)'
+
             return body
     return None
 
