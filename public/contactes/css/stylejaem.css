@@ -203,3 +203,39 @@ footer{
 .filter div input[type=text], .filter div select{
   width: 155px;
 }
+
+.loading{
+  width: auto;
+  text-align: center;
+  padding: 20px;
+}
+.loading img{
+  margin: auto;
+  margin-top: 15px;
+  display: block;
+
+}
+#mail_history_list li {
+  border-bottom: 1px solid #d74614;
+  margin-bottom: 10px;
+  background-color: #FFFFFF;
+}
+#mail_history_list .mail_date {
+  color: #4f4f4f;
+  display: inline-block;
+  width: 75px;
+  overflow: hidden;
+}
+
+#mail_history_list .mail_from {
+  font-weight:bold;
+  display: inline-block;
+  width: 170px;
+  overflow: hidden;
+}
+#mail_history_list .mail_subject {
+  font-weight:bold;
+  display: inline-block;
+  margin-left: 10px;
+  color: #d74614;
+}

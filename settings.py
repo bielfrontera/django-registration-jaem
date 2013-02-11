@@ -17,7 +17,7 @@ DATABASES = {
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }    
+    }
 }
 
 SPIP_DATABASE = ''
@@ -114,11 +114,12 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'south',
     'django_tables2',
-    'bootstrap_toolkit', 
+    'bootstrap_toolkit',
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'localhost'
+EMAIL_IMAP_HOST = 'localhost'
 EMAIL_PORT = 1025
 EMAIL_FROM = 'admin@domain.com'
 

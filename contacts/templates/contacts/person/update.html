@@ -47,6 +47,7 @@
             <li><a href="#form_reg" data-toggle="tab">Registre JAEM</a></li>
             <li><a href="#form_adr" data-toggle="tab">Dades de contacte</a></li>
             <li><a href="#form_lab" data-toggle="tab">Dades laborals</a></li>
+            <li><a href="#mail_history" data-toggle="tab" id="mail_history_tab">{% trans 'Mail history' %}</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="form_id">
@@ -67,6 +68,20 @@
                     </div>
                 </div>
             </div>
+            <div class="tab-pane" id="mail_history">
+                <div id="mail_history_loading" class="loading">
+                    {% trans 'Loading messages' %}
+                    <img src="/contactes/img/ajax-loader.gif" title="{% trans 'Loading' %}" alt="Loading" />
+                </div>
+               <div id="mail_history_error" class="alert alert-error alert-block" style="display:none;">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <h4>{% trans "Error!" %}</h4>
+                    <span></span>
+                </div>
+                <div id="mail_history_list">
+                </div>
+            </div>
+
 
         </div>
         </div>
@@ -146,6 +161,10 @@
                            message_about_to_send : '{% trans "You are about to send the mail with subject: " %}',
                            sending : '{% trans "sending" %}',
                         };
+        var URL_GET_MAILHISTORY = '{{ object.get_mailhistory_url }}';
     </script>
     <script src="/contactes/js/person_mail.js"></script>
+    <script src="/contactes/js/person_mailhistory.js"></script>
+
+
 {% endblock page_js %}

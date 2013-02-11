@@ -71,6 +71,10 @@ urlpatterns = patterns('contacts.views',
         view = 'reporting.mail',
         name = 'contacts_person_mail'
     ),
+    url(r'^people/(?P<id>[-\d]+)/mailhistory/$',
+        view = 'mailhistory.mail_history',
+        name = 'contacts_person_mailhistory'
+    ),
 
     url(r'^people/(?P<slug>[-\w]+)/$',
         view = 'person.detail',

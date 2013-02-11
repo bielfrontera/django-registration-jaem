@@ -89,6 +89,30 @@ MATH_SOCIETY_CHOICES = (
     ('20', 'Sociedad Melillense de Educación Matemática'),
     ('21', 'SBM – XEIX Societat Balear de Matemàtiques'),
 )
+MATH_SOCIETY_CHOICES_MINI = {
+    '1':'Cap',
+    '2':'FEEMCAT',
+    '3':'Ada Byron',
+    '4':'SAEM-Thales',
+    '5':'Aragonesa',
+    '6':'Asturiana',
+    '7':'Canaria',
+    '8':'CyL',
+    '9':'ENCIGA',
+    '10':'Extremadura',
+    '11':'Madrid',
+    '12':'Cantabria',
+    '13':'Navarra',
+    '14':'Puig Adam',
+    '15':'Valenciana',
+    '16':'Manchega',
+    '17':'Murcia',
+    '18':'Riojana',
+    '19':'AGAPEMA',
+    '20':'Melillense',
+    '21':'SBM-XEIX',
+}
+
 
 REVISION_CHOICES = (
     ('dataok', _('Data ok')),
@@ -231,6 +255,11 @@ class Person(models.Model):
             label = 'inverse'
         return label
 
+    @property
+    def get_math_society_display_mini(self):
+        # MATH_SOCIETY_CHOICES_MINI
+        return MATH_SOCIETY_CHOICES_MINI[self.math_society]
+
 
     @permalink
     def get_absolute_url(self):
@@ -286,6 +315,13 @@ class Person(models.Model):
         return ('contacts_person_mailpagamentretrasat', None, {
             'slug': self.slug,
         })
+
+    @permalink
+    def get_mailhistory_url(self):
+        return ('contacts_person_mailhistory', None, {
+            'id': self.id,
+        })
+
 
 
 class MailTemplate(models.Model):

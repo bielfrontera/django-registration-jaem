@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-20 23:50+0100\n"
-"PO-Revision-Date: 2013-01-20 23:53+0100\n"
+"POT-Creation-Date: 2013-02-11 01:03+0100\n"
+"PO-Revision-Date: 2013-02-11 01:05+0100\n"
 "Last-Translator: Biel Frontera <sindbili@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: forms.py:118
-#: models.py:144
+#: models.py:168
 #: templates/contacts/person/detail.html:54
 msgid "laboral levels"
 msgstr "Nivells"
@@ -44,17 +44,17 @@ msgid "Organizer"
 msgstr "Organització"
 
 #: forms.py:131
-#: models.py:94
+#: models.py:118
 msgid "Data ok"
 msgstr "Dades ok"
 
 #: forms.py:132
-#: models.py:95
+#: models.py:119
 msgid "Incorrect data"
 msgstr "Dades incorrectes"
 
 #: forms.py:133
-#: models.py:96
+#: models.py:120
 msgid "Missed data"
 msgstr "Falten dades"
 
@@ -63,25 +63,25 @@ msgid "Unknown person"
 msgstr "Persona desconeguda"
 
 #: forms.py:138
-#: models.py:119
+#: models.py:143
 msgid "last name"
 msgstr "Llinatges"
 
 #: forms.py:139
 #: forms.py:154
-#: models.py:124
+#: models.py:148
 #: templates/contacts/person/stats.html:28
 msgid "contact type"
 msgstr "Tipus d'inscripció"
 
 #: forms.py:140
-#: models.py:126
+#: models.py:150
 #: tables.py:43
 msgid "ID card"
 msgstr "DNI"
 
 #: forms.py:141
-#: models.py:177
+#: models.py:201
 #: tables.py:22
 #: templates/contacts/person/stats.html:29
 msgid "status"
@@ -96,19 +96,19 @@ msgid "mail registration unsent"
 msgstr "Correu confirmació inscripció no enviat"
 
 #: forms.py:155
-#: models.py:162
+#: models.py:186
 #: templates/contacts/person/detail.html:30
 msgid "math society"
 msgstr "Societat"
 
 #: forms.py:156
-#: models.py:132
-#: models.py:158
+#: models.py:156
+#: models.py:182
 msgid "province"
 msgstr "província"
 
 #: forms.py:157
-#: models.py:167
+#: models.py:191
 #: templates/contacts/person/detail.html:36
 msgid "lang"
 msgstr "Idioma"
@@ -117,196 +117,196 @@ msgstr "Idioma"
 msgid "stats by"
 msgstr "estadístiques per"
 
-#: models.py:97
+#: models.py:121
 msgid "Pendent"
 msgstr "Pendent"
 
-#: models.py:118
+#: models.py:142
 msgid "first name"
 msgstr "Nom"
 
-#: models.py:120
+#: models.py:144
 msgid "nickname"
 msgstr "Àlies"
 
-#: models.py:121
+#: models.py:145
 msgid "slug"
 msgstr "codi slug"
 
-#: models.py:122
+#: models.py:146
 msgid "about"
 msgstr "Descripció"
 
-#: models.py:123
+#: models.py:147
 msgid "photo"
 msgstr "Fotografía"
 
-#: models.py:129
-#: models.py:155
+#: models.py:153
+#: models.py:179
 #: templates/contacts/person/detail.html:43
 #: templates/contacts/person/detail.html:65
 msgid "address"
 msgstr "Adreça"
 
-#: models.py:130
-#: models.py:156
+#: models.py:154
+#: models.py:180
 msgid "postal code"
 msgstr "codi postal"
 
-#: models.py:131
-#: models.py:157
+#: models.py:155
+#: models.py:181
 msgid "town"
 msgstr "localitat"
 
-#: models.py:134
+#: models.py:158
 #: tables.py:16
 #: tables.py:45
 #: templates/contacts/person/detail.html:45
 msgid "email address"
 msgstr "correu electrònic"
 
-#: models.py:135
 #: models.py:159
+#: models.py:183
 #: tables.py:44
 #: templates/contacts/person/detail.html:46
 #: templates/contacts/person/detail.html:67
 msgid "phone number"
 msgstr "Número de telèfon"
 
-#: models.py:136
+#: models.py:160
 #: templates/contacts/person/detail.html:47
 msgid "mobile number"
 msgstr "Número de mòbil"
 
-#: models.py:137
+#: models.py:161
 #: templates/contacts/person/detail.html:48
 msgid "twitter"
 msgstr ""
 
-#: models.py:140
+#: models.py:164
 #: templates/contacts/person/detail.html:53
 msgid "laboral category"
 msgstr "Categoria laboral"
 
-#: models.py:145
+#: models.py:169
 #: templates/contacts/person/detail.html:55
 msgid "NRP"
 msgstr ""
 
-#: models.py:146
+#: models.py:170
 #: templates/contacts/person/detail.html:56
 msgid "years experience"
 msgstr "Anys d’experiència docent"
 
-#: models.py:147
+#: models.py:171
 #: templates/contacts/person/detail.html:57
 msgid "cos docent"
 msgstr "Cos Docent"
 
-#: models.py:149
+#: models.py:173
 #: templates/contacts/person/detail.html:58
 msgid "degree"
 msgstr "Titulació"
 
-#: models.py:153
+#: models.py:177
 #: templates/contacts/person/detail.html:64
 msgid "center name"
 msgstr "Nom del centre"
 
-#: models.py:154
+#: models.py:178
 msgid "center code"
 msgstr "Codi del centre"
 
-#: models.py:166
+#: models.py:190
 #: templates/contacts/person/detail.html:37
 msgid "remarks"
 msgstr "Observacions / Comentaris"
 
-#: models.py:168
+#: models.py:192
 msgid "external id"
 msgstr "Ref. externa"
 
-#: models.py:172
+#: models.py:196
 msgid "location"
 msgstr "ubicació"
 
-#: models.py:175
+#: models.py:199
 #: templates/contacts/person/detail.html:28
 msgid "date registration"
 msgstr "Data inscripció"
 
-#: models.py:176
+#: models.py:200
 #: templates/contacts/person/detail.html:31
 msgid "revision"
 msgstr "Revisió "
 
-#: models.py:178
+#: models.py:202
 #: templates/contacts/person/detail.html:32
 msgid "paid"
 msgstr "Pagat"
 
-#: models.py:179
+#: models.py:203
 #: templates/contacts/person/detail.html:33
 msgid "date paid"
 msgstr "Pagat en data"
 
-#: models.py:180
+#: models.py:204
 #: templates/contacts/person/detail.html:34
 msgid "date mail not paid"
 msgstr "Data enviament mail no pagat"
 
-#: models.py:181
+#: models.py:205
 #: templates/contacts/person/detail.html:35
 msgid "date mail registration"
 msgstr "Data correu de registre ok"
 
-#: models.py:187
-#: models.py:299
+#: models.py:211
+#: models.py:335
 msgid "date added"
 msgstr "Afegit en data"
 
-#: models.py:190
-#: models.py:301
+#: models.py:214
+#: models.py:337
 msgid "date modified"
 msgstr "Modificat en data"
 
-#: models.py:197
+#: models.py:221
 msgid "person"
 msgstr "Persona"
 
-#: models.py:198
+#: models.py:222
 msgid "people"
 msgstr "Persones"
 
-#: models.py:292
+#: models.py:328
 msgid "code"
 msgstr "codi"
 
-#: models.py:293
+#: models.py:329
 msgid "subject"
 msgstr "assumpte"
 
-#: models.py:294
+#: models.py:330
 msgid "description"
 msgstr "descripció"
 
-#: models.py:295
+#: models.py:331
 msgid "body"
 msgstr "Cos del missatge"
 
-#: models.py:296
+#: models.py:332
 msgid "attachment"
 msgstr "adjunt"
 
-#: models.py:297
+#: models.py:333
 msgid "second attachment"
 msgstr "Segon adjunt"
 
-#: models.py:306
+#: models.py:342
 msgid "Mail template"
 msgstr "Plantilla de correu"
 
-#: models.py:307
+#: models.py:343
 msgid "Mail templates"
 msgstr "Plantilles de correu"
 
@@ -385,7 +385,7 @@ msgstr "Dóna d'alta i continua"
 #: templates/contacts/person/map.html:79
 #: templates/contacts/person/stats.html:50
 #: templates/contacts/person/synchronize.html:29
-#: templates/contacts/person/update.html:88
+#: templates/contacts/person/update.html:103
 #: templates/contacts/person/update_status.html:21
 msgid "Return to list"
 msgstr "Torna a la llista"
@@ -398,8 +398,8 @@ msgstr "Torna a la llista"
 #: templates/contacts/person/delete.html:4
 #: templates/contacts/person/delete.html:7
 #: templates/contacts/person/delete.html:29
-#: templates/contacts/person/detail.html:93
-#: templates/contacts/person/update.html:107
+#: templates/contacts/person/detail.html:96
+#: templates/contacts/person/update.html:122
 msgid "Delete"
 msgstr "Esborra"
 
@@ -460,21 +460,21 @@ msgstr "Segon adjunt"
 #: templates/contacts/mailtemplate/detail.html:20
 #: templates/contacts/mailtemplate/update.html:20
 #: templates/contacts/person/detail.html:72
-#: templates/contacts/person/update.html:78
+#: templates/contacts/person/update.html:93
 msgid "Record created in"
 msgstr "Registre creat el"
 
 #: templates/contacts/mailtemplate/detail.html:20
 #: templates/contacts/mailtemplate/update.html:20
 #: templates/contacts/person/detail.html:72
-#: templates/contacts/person/update.html:78
+#: templates/contacts/person/update.html:93
 msgid "by"
 msgstr "per"
 
 #: templates/contacts/mailtemplate/detail.html:20
 #: templates/contacts/mailtemplate/update.html:20
 #: templates/contacts/person/detail.html:72
-#: templates/contacts/person/update.html:78
+#: templates/contacts/person/update.html:93
 msgid "Modified in"
 msgstr "Modificat el"
 
@@ -503,29 +503,29 @@ msgstr "Crea"
 
 #: templates/contacts/mailtemplate/update.html:16
 #: templates/contacts/person/revision.html:21
-#: templates/contacts/person/update.html:74
+#: templates/contacts/person/update.html:89
 msgid "Save"
 msgstr "Desa"
 
 #: templates/contacts/mailtemplate/update.html:26
 #: templates/contacts/person/cancel.html:59
-#: templates/contacts/person/update.html:89
+#: templates/contacts/person/update.html:104
 msgid "Read"
 msgstr "Lectura"
 
 #: templates/contacts/person/cancel.html:6
 #: templates/contacts/person/cancel.html:15
 #: templates/contacts/person/cancel.html:47
-#: templates/contacts/person/detail.html:89
-#: templates/contacts/person/update.html:103
+#: templates/contacts/person/detail.html:92
+#: templates/contacts/person/update.html:118
 msgid "Get inscription back"
 msgstr "Reactiva la inscripció"
 
 #: templates/contacts/person/cancel.html:8
 #: templates/contacts/person/cancel.html:17
 #: templates/contacts/person/cancel.html:49
-#: templates/contacts/person/detail.html:91
-#: templates/contacts/person/update.html:105
+#: templates/contacts/person/detail.html:94
+#: templates/contacts/person/update.html:120
 msgid "Cancel inscription"
 msgstr "Cancel·la la inscripció"
 
@@ -576,55 +576,70 @@ msgid "Centre de feina"
 msgstr "Centre de feina"
 
 #: templates/contacts/person/detail.html:80
-#: templates/contacts/person/update.html:91
+#: templates/contacts/person/update.html:106
 msgid "Justificant de pagament"
 msgstr ""
 
 #: templates/contacts/person/detail.html:83
-#: templates/contacts/person/update.html:94
+#: templates/contacts/person/update.html:109
 msgid "Justificant de inscripcio"
 msgstr "Justificant d'inscripció"
 
 #: templates/contacts/person/detail.html:86
-#: templates/contacts/person/detail.html:102
-#: templates/contacts/person/update.html:97
-#: templates/contacts/person/update.html:116
+#: templates/contacts/person/detail.html:105
+#: templates/contacts/person/update.html:112
+#: templates/contacts/person/update.html:131
 msgid "Send mail inscription ok"
 msgstr "Envia correu inscripció"
 
-#: templates/contacts/person/detail.html:96
-#: templates/contacts/person/detail.html:107
-#: templates/contacts/person/detail.html:118
-#: templates/contacts/person/update.html:110
-#: templates/contacts/person/update.html:121
-#: templates/contacts/person/update.html:134
+#: templates/contacts/person/detail.html:89
+#: templates/contacts/person/detail.html:119
+#: templates/contacts/person/update.html:115
 #: templates/contacts/person/update.html:144
+msgid "Send mail payment overdue"
+msgstr "Envia correu pagament retrasat"
+
+#: templates/contacts/person/detail.html:99
+#: templates/contacts/person/detail.html:110
+#: templates/contacts/person/detail.html:124
+#: templates/contacts/person/detail.html:135
+#: templates/contacts/person/update.html:125
+#: templates/contacts/person/update.html:136
+#: templates/contacts/person/update.html:149
+#: templates/contacts/person/update.html:159
 msgid "Send mail"
 msgstr "Enviar correu"
 
-#: templates/contacts/person/detail.html:104
-#: templates/contacts/person/update.html:118
+#: templates/contacts/person/detail.html:107
+#: templates/contacts/person/update.html:133
 msgid "You are about to send the inscription ok mail"
 msgstr "Enviaràs un correu de confirmació de la inscripció"
 
-#: templates/contacts/person/detail.html:106
-#: templates/contacts/person/detail.html:119
-#: templates/contacts/person/update.html:120
-#: templates/contacts/person/update.html:133
-#: templates/contacts/person/update.html:145
+#: templates/contacts/person/detail.html:109
+#: templates/contacts/person/detail.html:123
+#: templates/contacts/person/detail.html:136
+#: templates/contacts/person/update.html:135
+#: templates/contacts/person/update.html:148
+#: templates/contacts/person/update.html:160
 msgid "Close"
 msgstr "Tanca"
 
-#: templates/contacts/person/detail.html:107
-#: templates/contacts/person/detail.html:121
-#: templates/contacts/person/update.html:121
-#: templates/contacts/person/update.html:134
-#: templates/contacts/person/update.html:147
+#: templates/contacts/person/detail.html:110
+#: templates/contacts/person/detail.html:124
+#: templates/contacts/person/detail.html:138
+#: templates/contacts/person/update.html:136
+#: templates/contacts/person/update.html:149
+#: templates/contacts/person/update.html:162
 msgid "sending"
 msgstr "enviant"
 
-#: templates/contacts/person/detail.html:120
+#: templates/contacts/person/detail.html:121
 #: templates/contacts/person/update.html:146
+msgid "You are about to send a payment overdue mail"
+msgstr "Enviaràs un correu d'avís de pagament retrasat"
+
+#: templates/contacts/person/detail.html:137
+#: templates/contacts/person/update.html:161
 msgid "You are about to send the mail with subject: "
 msgstr "Enviaràs un correu amb assumpte:"
 
@@ -736,14 +751,21 @@ msgstr "Informació de contactes"
 msgid "Laboral data"
 msgstr "Informació laboral"
 
-#: templates/contacts/person/update.html:100
-#: templates/contacts/person/update.html:129
-msgid "Send mail payment overdue"
-msgstr "Envia correu pagament retrasat"
+#: templates/contacts/person/update.html:50
+msgid "Mail history"
+msgstr "Historial correus electrònics"
 
-#: templates/contacts/person/update.html:131
-msgid "You are about to send a payment overdue mail"
-msgstr "Enviaràs un correu d'avís de pagament retrasat"
+#: templates/contacts/person/update.html:73
+msgid "Loading messages"
+msgstr "Carregant els correus"
+
+#: templates/contacts/person/update.html:74
+msgid "Loading"
+msgstr "Carregant"
+
+#: templates/contacts/person/update.html:78
+msgid "Error!"
+msgstr "Error!"
 
 #: templates/contacts/person/update_form_old.html:15
 msgid "Registration info"
@@ -756,6 +778,18 @@ msgstr "Informació de contacte"
 #: templates/contacts/person/update_form_old.html:34
 msgid "Location"
 msgstr "Ubicació"
+
+#: views/mailhistory.py:37
+msgid "Mail login incorrect"
+msgstr "Credencials del correu incorrectes"
+
+#: views/mailhistory.py:102
+msgid "User is not authenticated"
+msgstr "Usuari no està autentificat"
+
+#: views/mailhistory.py:108
+msgid "Person does not exist in database"
+msgstr "La persona no existeix a la base de dades"
 
 #, fuzzy
 #~ msgid "Update records statusP"

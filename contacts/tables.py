@@ -12,15 +12,15 @@ class PersonTable(tables.Table):
     actions = tables.TemplateColumn(template_actions, sortable=False, verbose_name=_('Actions'))
     last_name = tables.LinkColumn('contacts_person_update',args=[A('slug')])
     first_name = tables.Column()
-    contact_type = tables.TemplateColumn('{{ record.get_contact_type_display }}')       
+    contact_type = tables.TemplateColumn('{{ record.get_contact_type_display }}')
     email = tables.TemplateColumn('<a href="mailto:{{ record.email_address }}">{{ record.email_address }}</a>', sortable=False, verbose_name=_('email address'))
     # home_town = tables.Column()
-    math_society = tables.Column()
+    math_society = tables.TemplateColumn('{{ record.get_math_society_display_mini }}')
     # date_registration = tables.TemplateColumn('{{ record.date_registration|date:"d/m/Y" }}', sortable=False, verbose_name=_('date registration'))
     date_registration = tables.DateColumn()
     paid = tables.Column()
     status  = tables.TemplateColumn('<span class="label label-{{ record.get_label }}">{{ record.get_status_display }}</span>', sortable=False, verbose_name=_('status'))
-    
+
     # external_id = tables.Column()
 
 class MailTemplateTable(tables.Table):
@@ -41,6 +41,6 @@ class ExportPersonTable(tables.Table):
     first_name = tables.Column()
     contact_type = tables.TemplateColumn('{{ record.get_contact_type_display }}')
     id_card  = tables.Column(verbose_name=_('ID card'),sortable=False)
-    phone_number  = tables.Column(verbose_name=_('phone number'),sortable=False)    
+    phone_number  = tables.Column(verbose_name=_('phone number'),sortable=False)
     email_address = tables.Column(sortable=False, verbose_name=_('email address'))
 
