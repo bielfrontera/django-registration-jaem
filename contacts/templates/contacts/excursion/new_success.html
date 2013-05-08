@@ -1,0 +1,51 @@
+{% extends "contacts/base_iframe.html" %}
+{% load i18n %}
+
+{% block title %}{{ object }}{% endblock %}
+
+{% block content_title %}
+       {% trans "Inscription to excursion and gala dinner successful!" %}
+{% endblock %}
+
+
+{% block content %}
+    <p>
+        {% if mail_ok %}
+        {% blocktrans with object.email_address as email %}You will recieve a email to {{ email }} with the instruccions{% endblocktrans %} <br />
+        {% else %}
+        <div class="alert alert-info alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>{% trans "Warning!" %}</h4>
+            {% blocktrans with object.email_address as email and mail_status as error_msg  %}There was an error sending the automatic mail to {{ email }} with the instruccions. <br/>
+            Error message: {{ error_msg }}{% endblocktrans %}
+        </div>
+        {% endif %}
+    </p>
+    <hr />
+    <h2>{% trans "Data received" %}</h2>
+
+    <p>
+        <h3>{% trans "Personal Data" %}</h3>
+        <b>{% trans "Nom" %}:</b> {{ object.first_name }} {{ object.last_name }}<br />
+        <b>{% trans "Email address" %}:</b> {{ object.email_address }}<br />
+    </p>
+    <hr/>
+    <p>
+        <h3>{% trans "Excursion and gala dinner" %}</h3>
+        <b>{% trans "date registration" %}:</b> {{ object.date_registration|date:"d/m/Y" }}<br />
+        <b>{% trans "qty excursion" %}:</b> {{ object.qty_excursion }}<br />
+        <b>{% trans "qty dinner" %}:</b> {{ object.qty_dinner }}<br />
+        <b>{% trans "qty vegetarian" %}:</b> {{ object.qty_vegetarian }}<br />
+        <b>{% trans "qty celiac" %}:</b> {{ object.qty_celiac }}<br />
+        <b>{% trans "alergies" %}:</b> {{ object.alergies }}<br />
+        <b>{% trans "accommodation_name" %}:</b> {{ object.accommodation_name }}<br />
+        <b>{% trans "accommodation_address" %}:</b> {{ object.accommodation_address }}<br />
+        {% if object.remarks %}<b>{% trans "remarks" %}:</b> {{ object.remarks|linebreaks }}{% endif %}
+    </p>
+    <hr/>
+{% endblock %}
+
+
+{% block page_js %}
+
+{% endblock page_js %}

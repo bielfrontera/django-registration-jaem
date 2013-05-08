@@ -1,0 +1,38 @@
+{% extends "contacts/excursion/base.html" %}
+{% load i18n %}
+{% load django_tables2 %}
+{% load contacts_tags %}
+
+{% block title %}{{ block.super }}: {% trans "Excursion and gala dinner stats" %}{% endblock %}
+
+{% block content_title %}
+    {% trans "Excursion and gala dinner stats" %}
+{% endblock %}
+
+{% block content %}
+
+
+    <table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+        <th>{% trans "status" %}</th>
+        <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stat in inscription_stats %}
+        {% for reg in stat.regs %}
+        <tr>
+        <td>{{ reg.status|status_display }}</td>
+        <td>{{ reg.id__count }}</td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
+
+{% block actions %}
+    <a href="{%  url contacts_excursion_list %}" class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+    <a href="{%  url contacts_excursion_updatestatus %}" class="btn"><i class="icon-refresh"></i> {% trans "Update records status" %}</a>
+{% endblock %}

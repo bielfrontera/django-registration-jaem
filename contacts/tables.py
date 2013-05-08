@@ -1,7 +1,7 @@
 import django_tables2 as tables
 from django_tables2.utils import A  # alias for Accessor
 from django.utils.translation import ugettext as _
-from contacts.models import Person, MailTemplate
+from contacts.models import Person, MailTemplate, Excursion
 
 
 
@@ -43,4 +43,38 @@ class ExportPersonTable(tables.Table):
     id_card  = tables.Column(verbose_name=_('ID card'),sortable=False)
     phone_number  = tables.Column(verbose_name=_('phone number'),sortable=False)
     email_address = tables.Column(sortable=False, verbose_name=_('email address'))
+
+
+class ExcursionTable(tables.Table):
+    template_actions = "<div style='width: 75px;'><a href='{{ record.get_update_url }}' title='Edit'><i class='icon-edit'></i></a> " + \
+        "<a href='{{ record.get_absolute_url }}' title='Read'><i class='icon-eye-open'></i></a> " + \
+        "<a href='{{ record.get_delete_url }}'title='Delete'><i class='icon-trash'></i></a></div>"
+    actions = tables.TemplateColumn(template_actions, sortable=False, verbose_name=_('Actions'))
+
+    fullname = tables.LinkColumn('contacts_excursion_update',args=[A('id')])
+    email = tables.TemplateColumn('<a href="mailto:{{ record.email_address }}">{{ record.email_address }}</a>', sortable=False, verbose_name=_('email address'))
+    qty_excursion = tables.Column()
+    qty_dinner = tables.Column()
+    qty_vegetarian = tables.Column()
+    qty_celiac = tables.Column()
+    accommodation_name = tables.Column()
+    status = tables.Column()
+    date_registration = tables.DateColumn()
+    paid = tables.Column()
+    status  = tables.TemplateColumn('<span class="label label-{{ record.get_label }}">{{ record.get_status_display }}</span>', sortable=False, verbose_name=_('status'))
+
+
+class ExportExcursionTable(tables.Table):
+    fullname = tables.Column()
+    last_name = tables.Column()
+    first_name = tables.Column()
+    email_address = tables.Column(sortable=False, verbose_name=_('email address'))
+    qty_excursion = tables.Column()
+    qty_dinner = tables.Column()
+    qty_vegetarian = tables.Column()
+    qty_celiac = tables.Column()
+    alergies = tables.Column()
+    accommodation_name = tables.Column()
+    accommodation_address = tables.Column()
+    status = tables.Column()
 

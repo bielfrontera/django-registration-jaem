@@ -1,0 +1,93 @@
+{% extends "contacts/excursion/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }}: {{ object }}{% endblock %}
+
+{% block content_title %}
+        <span class="fn">{{ object }}</span>
+        <div class="pull-right"><span class="label label-{{ object.get_label }}">{{ object.get_status_display }}</span></div>
+{% endblock %}
+
+
+{% block content %}
+    <p>
+        <h3>{% trans "Personal Data" %}</h3>
+        <b>{% trans "Nom" %}:</b> {{ object.first_name }} {{ object.last_name }}<br />
+        <b>{% trans "Email address" %}:</b> {{ object.email_address }}<br />
+    </p>
+    <hr/>
+    <p>
+        <h3>{% trans "Excursion and gala dinner" %}</h3>
+        <b>{% trans "date registration" %}:</b> {{ object.date_registration|date:"d/m/Y" }}<br />
+        <b>{% trans "qty excursion" %}:</b> {{ object.qty_excursion }}<br />
+        <b>{% trans "qty dinner" %}:</b> {{ object.qty_dinner }}<br />
+        <b>{% trans "qty vegetarian" %}:</b> {{ object.qty_vegetarian }}<br />
+        <b>{% trans "qty celiac" %}:</b> {{ object.qty_celiac }}<br />
+        <b>{% trans "alergies" %}:</b> {{ object.alergies }}<br />
+        <b>{% trans "accommodation_name" %}:</b> {{ object.accommodation_name }}<br />
+        <b>{% trans "accommodation_address" %}:</b> {{ object.accommodation_address }}<br />
+        {% if object.remarks %}<b>{% trans "remarks" %}:</b> {{ object.remarks|linebreaks }}{% endif %}
+    </p>
+    <hr/>
+    <p>
+        <h3>{% trans "Status" %}</h3>
+        <b>{% trans "paid" %}:</b> {{ object.paid }}<br />
+        <b>{% trans "date paid" %}:</b> {{ object.date_paid|date:"d/m/Y" }}<br />
+        <b>{% trans "date mail not paid" %}:</b> {{ object.date_mailnotpaid|date:"d/m/Y" }}<br />
+        <b>{% trans "date mail registration" %}:</b> {{ object.date_mailregister|date:"d/m/Y" }}<br />
+    </p>
+    <hr/>
+    <small>
+        {% trans 'Record created in' %} {{ object.date_added }}{% if object.user_add %} {% trans 'by' %} {{ object.user_add }}{% endif %}. {% trans 'Modified in' %} {{ object.date_modified }}{% if object.user_modify %} {% trans 'by' %} {{ object.user_modify }}{% endif %}.
+    </small>
+{% endblock %}
+
+{% block actions %}
+    <a href="{%  url contacts_excursion_list %}"  class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+    <a href="{{ object.get_update_url }}" class="btn"><i class="icon-edit"></i> {% trans "Edit" %}</a>
+{% if object.status == 'ok_all' and object.date_mailregister == None %}
+    <a href="#modal_mail_pagament" role="button" data-toggle="modal" class="btn"><i class="icon-envelope"></i> {% trans 'Send mail inscription ok' %}</a>
+{% endif %}
+{% if object.status == 'notpaid_late' and object.date_mailnotpaid == None %}
+    <a href="#modal_mail_pagamentretrasat" role="button" data-toggle="modal" class="btn"><i class="icon-envelope"></i> {% trans 'Send mail payment overdue' %}</a>
+{% endif %}
+{% if object.status == 'cancelled' %}
+    <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-up"></i> {% trans 'Get inscription back' %}</a>
+{% else %}
+    <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-down"></i> {% trans 'Cancel inscription' %}</a>
+{% endif %}
+<a href="{{ object.get_delete_url }}" class="btn"><i class="icon-trash"></i> {% trans "Delete" %}</a>
+
+
+{% if object.status == 'ok_all' and object.date_mailregister == None %}
+<div id="modal_mail_pagament" class="modal hide fade" tabindex="-1" role="dialog">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">{% trans "Send mail inscription ok" %}</h3>
+    </div>
+    <div class="modal-body"><h5>{% trans "You are about to send the inscription ok mail" %}</h5></div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
+    <button class="btn btn-primary btn-mail" formaction="{{ object.get_mailjustificantpagament_url }}" data-loading-text="{% trans "sending" %}..." >{% trans "Send mail" %}</button>
+    </div>
+</div>
+{% endif %}
+
+
+{% if object.status == 'notpaid_late' and object.date_mailnotpaid == None %}
+<div id="modal_mail_pagamentretrasat" class="modal hide fade" tabindex="-1" role="dialog">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">{% trans "Send mail payment overdue" %}</h3>
+    </div>
+    <div class="modal-body"><h5>{% trans "You are about to send a payment overdue mail" %}</h5></div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
+    <button class="btn btn-primary btn-mail" formaction="{{ object.get_mailpagamentretrasat_url }}" data-loading-text="{% trans "sending" %}..." >{% trans "Send mail" %}</button>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block page_js %}
+
+{% endblock page_js %}

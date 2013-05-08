@@ -73,6 +73,10 @@ def list(request, page=1, template='contacts/person/list.html'):
             if form.cleaned_data['mailregister_unsent']:
                 person_list = person_list.filter(date_mailregister__isnull = True, status='ok_all')
 
+            if form.cleaned_data['email_address']:
+                person_list = person_list.filter(email_address__icontains=form.cleaned_data['email_address'])
+
+
     else:
         form = PersonFilterForm()
 

@@ -51,22 +51,29 @@ def get_mail_history(email_address):
     if allmail_folder != '':
         mail_client.select(allmail_folder)
         result, message_ids = mail_client.search(None, '(OR (TO "%s") (FROM "%s"))' % (email_address,email_address))
+        messages = []
+
+        for message_id in message_ids[0].split()[-10:]:
+            result,message_string = mail_client.fetch(message_id, "(RFC822)")
+            messages.append(email.message_from_string(message_string[0][1]))
+
     else:
         # Cercam tant a inbox com a sent
         mail_client.select(inbox_folder)
         result, message_ids_received = mail_client.search(None, '(FROM "%s")' % email_address)
+
+        messages = []
+
+        for message_id in message_ids_received[0].split()[-5:]:
+            result,message_string = mail_client.fetch(message_id, "(RFC822)")
+            messages.append(email.message_from_string(message_string[0][1]))
+
         if sent_folder != '':
             mail_client.select(sent_folder)
             result, message_ids_sent = mail_client.search(None, '(TO "%s")' % email_address)
-            #merge de les dues llistes
-            message_ids = [''.join(message_ids_received[0]+message_ids_sent[0])]
-        else:
-            message_ids = message_ids_received
-
-    messages = []
-    for message_id in message_ids[0].split():
-        result,message_string = mail_client.fetch(message_id, "(RFC822)")
-        messages.append(email.message_from_string(message_string[0][1]))
+            for message_id in message_ids_sent[0].split()[-5:]:
+                result,message_string = mail_client.fetch(message_id, "(RFC822)")
+                messages.append(email.message_from_string(message_string[0][1]))
 
     mail_client.logout()
     return messages
@@ -74,7 +81,7 @@ def get_mail_history(email_address):
 def get_message_body(message):
     for part in message.walk():
         if part.get_content_type() == 'text/plain':
-            body = part.get_payload().decode(part.get_content_charset())
+            body = part.get_payload(decode=True).decode(part.get_content_charset())
             if len(body) > 250:
                 body = body[0:250] + ' (...)'
 

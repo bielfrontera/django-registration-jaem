@@ -1,0 +1,56 @@
+{% extends "contacts/base_pdf.html" %}
+{% load i18n %}
+
+{% block title %}Certificado aceptación aportación{% endblock %}
+
+{% block content_title %}
+
+{% endblock %}
+
+{% block content %}
+<br/>
+<br/>
+<p>
+Estimado/s
+</p>
+<br/>
+<p>
+    <b>
+    {{ autors }}
+    </b>
+</p>
+<br/>
+<br/>
+<p>
+Su aportación titulada "<b>{{ titol }}</b>" ha sido aceptada por el Comité Científico de las XVI Jornadas para el Aprendizaje y Enseñanza de las Matemáticas, JAEM Palma 2013.
+</p>
+<br/>
+<br/>
+<br/>
+{% if status != 'ok_all' %}
+<p>
+Tal aceptación está condicionada al pago de la Inscripción en el evento.
+</p>
+{% endif %}
+
+<p>
+    <i>Palma (Mallorca, España), {{ avui }}</i>
+</p>
+
+<p>
+Atentamente,
+<br/>
+<br/>
+<br/>
+En nombre del Comité Científico,<br/>
+Aina Maria González Juan, presidenta
+</p>
+
+
+
+{% endblock %}
+
+{% block footer_img %}
+    <img src="contactes/img/peu744x95_300ppp.png"  height="115" width="900" title="XVI JAEM" alt="Logo JAEM" />
+{% endblock %}
+

@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models import permalink
 from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.comments.models import Comment
 from django.contrib.contenttypes.generic import GenericRelation
 from django.conf import settings
@@ -22,6 +22,7 @@ CONTACT_TYPE_CHOICES = (
     ('G', _('Guest')),
     ('S', _('Sponsor')),
     ('O', _('Organizer')),
+    ('V', _('Volunteer')),
 )
 
 
@@ -155,7 +156,7 @@ class Person(models.Model):
     home_town = models.CharField(_('town'), max_length=200, null=True, blank=True)
     home_province = models.CharField(_('province'), max_length=200, blank=True)
 
-    email_address = models.EmailField(_('email address'), blank=True)
+    email_address = models.EmailField(_('email address'), db_index=True, blank=True)
     phone_number = models.CharField(_('phone number'), max_length=50, blank=True)
     mobile_number = models.CharField(_('mobile number'), max_length=50, blank=True)
     twitter = models.CharField(_('twitter'), max_length=22, null=True,blank=True)
@@ -369,3 +370,122 @@ class MailTemplate(models.Model):
         return ('contacts_mailtemplate_copy', None, {
             'code': self.code,
         })
+
+
+LABORAL_CATEGORY_CHOICES = (
+    ('0', 'Sense especificar'),
+    ('1', 'Funcionario/a ME o CCAA'),
+    ('2', 'Interino/a ME o CCAA'),
+    ('3', 'Otros funcionarios (Universidades)'),
+    ('4', 'Profesor/a Privada concertada'),
+    ('5', 'Profesor/a Privada no concertada'),
+    ('6', 'Sin experiencia docente (Magisterio/Formación inic...'),
+)
+
+class Excursion(models.Model):
+    # DADES PERSONALS
+    first_name = models.CharField(_('first name'), max_length=100)
+    last_name = models.CharField(_('last name'), max_length=200)
+    email_address = models.EmailField(_('email address'), db_index=True, blank=True)
+    qty_excursion = models.IntegerField(_('excursion qty'),null=True, blank=True)
+    qty_dinner = models.IntegerField(_('dinner qty'),null=True, blank=True)
+    qty_vegetarian = models.IntegerField(_('vegetarian qty'),null=True, blank=True)
+    qty_celiac = models.IntegerField(_('celiac qty'),null=True, blank=True)
+    alergies = models.CharField(_('alergies'), max_length=200, blank=True)
+    accommodation_name = models.CharField(_('accommodation name'), max_length=200, blank=True)
+    accommodation_address = models.CharField(_('accommodation address'), max_length=200, blank=True)
+
+    remarks =  models.TextField(_('remarks'), null=True,blank=True)
+
+    # Revisio
+    date_registration = models.DateTimeField(_('date registration'),null=True, blank=True)
+    status = models.CharField(_('status'), max_length=15,choices=STATUS_CHOICES, default='pendent', blank=True)
+    paid = models.DecimalField(_('paid'),max_digits=5, decimal_places=2,null=True,blank=True)
+    date_paid = models.DateTimeField(_('date paid'),null=True, blank=True)
+    date_mailnotpaid = models.DateTimeField(_('date mail not paid'),null=True, blank=True)
+    date_mailregister= models.DateTimeField(_('date mail registration'),null=True, blank=True)
+
+    person = models.OneToOneField(Person, blank=True, null=True)
+    date_added = models.DateTimeField(_('date added'), auto_now_add=True)
+    user_add = models.ForeignKey(User, blank=True, null=True, related_name='excursion-add')
+    date_modified = models.DateTimeField(_('date modified'), auto_now=True)
+    user_modify = models.ForeignKey(User, blank=True, null=True, related_name='excursion-modified')
+
+    class Meta:
+        db_table = 'contacts_excursion'
+        verbose_name = _('Excursion and Dinner registration')
+        verbose_name_plural = _('Excursion and Dinner registrations')
+
+    def __unicode__(self):
+        return  u"%s" % (self.fullname)
+
+
+    @property
+    def fullname(self):
+        return u"%s %s" % (self.first_name, self.last_name)
+
+    @property
+    def get_label(self):
+        label = ''
+        if self.status == 'ok_notpaid':
+            label = 'warning'
+        elif self.status == 'notpaid_late':
+            label = 'important'
+        elif self.status == 'nook_paid':
+            label = 'info'
+        elif self.status == 'ok_all':
+            label = 'success'
+        elif self.status == 'cancelled':
+            label = 'inverse'
+        return label
+
+
+    @permalink
+    def get_absolute_url(self):
+        return ('contacts_excursion_detail', None, {
+            'id': self.id,
+        })
+
+    @permalink
+    def get_update_url(self):
+        return ('contacts_excursion_update', None, {
+            'id': self.id,
+        })
+
+    @permalink
+    def get_delete_url(self):
+        return ('contacts_excursion_delete', None, {
+            'id': self.id,
+        })
+
+    @permalink
+    def get_cancel_url(self):
+        return ('contacts_excursion_cancel', None, {
+            'id': self.id,
+        })
+
+    @permalink
+    def get_justificantpagament_url(self):
+        return ('contacts_excursion_justificantpagament', None, {
+            'id': self.id,
+        })
+
+    @permalink
+    def get_mail_url(self):
+        return ('contacts_excursion_mail', None, {
+            'id': self.id,
+            'code': None
+        })
+
+    @permalink
+    def get_mailjustificantpagament_url(self):
+        return ('contacts_excursion_mailjustificantpagament', None, {
+            'id': self.id,
+        })
+
+    @permalink
+    def get_mailpagamentretrasat_url(self):
+        return ('contacts_excursion_mailpagamentretrasat', None, {
+            'id': self.id,
+        })
+

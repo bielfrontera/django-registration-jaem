@@ -119,4 +119,69 @@ urlpatterns = patterns('contacts.views',
         name = 'contacts_mailtemplate_list',
     ),
 
+    url(r'^excursion/new/(?P<lang>[-\w]+)$',
+        view = 'excursion.new',
+        name = 'contacts_excursion_new',
+    ),
+
+    url(r'^excursion/new/$',
+        view = 'excursion.new',
+        name = 'contacts_excursion_new',
+    ),
+
+    url(r'^excursion/add/$',
+        view = 'excursion.create',
+        name = 'contacts_excursion_create',
+    ),
+
+    url(r'^excursion/export/$',
+        view = 'excursion.export',
+        name = 'contacts_excursion_export',
+    ),
+
+
+    url(r'^excursion/stats/$',
+        view = 'stats.excursion',
+        name = 'contacts_stats_excursion',
+    ),
+    url(r'^excursion/updateStatus/$',
+        view = 'excursion.updateStatus',
+        name = 'contacts_excursion_updatestatus',
+    ),
+    url(r'^excursion/(?P<id>[-\d]+)/delete/$',
+        view = 'excursion.delete',
+        name = 'contacts_excursion_delete'
+    ),
+    url(r'^excursion/(?P<id>[-\d]+)/edit/$',
+        view = 'excursion.update',
+        name = 'contacts_excursion_update'
+    ),
+    url(r'^excursion/(?P<id>[-\d]+)/cancel/$',
+        view = 'excursion.cancel',
+        name = 'contacts_excursion_cancel'
+    ),
+
+    url(r'^excursion/(?P<id>[-\d]+)/mailjustificantpagament$',
+        view = 'reporting.mailJustificantPagamentExcursion',
+        name = 'contacts_excursion_mailjustificantpagament'
+    ),
+    url(r'^excursion/(?P<id>[-\d]+)/mailpagamentretrasat$',
+        view = 'reporting.mailPagamentRetrasatExcursion',
+        name = 'contacts_excursion_mailpagamentretrasat'
+    ),
+    url(r'^excursion/(?P<id>[-\d]+)/mail/(?P<code>[-\w]+)$',
+        view = 'reporting.mailExcursion',
+        name = 'contacts_excursion_mail'
+    ),
+
+    url(r'^excursion/(?P<id>[-\d]+)/$',
+        view = 'excursion.detail',
+        name = 'contacts_excursion_detail',
+    ),
+
+    url(r'^excursion/$',
+        view = 'excursion.list',
+        name = 'contacts_excursion_list',
+    ),
+
 )

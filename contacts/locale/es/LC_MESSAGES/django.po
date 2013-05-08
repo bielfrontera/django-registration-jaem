@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-08 01:06+0200\n"
-"PO-Revision-Date: 2013-05-08 01:38+0100\n"
+"PO-Revision-Date: 2013-05-08 01:35+0100\n"
 "Last-Translator: Biel Frontera <sindbili@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -72,7 +72,7 @@ msgstr "Persona desconeguda"
 #: models.py:144
 #: models.py:388
 msgid "last name"
-msgstr "Llinatges"
+msgstr "Apellidos"
 
 #: forms.py:142
 #: forms.py:186
@@ -84,7 +84,7 @@ msgstr "Llinatges"
 #: tables.py:71
 #: templates/contacts/person/detail.html:45
 msgid "email address"
-msgstr "correu electrònic"
+msgstr "Correo electrónico"
 
 #: forms.py:143
 #: forms.py:158
@@ -144,23 +144,23 @@ msgstr "estadístiques per"
 
 #: forms.py:221
 msgid "This email address doesn't exist in the inscription database"
-msgstr "Aquesta adreça de correu electrònic no existeix a la base de dades d'inscrits a les XVI JAEM. Revisa l'adreça que vares utiltizar per a la inscripció."
+msgstr "Esta dirección de correo no existe en la base de datos de inscritos en las XVI JAEM.Revisa la dirección que utilizaste en la inscripción."
 
 #: forms.py:225
 msgid "Your excursion and gala dinner inscriptions already exists. If you want to modify your inscription, please send a message to inscripciones@jaem.es"
-msgstr "La teva inscripció a l'excursió i/o sopar de gala ja existeix. Si vols modificar la teva inscripció, envia un missatge a inscripciones@jaem.es."
+msgstr "Tu inscripción a la excursión i/o centa de gala ya existe. Si quieres modificar tu inscripción, envía un mensaje a inscripciones@jaem.es."
 
 #: forms.py:239
 msgid "You have to select excursion, gala dinner or both"
-msgstr "No has marcat cap plaça ni d'excursió ni de sopar."
+msgstr "No has marcado ninguna plaza ni de excursión ni de cena."
 
 #: forms.py:252
 msgid "There are more vegetarian options than dinners selected"
-msgstr "Has marcat més places de menú vegetarià que places de sopar."
+msgstr "Has marcado más plazas de menú vegetariano que de cena,"
 
 #: forms.py:266
 msgid "There are more celiac options than dinners selected"
-msgstr "Has marcat més places de menú per a celíacs que places de sopar."
+msgstr "Has marcado más plazas de menú para celíacos que de cena,"
 
 #: models.py:122
 msgid "Pendent"
@@ -169,7 +169,7 @@ msgstr "Pendent"
 #: models.py:143
 #: models.py:387
 msgid "first name"
-msgstr "Nom"
+msgstr "Nombre"
 
 #: models.py:145
 msgid "nickname"
@@ -262,7 +262,7 @@ msgstr "Codi del centre"
 #: templates/contacts/excursion/new_success.html:43
 #: templates/contacts/person/detail.html:37
 msgid "remarks"
-msgstr "Observacions / Comentaris"
+msgstr "Observaciones"
 
 #: models.py:193
 msgid "external id"
@@ -367,37 +367,37 @@ msgstr "Plantilles de correu"
 
 #: models.py:390
 msgid "excursion qty"
-msgstr "Places excursió"
+msgstr "Plazas excursión"
 
 #: models.py:391
 msgid "dinner qty"
-msgstr "Places sopar de gala"
+msgstr "Plazas cena de gala"
 
 #: models.py:392
 msgid "vegetarian qty"
-msgstr "Menú vegetarià"
+msgstr "Menú vegetariano"
 
 #: models.py:393
 msgid "celiac qty"
-msgstr "Menú per a celíacs"
+msgstr "Menú para celíacos"
 
 #: models.py:394
 #: templates/contacts/excursion/detail.html:26
 #: templates/contacts/excursion/new_success.html:40
 msgid "alergies"
-msgstr "Al·lèrgies"
+msgstr "Alergias"
 
 #: models.py:395
 msgid "accommodation name"
-msgstr "Nom de l'allotjament"
+msgstr "Nombre del alojamiento"
 
 #: models.py:396
 msgid "accommodation address"
-msgstr "Direcció de l'allotjament"
+msgstr "Dirección del alojamiento"
 
 #: models.py:416
 msgid "Excursion and Dinner registration"
-msgstr "Inscripció a l'excursió i sopar de gala"
+msgstr "Inscripción a la excursió y cena de gala"
 
 #: models.py:417
 msgid "Excursion and Dinner registrations"
@@ -411,7 +411,7 @@ msgstr "Accions"
 
 #: functions/mailtemplate.py:27
 msgid "Mail not sent"
-msgstr "Mail no enviat"
+msgstr "Correo electrónico no enviado"
 
 #: functions/mailtemplate.py:46
 msgid "Error generating pdf"
@@ -424,11 +424,11 @@ msgstr "Error al generar el pdf"
 #: views/reporting.py:294
 #: views/reporting.py:324
 msgid "Mail sent"
-msgstr "Correu electrònic enviat"
+msgstr "Correo electrónico enviado"
 
 #: functions/mailtemplate.py:56
 msgid "Error sending mail"
-msgstr "Ha hagut un error quan s'enviava el correu electrònic"
+msgstr "Ha ocurrido un error al enviar el correo electrónico"
 
 #: templates/contacts/_comment_list.html:6
 msgid "Notes"
@@ -496,7 +496,7 @@ msgstr "Cancel·la la inscripció"
 #: templates/contacts/person/delete.html:13
 #: templates/contacts/person/list.html:16
 msgid "Warning!"
-msgstr "Atenció!"
+msgstr "¡Atención!"
 
 #: templates/contacts/excursion/cancel.html:27
 #: templates/contacts/person/cancel.html:27
@@ -615,57 +615,57 @@ msgstr "Estàs a punt d'esborrar aquest registre. Vols continuar?"
 #: templates/contacts/person/detail.html:16
 #: templates/contacts/person/update_form_old.html:3
 msgid "Personal Data"
-msgstr "Dades personals"
+msgstr "Datos personales"
 
 #: templates/contacts/excursion/detail.html:15
 #: templates/contacts/excursion/new_success.html:29
 #: templates/contacts/person/detail.html:18
 msgid "Nom"
-msgstr "Nom"
+msgstr "Nombre"
 
 #: templates/contacts/excursion/detail.html:16
 #: templates/contacts/excursion/new_success.html:30
 msgid "Email address"
-msgstr "Correu electrònic"
+msgstr "Correo electrónico"
 
 #: templates/contacts/excursion/detail.html:20
 #: templates/contacts/excursion/new_success.html:34
 msgid "Excursion and gala dinner"
-msgstr "Excursió i sopar de gala"
+msgstr "Excursión y cena de gala"
 
 #: templates/contacts/excursion/detail.html:22
 #: templates/contacts/excursion/new_success.html:36
 msgid "qty excursion"
-msgstr "Places excursió"
+msgstr "Plazas excursión"
 
 #: templates/contacts/excursion/detail.html:23
 #: templates/contacts/excursion/new_success.html:37
 msgid "qty dinner"
-msgstr "Places sopar de gala"
+msgstr "Plazas cena de gala"
 
 #: templates/contacts/excursion/detail.html:24
 #: templates/contacts/excursion/new_success.html:38
 msgid "qty vegetarian"
-msgstr "Menú vegetarià"
+msgstr "Menú vegetariano"
 
 #: templates/contacts/excursion/detail.html:25
 #: templates/contacts/excursion/new_success.html:39
 msgid "qty celiac"
-msgstr "Menú per a celíacs"
+msgstr "Menú para celíacos"
 
 #: templates/contacts/excursion/detail.html:27
 #: templates/contacts/excursion/new_success.html:41
 msgid "accommodation_name"
-msgstr "Nom de l'allotjament"
+msgstr "Nombre del alojamiento"
 
 #: templates/contacts/excursion/detail.html:28
 #: templates/contacts/excursion/new_success.html:42
 msgid "accommodation_address"
-msgstr "Direcció de l'allotjament"
+msgstr "Dirección del alojamiento"
 
 #: templates/contacts/excursion/detail.html:33
 msgid "Status"
-msgstr "Estat"
+msgstr "Estado"
 
 #: templates/contacts/excursion/detail.html:41
 #: templates/contacts/excursion/update.html:28
@@ -807,44 +807,44 @@ msgstr "Estadístiques d'inscripcions"
 #: templates/contacts/excursion/new.html:5
 #: templates/contacts/excursion/new.html:8
 msgid "Excursion and gala dinner registration"
-msgstr "Inscripció a l'excursió i al sopar de gala"
+msgstr "Inscripción a la excursión y a la cena de gala"
 
 #: templates/contacts/excursion/new.html:17
 msgid "Personal data"
-msgstr "Dades personals "
+msgstr "Datos personales"
 
 #: templates/contacts/excursion/new.html:21
 msgid "Excursion"
-msgstr "Excursió"
+msgstr "Excursión"
 
 #: templates/contacts/excursion/new.html:25
 msgid "Gala Dinner"
-msgstr "Sopar de gala"
+msgstr "Cena de gala"
 
 #: templates/contacts/excursion/new.html:29
 msgid "Accommodation"
-msgstr "Allotjament"
+msgstr "Alojamiento"
 
 #: templates/contacts/excursion/new.html:30
 msgid "El servei de busos intentarà fer rutes de tornada del sopar per deixar a tothom al seu allotjament, sempre que es tracti de la zona de Palma o S'Arenal"
-msgstr ""
+msgstr "El servicio de buses intentará hacer rutas de regreso de la cena para dejar a todos en su alojamiento, siempre que se trate de la zona de Palma o S'Arenal"
 
 #: templates/contacts/excursion/new.html:34
 msgid "Remarks"
-msgstr "Observacions"
+msgstr "Observaciones"
 
 #: templates/contacts/excursion/new.html:61
 msgid "Validate"
-msgstr "Valida"
+msgstr "Envía"
 
 #: templates/contacts/excursion/new_success.html:7
 msgid "Inscription to excursion and gala dinner successful!"
-msgstr "Inscripció a l'excursió i al sopar de gala registrada correctament!"
+msgstr "¡Inscripción a la excursión i/o a la cena de gala registrada correctamente!"
 
 #: templates/contacts/excursion/new_success.html:14
 #, python-format
 msgid "You will recieve a email to %(email)s with the instruccions"
-msgstr "Rebràs un correu a %(email)s amb les instruccions per completar la inscripció."
+msgstr "Recibirás un correo a %(email)s con las instrucciones para completar la inscripción."
 
 #: templates/contacts/excursion/new_success.html:19
 #, python-format
@@ -852,12 +852,12 @@ msgid ""
 "There was an error sending the automatic mail to %(email)s with the instruccions. <br/>\n"
 "            Error message: %(error_msg)s"
 msgstr ""
-"S'ha produit un problema en l'enviament del correu electrònic amb les instruccions de pagament a l'adreça %(email)s. <br/>\n"
-"            Missatge d'error: %(error_msg)s"
+"Se ha producido un problema en el envío del correo electrónico con las instrucciones de pago a la dirección %(email)s. <br/>\n"
+"            Mensaje de error: %(error_msg)s"
 
 #: templates/contacts/excursion/new_success.html:25
 msgid "Data received"
-msgstr "Informació rebuda"
+msgstr "Información recibida"
 
 #: templates/contacts/excursion/stats.html:6
 #: templates/contacts/excursion/stats.html:9

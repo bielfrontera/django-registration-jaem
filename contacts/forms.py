@@ -4,7 +4,7 @@ from django import forms
 from django.forms import ModelForm, Form, TextInput
 from django.utils.translation import ugettext as _
 
-from contacts.models import Person, LABORAL_LEVEL_CHOICES, MailTemplate
+from contacts.models import Person, LABORAL_LEVEL_CHOICES, MailTemplate, Excursion
 from contacts.widgets import ColumnCheckboxSelectMultiple
 from bootstrap_toolkit.widgets import BootstrapTextInput, BootstrapDateInput
 
@@ -63,8 +63,10 @@ class PersonRegistrationForm(ModelForm):
         self.fields['date_paid'].input_formats = ['%d/%m/%Y']
         self.fields['date_paid'].widget.attrs['class']  = 'input-small'
         self.fields['math_society'].widget.attrs['class']  = 'input-xxlarge'
-        self.fields['remarks'].widget.attrs['rows']  = 3
+        self.fields['remarks'].widget.attrs['rows']  = 4
         self.fields['remarks'].widget.attrs['cols']  = 75
+        self.fields['remarks'].widget.attrs['class']  = 'input-xxlarge'
+
         self.fields['paid'].widget = BootstrapTextInput(append='€')
         self.fields['paid'].widget.attrs['class']  = 'input-mini'
         self.fields['lang'].widget.attrs['class']  = 'input-medium'
@@ -124,6 +126,7 @@ FILTERCONTACT_TYPE_CHOICES = (
     ('G', _('Guest')),
     ('S', _('Sponsor')),
     ('O', _('Organizer')),
+    ('V', _('Volunteer')),
 )
 
 FILTERREVISION_CHOICES = (
@@ -136,6 +139,7 @@ FILTERREVISION_CHOICES = (
 
 class PersonFilterForm(Form):
     last_name = forms.CharField(label=_('last name'),required = False)
+    email_address = forms.CharField(label=_('email address'),required = False)
     contact_type = forms.ChoiceField(label=_('contact type'),required = False, choices = FILTERCONTACT_TYPE_CHOICES )
     id_card = forms.CharField(label=_('ID card'),required = False)
     status = forms.ChoiceField(label=_('status'),required = False, choices =  ( ('', ''),) + STATUS_CHOICES )
@@ -176,3 +180,133 @@ class MailTemplateForm(ModelForm):
     class Meta:
         model = MailTemplate
         fields = ('code','description','subject','body','attachment','attachment2')
+
+class ExcursionFilterForm(Form):
+    last_name = forms.CharField(label=_('last name'),required = False)
+    email_address = forms.CharField(label=_('email address'),required = False)
+    status = forms.ChoiceField(label=_('status'),required = False, choices =  ( ('', ''),) + STATUS_CHOICES )
+    mailnotpaid_unsent = forms.BooleanField(label=_('mail not paid unsent'),required = False)
+    mailregister_unsent = forms.BooleanField(label=_('mail registration unsent'),required = False)
+
+class ExcursionCreateForm(ModelForm):
+    def __init__(self,*args,**kwrds):
+        super(ModelForm,self).__init__(*args,**kwrds)
+        self.fields['remarks'].widget.attrs['rows']  = 8
+        self.fields['remarks'].widget.attrs['cols']  = 50
+        self.fields['remarks'].widget.attrs['class']  = 'input-xlarge'
+        self.fields['first_name'].widget.attrs['class']  = 'input-large'
+        self.fields['last_name'].widget.attrs['class']  = 'input-large'
+        self.fields['email_address'].widget.attrs['class']  = 'input-large'
+        self.fields['qty_excursion'].widget = forms.Select(choices=  [ (i,i) for i in range(0,5) ])
+        self.fields['qty_excursion'].widget.attrs['class']  = 'input-mini'
+
+        self.fields['qty_dinner'].widget = forms.Select(choices=  [ (i,i) for i in range(0,5) ])
+        self.fields['qty_dinner'].widget.attrs['class']  = 'input-mini'
+
+        self.fields['qty_vegetarian'].widget = forms.Select(choices=  [ (i,i) for i in range(0,5) ])
+        self.fields['qty_vegetarian'].widget.attrs['class']  = 'input-mini'
+
+        self.fields['qty_celiac'].widget = forms.Select(choices=  [ (i,i) for i in range(0,5) ])
+        self.fields['qty_celiac'].widget.attrs['class']  = 'input-mini'
+
+        self.fields['alergies'].widget.attrs['class']  = 'input-xlarge'
+        self.fields['accommodation_name'].widget.attrs['class']  = 'input-xlarge'
+        self.fields['accommodation_address'].widget.attrs['class']  = 'input-xlarge'
+
+    def clean_email_address(self):
+        data = self.cleaned_data['email_address']
+        try:
+            person = Person.objects.get(email_address=data)
+        except Person.DoesNotExist:
+            raise forms.ValidationError( _("This email address doesn't exist in the inscription database"))
+
+        try:
+            excursion = Excursion.objects.get(email_address=data)
+            raise forms.ValidationError( _("Your excursion and gala dinner inscriptions already exists. If you want to modify your inscription, please send a message to inscripciones@jaem.es"))
+        except Excursion.DoesNotExist:
+            pass
+
+
+        # Always return the cleaned data, whether you have changed it or
+        # not.
+        return data
+
+    def clean_qty_dinner(self):
+        data = self.cleaned_data['qty_dinner']
+        qty_excursion = self.cleaned_data['qty_excursion']
+
+        if data == 0 and qty_excursion == 0:
+            raise forms.ValidationError( _("You have to select excursion, gala dinner or both"))
+
+        # Always return the cleaned data, whether you have changed it or
+        # not.
+        return data
+
+    def clean_qty_vegetarian(self):
+        data = self.cleaned_data['qty_vegetarian']
+        try:
+            qty_dinner = self.cleaned_data['qty_dinner']
+        except:
+            return data
+        if data > qty_dinner:
+            raise forms.ValidationError( _("There are more vegetarian options than dinners selected"))
+
+        # Always return the cleaned data, whether you have changed it or
+        # not.
+        return data
+
+    def clean_qty_celiac(self):
+        data = self.cleaned_data['qty_celiac']
+        try:
+            qty_dinner = self.cleaned_data['qty_dinner']
+        except:
+            return data
+
+        if data > qty_dinner:
+            raise forms.ValidationError( _("There are more celiac options than dinners selected"))
+
+        # Always return the cleaned data, whether you have changed it or
+        # not.
+        return data
+
+
+    class Meta:
+        model = Excursion
+        fields = ('first_name', 'last_name', 'email_address',
+                  'qty_excursion','qty_dinner','qty_vegetarian','qty_celiac','alergies',
+                  'accommodation_name','accommodation_address','remarks')
+
+class ExcursionUpdateForm(ModelForm):
+    def __init__(self,*args,**kwrds):
+        super(ModelForm,self).__init__(*args,**kwrds)
+        self.fields['remarks'].widget.attrs['rows']  = 8
+        self.fields['remarks'].widget.attrs['cols']  = 75
+        self.fields['remarks'].widget.attrs['class']  = 'input-xxlarge'
+        self.fields['first_name'].widget.attrs['class']  = 'input-large'
+        self.fields['last_name'].widget.attrs['class']  = 'input-large'
+        self.fields['qty_excursion'].widget = forms.Select(choices=  [ (i,i) for i in range(0,5) ])
+        self.fields['qty_excursion'].widget.attrs['class']  = 'input-mini'
+        self.fields['qty_dinner'].widget.attrs['class']  = 'input-mini'
+        self.fields['qty_vegetarian'].widget.attrs['class']  = 'input-mini'
+        self.fields['qty_celiac'].widget.attrs['class']  = 'input-mini'
+        self.fields['alergies'].widget.attrs['class']  = 'input-xlarge'
+        self.fields['accommodation_name'].widget.attrs['class']  = 'input-xlarge'
+        self.fields['accommodation_address'].widget.attrs['class']  = 'input-xlarge'
+
+        self.fields['date_registration'].widget.format = '%d/%m/%Y'
+        self.fields['date_registration'].input_formats = ['%d/%m/%Y']
+        self.fields['date_registration'].widget.attrs['class']  = 'input-small'
+
+        self.fields['date_paid'].widget.format = '%d/%m/%Y'
+        self.fields['date_paid'].input_formats = ['%d/%m/%Y']
+        self.fields['date_paid'].widget.attrs['class']  = 'input-small'
+        self.fields['paid'].widget = BootstrapTextInput(append='€')
+        self.fields['paid'].widget.attrs['class']  = 'input-mini'
+
+
+
+    class Meta:
+        model = Excursion
+        fields = ('first_name', 'last_name', 'email_address',
+                  'qty_excursion','qty_dinner','qty_vegetarian','qty_celiac','alergies',
+                  'accommodation_name','accommodation_address','remarks','date_registration','paid','date_paid')

@@ -15,7 +15,7 @@ from django.utils import simplejson
 
 from datetime import date, datetime
 from django.conf import settings
-from contacts.models import Person, MailTemplate
+from contacts.models import Person, MailTemplate, Excursion
 
 import os, sys
 import StringIO
@@ -142,6 +142,39 @@ def mail(request,slug,code):
     return HttpResponse(json, mimetype='application/json')
 
 
+def mailExcursion(request,id,code):
+    """
+        Envia i genera el pdf del justificant de Pagament al sopar de les jaem les JAEM
+    """
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/login/?next=%s' % request.path)
+
+    try:
+        excursion = Excursion.objects.get(id=id)
+        person = excursion.person
+    except Excursion.DoesNotExist:
+        raise Http404
+
+    avui = _date(datetime.now(), "d \d\e F \d\e Y")
+
+
+    if person.lang == '1':
+        cur_language = translation.get_language()
+        try:
+            translation.activate('es')
+            avui = _date(datetime.now(), "d \d\e F \d\e Y")
+        finally:
+            translation.activate(cur_language)
+
+    kwvars = {
+        'object': excursion,
+        'avui': avui
+    }
+    context = Context(kwvars)
+    status = sendTemplateMail(context,code,[excursion.email_address])
+    json = simplejson.dumps(status)
+    return HttpResponse(json, mimetype='application/json')
+
 
 def mailJustificantPagament(request,slug):
     """
@@ -218,6 +251,79 @@ def mailPagamentRetrasat(request,slug):
     if status == _('Mail sent'):
         person.date_mailnotpaid = datetime.now()
         person.save()
+
+    json = simplejson.dumps(status)
+    return HttpResponse(json, mimetype='application/json')
+
+
+def mailJustificantPagamentExcursion(request,id):
+    """
+        Envia i genera el pdf del justificant de Pagament del sopar de les JAEM
+    """
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/login/?next=%s' % request.path)
+
+    try:
+        excursion = Excursion.objects.get(id=id)
+    except Excursion.DoesNotExist:
+        raise Http404
+
+    avui = _date(datetime.now(), "d \d\e F \d\e Y")
+
+
+    if excursion.person and excursion.person.lang == '1':
+        cur_language = translation.get_language()
+        try:
+            translation.activate('es')
+            avui = _date(datetime.now(), "d \d\e F \d\e Y")
+        finally:
+            translation.activate(cur_language)
+
+    kwvars = {
+        'object': excursion,
+        'avui': avui
+    }
+
+    if excursion.person and excursion.person.lang == '2':
+        mailtemplate = 'exc_justpagament_cat'
+    else:
+        mailtemplate = 'exc_justpagament_esp'
+
+    context = Context(kwvars)
+    status = sendTemplateMail(context,mailtemplate,[excursion.email_address])
+    if status == _('Mail sent'):
+        excursion.date_mailregister = datetime.now()
+        excursion.save()
+
+    json = simplejson.dumps(status)
+    return HttpResponse(json, mimetype='application/json')
+
+def mailPagamentRetrasatExcursion(request,id):
+    """
+        Envia un mail avisant que el pagament de la inscripció al sopar de les JAEM
+    """
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/login/?next=%s' % request.path)
+
+    try:
+        excursion = Excursion.objects.get(id=id)
+    except Excursion.DoesNotExist:
+        raise Http404
+
+
+    kwvars = {
+        'object': excursion,
+    }
+    if excursion.person and excursion.person.lang == '2':
+        mailtemplate = 'exc_pagamentretrasat_cat'
+    else:
+        mailtemplate = 'exc_pagamentretrasat_esp'
+
+    context = Context(kwvars)
+    status = sendTemplateMail(context,mailtemplate,[excursion.email_address])
+    if status == _('Mail sent'):
+        excursion.date_mailnotpaid = datetime.now()
+        excursion.save()
 
     json = simplejson.dumps(status)
     return HttpResponse(json, mimetype='application/json')

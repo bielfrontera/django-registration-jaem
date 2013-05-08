@@ -4,7 +4,7 @@ from django.http import Http404, HttpResponse, HttpResponseForbidden, HttpRespon
 from django.shortcuts import render_to_response, get_object_or_404, render
 from django.db.models import Count
 from django.template import RequestContext
-from contacts.models import Person, CONTACT_TYPE_CHOICES, LANG_CHOICES, MATH_SOCIETY_CHOICES
+from contacts.models import Person, CONTACT_TYPE_CHOICES, LANG_CHOICES, MATH_SOCIETY_CHOICES, Excursion
 from contacts.forms import StatsForm
 
 
@@ -62,6 +62,28 @@ def inscription(request,  template='contacts/person/stats.html'):
     }
 
     return render_to_response(template, kwvars, RequestContext(request))
+
+def excursion(request,  template='contacts/excursion/stats.html'):
+    """ Stats inscription
+    :param template: Add a custom template.
+    """
+
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/login/?next=%s' % request.path)
+
+
+    inscription_stats = []
+    regs = Excursion.objects.all.values('status').annotate(Count("id")).order_by()
+    stat = { 'regs' : regs  }
+    inscription_stats.append(stat)
+
+    kwvars = {
+        'inscription_stats' : inscription_stats,
+    }
+
+    return render_to_response(template, kwvars, RequestContext(request))
+
+
 
 
 

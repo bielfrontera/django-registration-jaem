@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ca">
+{% load i18n %}
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% trans "Contacts" %}{% endblock %}</title>
+  {% block metas %}
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link href="/contactes/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  {% endblock metas %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <!-- Le styles -->
+  {% block css %}
+    <link href="/contactes/css/bootstrap_united.css" rel="stylesheet">
+    <!-- link href="/contactes/css/bootstrap.css" rel="stylesheet" -->
+    <link href="/contactes/css/datepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="/contactes/css/stylejaem.css" type="text/css">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  {% endblock css %}
+  {% block page_css %}{% endblock page_css %}
+
+
+
+  </head>
+
+  <body>
+    <div id="wrap">
+        <div class="span8">
+            <div class="page-header">
+                <h2>{% block content_title %}{% endblock content_title %}</h2>
+            </div>
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/contactes/js/bootstrap.min.js"></script>
+    <script src="/contactes/js/bootstrap-datepicker.js"></script>
+    {% block page_js %}{% endblock page_js %}
+
+  </body>
+</html>

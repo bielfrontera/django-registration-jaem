@@ -1,0 +1,88 @@
+{% extends "contacts/excursion/base.html" %}
+{% load i18n %}
+{% load bootstrap_toolkit %}
+
+{% block title %}{{ block.super }}: {% trans "Edit" %} {{ object }}{% endblock %}
+
+{% block content_title %}
+    {{ object }}
+    <div class="pull-right"><span class="label label-{{ object.get_label }}">{{ object.get_status_display }}</span></div>
+{% endblock %}
+
+{% block content %}
+{% if form.errors  %}
+    <div class="alert alert-error alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>{% trans 'Error' %}</h4>
+        {{ form.errors }}
+    </div>
+{% endif %}
+    <form action="." method="post" accept-charset="utf-8" enctype="multipart/form-data" class="form-horizontal">
+        {% csrf_token %}
+        {{ form|as_bootstrap }}
+        <div class="form-actions">
+            <button type="submit" value="Submit" class="btn btn-primary"><i class="icon-white icon-ok"></i> {% trans 'Save' %}</button>
+        </div>
+    </form>
+    <small>
+        {% trans 'Record created in' %} {{ object.date_added }}{% if object.user_add %} {% trans 'by' %} {{ object.user_add }}{% endif %}. {% trans 'Modified in' %} {{ object.date_modified }}{% if object.user_modify %} {% trans 'by' %} {{ object.user_modify }}{% endif %}.
+    </small>
+
+
+
+{% endblock %}
+
+{% block actions %}
+
+
+<a href="{%  url contacts_excursion_list %}" class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+<a href="{{ object.person.get_absolute_url }}" class="btn"><i class="icon-eye-open"></i> {% trans "Go to Inscription record" %}</a>
+<a href="{{ object.get_absolute_url }}" class="btn"><i class="icon-eye-open"></i> {% trans "Read" %}</a>
+{% if object.status == 'ok_all' and object.date_mailregister == None %}
+    <a href="#modal_mail_pagament" role="button" data-toggle="modal" class="btn"><i class="icon-envelope"></i> {% trans 'Send mail inscription ok' %}</a>
+{% endif %}
+{% if object.status == 'notpaid_late' and object.date_mailnotpaid == None %}
+    <a href="#modal_mail_pagamentretrasat" role="button" data-toggle="modal" class="btn"><i class="icon-envelope"></i> {% trans 'Send mail payment overdue' %}</a>
+{% endif %}
+{% if object.status == 'cancelled' %}
+    <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-up"></i> {% trans 'Get inscription back' %}</a>
+{% else %}
+    <a href="{{ object.get_cancel_url }}" class="btn"><i class="icon-thumbs-down"></i> {% trans 'Cancel inscription' %}</a>
+{% endif %}
+<a href="{{ object.get_delete_url }}" class="btn"><i class="icon-trash"></i> {% trans "Delete" %}</a>
+
+{% if object.status == 'ok_all' and object.date_mailregister == None %}
+<div id="modal_mail_pagament" class="modal hide fade" tabindex="-1" role="dialog">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">{% trans "Send mail inscription ok" %}</h3>
+    </div>
+    <div class="modal-body"><h5>{% trans "You are about to send the inscription ok mail" %}</h5></div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
+    <button class="btn btn-primary btn-mail" formaction="{{ object.get_mailjustificantpagament_url }}" data-loading-text="{% trans "sending" %}..." >{% trans "Send mail" %}</button>
+    </div>
+</div>
+{% endif %}
+
+{% if object.status == 'notpaid_late' and object.date_mailnotpaid == None %}
+<div id="modal_mail_pagamentretrasat" class="modal hide fade" tabindex="-1" role="dialog">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">{% trans "Send mail payment overdue" %}</h3>
+    </div>
+    <div class="modal-body"><h5>{% trans "You are about to send a payment overdue mail" %}</h5></div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "Close" %}</button>
+    <button class="btn btn-primary btn-mail" formaction="{{ object.get_mailpagamentretrasat_url }}" data-loading-text="{% trans "sending" %}..." >{% trans "Send mail" %}</button>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+{% block page_js %}
+    <script type="text/javascript">
+    $(function() {
+        $('#id_date_registration').datepicker({ format: 'dd/mm/yyyy',weekStart: 1 });
+        $('#id_date_paid').datepicker({ format: 'dd/mm/yyyy', weekStart: 1 });
+    });
+    </script>
+{% endblock page_js %}

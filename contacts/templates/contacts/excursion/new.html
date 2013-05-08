@@ -1,0 +1,76 @@
+{% extends "contacts/base_iframe.html" %}
+{% load i18n %}
+{% load bootstrap_toolkit %}
+
+{% block title %}{% trans "Excursion and gala dinner registration" %}{% endblock %}
+
+{% block content_title %}
+    {% trans "Excursion and gala dinner registration" %}
+{% endblock %}
+
+{% block content %}
+    <form action="." method="post" accept-charset="utf-8"  class="form-horizontal">
+        {% csrf_token %}
+        {% for field in form %}
+            {% if field.name == 'first_name' %}
+                <fieldset>
+                    <legend>{% trans "Personal data" %}</legend>
+            {% endif %}
+            {% if field.name == 'qty_excursion' %}
+                <fieldset>
+                    <legend>{% trans "Excursion" %}</legend>
+            {% endif %}
+            {% if field.name == 'qty_dinner' %}
+                <fieldset>
+                    <legend>{% trans "Gala Dinner" %}</legend>
+            {% endif %}
+            {% if field.name == 'accommodation_name' %}
+                <fieldset>
+                    <legend>{% trans "Accommodation" %}</legend>
+                    <p>{% trans "El servei de busos intentarà fer rutes de tornada del sopar per deixar a tothom al seu allotjament, sempre que es tracti de la zona de Palma o S'Arenal" %}</p>
+            {% endif %}
+            {% if field.name == 'remarks' %}
+                <fieldset>
+                    <legend>{% trans "Remarks" %}</legend>
+            {% endif %}
+
+            {% include "bootstrap_toolkit/field.html" %}
+            {% if field.name == 'email_address' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'qty_excursion' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'alergies' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'accommodation_address' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'remarks' %}
+                </fieldset>
+            {% endif %}
+
+
+
+        {% endfor %}
+
+        <div class="form-actions">
+            <button type="submit" value="Submit" class="btn btn-primary">{% trans 'Validate' %} <i class="icon-white icon-chevron-right"></i></button>
+        </div>
+    </form>
+{% endblock %}
+
+
+{% block actions %}
+<a href="{%  url contacts_excursion_list %}"  class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+{% endblock %}
+
+{% block page_js %}
+    <script type="text/javascript">
+    $(function() {
+        $('#id_date_registration').datepicker({ format: 'dd/mm/yyyy',weekStart: 1 });
+        $('#id_date_paid').datepicker({ format: 'dd/mm/yyyy', weekStart: 1 });
+    });
+    </script>
+{% endblock page_js %}
