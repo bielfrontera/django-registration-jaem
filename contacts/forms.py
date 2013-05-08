@@ -197,16 +197,16 @@ class ExcursionCreateForm(ModelForm):
         self.fields['first_name'].widget.attrs['class']  = 'input-large'
         self.fields['last_name'].widget.attrs['class']  = 'input-large'
         self.fields['email_address'].widget.attrs['class']  = 'input-large'
-        self.fields['qty_excursion'].widget = forms.Select(choices=  [ (i,i) for i in range(0,5) ])
+        self.fields['qty_excursion'].widget = forms.Select(choices=  [ (i,i) for i in range(0,8) ])
         self.fields['qty_excursion'].widget.attrs['class']  = 'input-mini'
 
-        self.fields['qty_dinner'].widget = forms.Select(choices=  [ (i,i) for i in range(0,5) ])
+        self.fields['qty_dinner'].widget = forms.Select(choices=  [ (i,i) for i in range(0,8) ])
         self.fields['qty_dinner'].widget.attrs['class']  = 'input-mini'
 
-        self.fields['qty_vegetarian'].widget = forms.Select(choices=  [ (i,i) for i in range(0,5) ])
+        self.fields['qty_vegetarian'].widget = forms.Select(choices=  [ (i,i) for i in range(0,8) ])
         self.fields['qty_vegetarian'].widget.attrs['class']  = 'input-mini'
 
-        self.fields['qty_celiac'].widget = forms.Select(choices=  [ (i,i) for i in range(0,5) ])
+        self.fields['qty_celiac'].widget = forms.Select(choices=  [ (i,i) for i in range(0,8) ])
         self.fields['qty_celiac'].widget.attrs['class']  = 'input-mini'
 
         self.fields['alergies'].widget.attrs['class']  = 'input-xlarge'
