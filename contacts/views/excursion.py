@@ -169,7 +169,7 @@ def create(request, template='contacts/excursion/create.html'):
             p.person = Person.objects.get(email_address=p.email_address)
             p.user_add = user
             p.user_modify = user
-            p.date_registration = date.today()
+            p.date_registration = datetime.now()
             p.save()
             if user.is_authenticated() and user.first_name != 'Anonymous':
                 return HttpResponseRedirect(p.get_update_url())
@@ -206,7 +206,7 @@ def calculaStatus(excursion):
     if excursion.date_paid:
         status = 'ok_all'
     else:
-        status = 'nook_paid'
+        status = 'pendent'
         # Revisam si fa molt de temps
         if (datetime.now() - excursion.date_registration).days > 15:
             status = 'notpaid_late'

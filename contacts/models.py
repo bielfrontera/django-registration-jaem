@@ -392,6 +392,7 @@ class Excursion(models.Model):
     qty_vegetarian = models.IntegerField(_('vegetarian qty'),null=True, blank=True)
     qty_celiac = models.IntegerField(_('celiac qty'),null=True, blank=True)
     alergies = models.CharField(_('alergies'), max_length=200, blank=True)
+    qty_bus = models.IntegerField(_('bus qty'),null=True, blank=True)
     accommodation_name = models.CharField(_('accommodation name'), max_length=200, blank=True)
     accommodation_address = models.CharField(_('accommodation address'), max_length=200, blank=True)
 

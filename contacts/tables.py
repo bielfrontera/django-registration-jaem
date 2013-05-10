@@ -57,6 +57,7 @@ class ExcursionTable(tables.Table):
     qty_dinner = tables.Column()
     qty_vegetarian = tables.Column()
     qty_celiac = tables.Column()
+    qty_bus = tables.Column()
     accommodation_name = tables.Column()
     status = tables.Column()
     date_registration = tables.DateColumn()

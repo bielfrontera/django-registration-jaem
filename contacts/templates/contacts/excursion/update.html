@@ -19,7 +19,57 @@
 {% endif %}
     <form action="." method="post" accept-charset="utf-8" enctype="multipart/form-data" class="form-horizontal">
         {% csrf_token %}
-        {{ form|as_bootstrap }}
+        {% for field in form %}
+            {% if field.name == 'first_name' %}
+                <fieldset>
+                    <legend>{% trans "Personal data" %}</legend>
+            {% endif %}
+            {% if field.name == 'qty_excursion' %}
+                <fieldset>
+                    <legend>{% trans "Excursion" %}</legend>
+            {% endif %}
+            {% if field.name == 'qty_dinner' %}
+                <fieldset>
+                    <legend>{% trans "Gala Dinner" %}</legend>
+            {% endif %}
+            {% if field.name == 'qty_bus' %}
+                <fieldset>
+                    <legend>{% trans "Transport" %}</legend>
+            {% endif %}
+            {% if field.name == 'remarks' %}
+                <fieldset>
+                    <legend>{% trans "Remarks" %}</legend>
+            {% endif %}
+            {% if field.name == 'date_registration' %}
+                <fieldset>
+                    <legend>{% trans "Payment" %}</legend>
+            {% endif %}
+
+            {% include "bootstrap_toolkit/field.html" %}
+            {% if field.name == 'email_address' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'qty_excursion' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'alergies' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'accommodation_address' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'remarks' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'date_paid' %}
+                <b>{% trans "date mail not paid" %}:</b> {{ object.date_mailnotpaid|date:"d/m/Y" }}<br />
+                <b>{% trans "date mail registration" %}:</b> {{ object.date_mailregister|date:"d/m/Y" }}<br />
+                </fieldset>
+            {% endif %}
+
+
+
+        {% endfor %}
         <div class="form-actions">
             <button type="submit" value="Submit" class="btn btn-primary"><i class="icon-white icon-ok"></i> {% trans 'Save' %}</button>
         </div>

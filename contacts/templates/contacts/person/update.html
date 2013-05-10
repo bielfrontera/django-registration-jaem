@@ -55,6 +55,8 @@
             </div>
             <div class="tab-pane" id="form_reg">
                 {{ reg_form|as_bootstrap }}
+                <b>{% trans "date mail not paid" %}:</b> {{ object.date_mailnotpaid|date:"d/m/Y" }}<br />
+                <b>{% trans "date mail registration" %}:</b> {{ object.date_mailregister|date:"d/m/Y" }}<br />
             </div>
             <div class="tab-pane" id="form_adr">
                 {{ adr_form|as_bootstrap }}

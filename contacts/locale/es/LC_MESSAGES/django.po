@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-08 01:06+0200\n"
-"PO-Revision-Date: 2013-05-08 01:35+0100\n"
+"POT-Creation-Date: 2013-05-10 23:34+0200\n"
+"PO-Revision-Date: 2013-05-10 23:36+0100\n"
 "Last-Translator: Biel Frontera <sindbili@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -81,7 +81,7 @@ msgstr "Apellidos"
 #: tables.py:16
 #: tables.py:45
 #: tables.py:55
-#: tables.py:71
+#: tables.py:72
 #: templates/contacts/person/detail.html:45
 msgid "email address"
 msgstr "Correo electrónico"
@@ -102,9 +102,9 @@ msgstr "DNI"
 #: forms.py:145
 #: forms.py:187
 #: models.py:202
-#: models.py:402
+#: models.py:403
 #: tables.py:22
-#: tables.py:64
+#: tables.py:65
 #: templates/contacts/excursion/stats.html:18
 #: templates/contacts/person/stats.html:29
 msgid "status"
@@ -142,23 +142,23 @@ msgstr "Idioma"
 msgid "stats by"
 msgstr "estadístiques per"
 
-#: forms.py:221
+#: forms.py:225
 msgid "This email address doesn't exist in the inscription database"
 msgstr "Esta dirección de correo no existe en la base de datos de inscritos en las XVI JAEM.Revisa la dirección que utilizaste en la inscripción."
 
-#: forms.py:225
+#: forms.py:229
 msgid "Your excursion and gala dinner inscriptions already exists. If you want to modify your inscription, please send a message to inscripciones@jaem.es"
 msgstr "Tu inscripción a la excursión i/o centa de gala ya existe. Si quieres modificar tu inscripción, envía un mensaje a inscripciones@jaem.es."
 
-#: forms.py:239
+#: forms.py:243
 msgid "You have to select excursion, gala dinner or both"
 msgstr "No has marcado ninguna plaza ni de excursión ni de cena."
 
-#: forms.py:252
+#: forms.py:256
 msgid "There are more vegetarian options than dinners selected"
 msgstr "Has marcado más plazas de menú vegetariano que de cena,"
 
-#: forms.py:266
+#: forms.py:270
 msgid "There are more celiac options than dinners selected"
 msgstr "Has marcado más plazas de menú para celíacos que de cena,"
 
@@ -257,9 +257,9 @@ msgid "center code"
 msgstr "Codi del centre"
 
 #: models.py:191
-#: models.py:398
-#: templates/contacts/excursion/detail.html:29
-#: templates/contacts/excursion/new_success.html:43
+#: models.py:399
+#: templates/contacts/excursion/detail.html:30
+#: templates/contacts/excursion/new_success.html:44
 #: templates/contacts/person/detail.html:37
 msgid "remarks"
 msgstr "Observaciones"
@@ -273,7 +273,7 @@ msgid "location"
 msgstr "ubicació"
 
 #: models.py:200
-#: models.py:401
+#: models.py:402
 #: templates/contacts/excursion/detail.html:21
 #: templates/contacts/excursion/new_success.html:35
 #: templates/contacts/person/detail.html:28
@@ -286,42 +286,46 @@ msgid "revision"
 msgstr "Revisió "
 
 #: models.py:203
-#: models.py:403
-#: templates/contacts/excursion/detail.html:34
+#: models.py:404
+#: templates/contacts/excursion/detail.html:35
 #: templates/contacts/person/detail.html:32
 msgid "paid"
 msgstr "Pagat"
 
 #: models.py:204
-#: models.py:404
-#: templates/contacts/excursion/detail.html:35
+#: models.py:405
+#: templates/contacts/excursion/detail.html:36
 #: templates/contacts/person/detail.html:33
 msgid "date paid"
 msgstr "Pagat en data"
 
 #: models.py:205
-#: models.py:405
-#: templates/contacts/excursion/detail.html:36
+#: models.py:406
+#: templates/contacts/excursion/detail.html:37
+#: templates/contacts/excursion/update.html:65
 #: templates/contacts/person/detail.html:34
+#: templates/contacts/person/update.html:58
 msgid "date mail not paid"
 msgstr "Data enviament mail no pagat"
 
 #: models.py:206
-#: models.py:406
-#: templates/contacts/excursion/detail.html:37
+#: models.py:407
+#: templates/contacts/excursion/detail.html:38
+#: templates/contacts/excursion/update.html:66
 #: templates/contacts/person/detail.html:35
+#: templates/contacts/person/update.html:59
 msgid "date mail registration"
 msgstr "Data correu de registre ok"
 
 #: models.py:212
 #: models.py:336
-#: models.py:409
+#: models.py:410
 msgid "date added"
 msgstr "Afegit en data"
 
 #: models.py:215
 #: models.py:338
-#: models.py:411
+#: models.py:412
 msgid "date modified"
 msgstr "Modificat en data"
 
@@ -388,18 +392,22 @@ msgid "alergies"
 msgstr "Alergias"
 
 #: models.py:395
+msgid "bus qty"
+msgstr "Plazas bus"
+
+#: models.py:396
 msgid "accommodation name"
 msgstr "Nombre del alojamiento"
 
-#: models.py:396
+#: models.py:397
 msgid "accommodation address"
 msgstr "Dirección del alojamiento"
 
-#: models.py:416
+#: models.py:417
 msgid "Excursion and Dinner registration"
 msgstr "Inscripción a la excursió y cena de gala"
 
-#: models.py:417
+#: models.py:418
 msgid "Excursion and Dinner registrations"
 msgstr "Inscripcions a l'excursió i al sopar de gala"
 
@@ -418,6 +426,7 @@ msgid "Error generating pdf"
 msgstr "Error al generar el pdf"
 
 #: functions/mailtemplate.py:52
+#: management/commands/sendJustificantPagament.py:63
 #: views/excursion.py:184
 #: views/reporting.py:221
 #: views/reporting.py:251
@@ -465,26 +474,26 @@ msgstr "Identifica't"
 #: templates/contacts/excursion/cancel.html:6
 #: templates/contacts/excursion/cancel.html:15
 #: templates/contacts/excursion/cancel.html:47
-#: templates/contacts/excursion/detail.html:55
-#: templates/contacts/excursion/update.html:48
+#: templates/contacts/excursion/detail.html:56
+#: templates/contacts/excursion/update.html:98
 #: templates/contacts/person/cancel.html:6
 #: templates/contacts/person/cancel.html:15
 #: templates/contacts/person/cancel.html:47
 #: templates/contacts/person/detail.html:92
-#: templates/contacts/person/update.html:118
+#: templates/contacts/person/update.html:120
 msgid "Get inscription back"
 msgstr "Reactiva la inscripció"
 
 #: templates/contacts/excursion/cancel.html:8
 #: templates/contacts/excursion/cancel.html:17
 #: templates/contacts/excursion/cancel.html:49
-#: templates/contacts/excursion/detail.html:57
-#: templates/contacts/excursion/update.html:50
+#: templates/contacts/excursion/detail.html:58
+#: templates/contacts/excursion/update.html:100
 #: templates/contacts/person/cancel.html:8
 #: templates/contacts/person/cancel.html:17
 #: templates/contacts/person/cancel.html:49
 #: templates/contacts/person/detail.html:94
-#: templates/contacts/person/update.html:120
+#: templates/contacts/person/update.html:122
 msgid "Cancel inscription"
 msgstr "Cancel·la la inscripció"
 
@@ -535,10 +544,10 @@ msgstr "Sí"
 #: templates/contacts/excursion/cancel.html:58
 #: templates/contacts/excursion/create.html:23
 #: templates/contacts/excursion/delete.html:36
-#: templates/contacts/excursion/detail.html:46
-#: templates/contacts/excursion/new.html:68
+#: templates/contacts/excursion/detail.html:47
+#: templates/contacts/excursion/new.html:66
 #: templates/contacts/excursion/stats.html:36
-#: templates/contacts/excursion/update.html:38
+#: templates/contacts/excursion/update.html:88
 #: templates/contacts/mailtemplate/create.html:23
 #: templates/contacts/mailtemplate/delete.html:36
 #: templates/contacts/mailtemplate/detail.html:25
@@ -551,21 +560,21 @@ msgstr "Sí"
 #: templates/contacts/person/map.html:79
 #: templates/contacts/person/stats.html:50
 #: templates/contacts/person/synchronize.html:29
-#: templates/contacts/person/update.html:103
+#: templates/contacts/person/update.html:105
 #: templates/contacts/person/update_status.html:21
 msgid "Return to list"
 msgstr "Torna a la llista"
 
 #: templates/contacts/excursion/cancel.html:59
-#: templates/contacts/excursion/update.html:40
+#: templates/contacts/excursion/update.html:90
 #: templates/contacts/mailtemplate/update.html:26
 #: templates/contacts/person/cancel.html:59
-#: templates/contacts/person/update.html:104
+#: templates/contacts/person/update.html:106
 msgid "Read"
 msgstr "Lectura"
 
 #: templates/contacts/excursion/cancel.html:60
-#: templates/contacts/excursion/detail.html:47
+#: templates/contacts/excursion/detail.html:48
 #: templates/contacts/excursion/update.html:5
 #: templates/contacts/mailtemplate/detail.html:26
 #: templates/contacts/mailtemplate/update.html:5
@@ -589,8 +598,8 @@ msgstr "Dóna d'alta i continua"
 #: templates/contacts/excursion/delete.html:4
 #: templates/contacts/excursion/delete.html:7
 #: templates/contacts/excursion/delete.html:29
-#: templates/contacts/excursion/detail.html:59
-#: templates/contacts/excursion/update.html:52
+#: templates/contacts/excursion/detail.html:60
+#: templates/contacts/excursion/update.html:102
 #: templates/contacts/mailtemplate/delete.html:4
 #: templates/contacts/mailtemplate/delete.html:7
 #: templates/contacts/mailtemplate/delete.html:29
@@ -600,7 +609,7 @@ msgstr "Dóna d'alta i continua"
 #: templates/contacts/person/delete.html:7
 #: templates/contacts/person/delete.html:29
 #: templates/contacts/person/detail.html:96
-#: templates/contacts/person/update.html:122
+#: templates/contacts/person/update.html:124
 msgid "Delete"
 msgstr "Esborra"
 
@@ -655,119 +664,124 @@ msgstr "Menú para celíacos"
 
 #: templates/contacts/excursion/detail.html:27
 #: templates/contacts/excursion/new_success.html:41
-msgid "accommodation_name"
-msgstr "Nombre del alojamiento"
+msgid "qty bus"
+msgstr "Plazas bus"
 
 #: templates/contacts/excursion/detail.html:28
 #: templates/contacts/excursion/new_success.html:42
+msgid "accommodation_name"
+msgstr "Nombre del alojamiento"
+
+#: templates/contacts/excursion/detail.html:29
+#: templates/contacts/excursion/new_success.html:43
 msgid "accommodation_address"
 msgstr "Dirección del alojamiento"
 
-#: templates/contacts/excursion/detail.html:33
+#: templates/contacts/excursion/detail.html:34
 msgid "Status"
 msgstr "Estado"
 
-#: templates/contacts/excursion/detail.html:41
-#: templates/contacts/excursion/update.html:28
+#: templates/contacts/excursion/detail.html:42
+#: templates/contacts/excursion/update.html:78
 #: templates/contacts/mailtemplate/detail.html:20
 #: templates/contacts/mailtemplate/update.html:20
 #: templates/contacts/person/detail.html:72
-#: templates/contacts/person/update.html:93
+#: templates/contacts/person/update.html:95
 msgid "Record created in"
 msgstr "Registre creat el"
 
-#: templates/contacts/excursion/detail.html:41
-#: templates/contacts/excursion/update.html:28
+#: templates/contacts/excursion/detail.html:42
+#: templates/contacts/excursion/update.html:78
 #: templates/contacts/mailtemplate/detail.html:20
 #: templates/contacts/mailtemplate/update.html:20
 #: templates/contacts/person/detail.html:72
-#: templates/contacts/person/update.html:93
+#: templates/contacts/person/update.html:95
 msgid "by"
 msgstr "per"
 
-#: templates/contacts/excursion/detail.html:41
-#: templates/contacts/excursion/update.html:28
+#: templates/contacts/excursion/detail.html:42
+#: templates/contacts/excursion/update.html:78
 #: templates/contacts/mailtemplate/detail.html:20
 #: templates/contacts/mailtemplate/update.html:20
 #: templates/contacts/person/detail.html:72
-#: templates/contacts/person/update.html:93
+#: templates/contacts/person/update.html:95
 msgid "Modified in"
 msgstr "Modificat el"
 
-#: templates/contacts/excursion/detail.html:49
-#: templates/contacts/excursion/detail.html:65
-#: templates/contacts/excursion/update.html:42
-#: templates/contacts/excursion/update.html:57
+#: templates/contacts/excursion/detail.html:50
+#: templates/contacts/excursion/detail.html:66
+#: templates/contacts/excursion/update.html:92
+#: templates/contacts/excursion/update.html:107
 #: templates/contacts/person/detail.html:86
 #: templates/contacts/person/detail.html:105
-#: templates/contacts/person/update.html:112
-#: templates/contacts/person/update.html:131
+#: templates/contacts/person/update.html:114
+#: templates/contacts/person/update.html:133
 msgid "Send mail inscription ok"
 msgstr "Envia correu inscripció"
 
-#: templates/contacts/excursion/detail.html:52
-#: templates/contacts/excursion/detail.html:79
-#: templates/contacts/excursion/update.html:45
-#: templates/contacts/excursion/update.html:70
+#: templates/contacts/excursion/detail.html:53
+#: templates/contacts/excursion/detail.html:80
+#: templates/contacts/excursion/update.html:95
+#: templates/contacts/excursion/update.html:120
 #: templates/contacts/person/detail.html:89
 #: templates/contacts/person/detail.html:119
-#: templates/contacts/person/update.html:115
-#: templates/contacts/person/update.html:144
+#: templates/contacts/person/update.html:117
+#: templates/contacts/person/update.html:146
 msgid "Send mail payment overdue"
 msgstr "Envia correu pagament retrasat"
 
-#: templates/contacts/excursion/detail.html:67
-#: templates/contacts/excursion/update.html:59
+#: templates/contacts/excursion/detail.html:68
+#: templates/contacts/excursion/update.html:109
 #: templates/contacts/person/detail.html:107
-#: templates/contacts/person/update.html:133
+#: templates/contacts/person/update.html:135
 msgid "You are about to send the inscription ok mail"
 msgstr "Enviaràs un correu de confirmació de la inscripció"
 
-#: templates/contacts/excursion/detail.html:69
-#: templates/contacts/excursion/detail.html:83
-#: templates/contacts/excursion/update.html:61
-#: templates/contacts/excursion/update.html:74
+#: templates/contacts/excursion/detail.html:70
+#: templates/contacts/excursion/detail.html:84
+#: templates/contacts/excursion/update.html:111
+#: templates/contacts/excursion/update.html:124
 #: templates/contacts/person/detail.html:109
 #: templates/contacts/person/detail.html:123
 #: templates/contacts/person/detail.html:136
-#: templates/contacts/person/update.html:135
-#: templates/contacts/person/update.html:148
-#: templates/contacts/person/update.html:160
+#: templates/contacts/person/update.html:137
+#: templates/contacts/person/update.html:150
+#: templates/contacts/person/update.html:162
 msgid "Close"
 msgstr "Tanca"
 
-#: templates/contacts/excursion/detail.html:70
-#: templates/contacts/excursion/detail.html:84
-#: templates/contacts/excursion/update.html:62
-#: templates/contacts/excursion/update.html:75
+#: templates/contacts/excursion/detail.html:71
+#: templates/contacts/excursion/detail.html:85
+#: templates/contacts/excursion/update.html:112
+#: templates/contacts/excursion/update.html:125
 #: templates/contacts/person/detail.html:110
 #: templates/contacts/person/detail.html:124
 #: templates/contacts/person/detail.html:138
-#: templates/contacts/person/update.html:136
-#: templates/contacts/person/update.html:149
-#: templates/contacts/person/update.html:162
+#: templates/contacts/person/update.html:138
+#: templates/contacts/person/update.html:151
+#: templates/contacts/person/update.html:164
 msgid "sending"
 msgstr "enviant"
 
-#: templates/contacts/excursion/detail.html:70
-#: templates/contacts/excursion/detail.html:84
-#: templates/contacts/excursion/update.html:62
-#: templates/contacts/excursion/update.html:75
+#: templates/contacts/excursion/detail.html:71
+#: templates/contacts/excursion/detail.html:85
+#: templates/contacts/excursion/update.html:112
+#: templates/contacts/excursion/update.html:125
 #: templates/contacts/person/detail.html:99
 #: templates/contacts/person/detail.html:110
 #: templates/contacts/person/detail.html:124
 #: templates/contacts/person/detail.html:135
-#: templates/contacts/person/update.html:125
-#: templates/contacts/person/update.html:136
-#: templates/contacts/person/update.html:149
-#: templates/contacts/person/update.html:159
+#: templates/contacts/person/update.html:127
+#: templates/contacts/person/update.html:138
+#: templates/contacts/person/update.html:151
+#: templates/contacts/person/update.html:161
 msgid "Send mail"
 msgstr "Enviar correu"
 
-#: templates/contacts/excursion/detail.html:81
-#: templates/contacts/excursion/update.html:72
+#: templates/contacts/excursion/detail.html:82
+#: templates/contacts/excursion/update.html:122
 #: templates/contacts/person/detail.html:121
-#: templates/contacts/person/update.html:146
+#: templates/contacts/person/update.html:148
 msgid "You are about to send a payment overdue mail"
 msgstr "Enviaràs un correu d'avís de pagament retrasat"
 
@@ -810,30 +824,35 @@ msgid "Excursion and gala dinner registration"
 msgstr "Inscripción a la excursión y a la cena de gala"
 
 #: templates/contacts/excursion/new.html:17
+#: templates/contacts/excursion/update.html:25
 msgid "Personal data"
 msgstr "Datos personales"
 
 #: templates/contacts/excursion/new.html:21
+#: templates/contacts/excursion/update.html:29
 msgid "Excursion"
 msgstr "Excursión"
 
 #: templates/contacts/excursion/new.html:25
+#: templates/contacts/excursion/update.html:33
 msgid "Gala Dinner"
 msgstr "Cena de gala"
 
 #: templates/contacts/excursion/new.html:29
-msgid "Accommodation"
-msgstr "Alojamiento"
+#: templates/contacts/excursion/update.html:37
+msgid "Transport"
+msgstr "Transporte"
 
 #: templates/contacts/excursion/new.html:30
 msgid "El servei de busos intentarà fer rutes de tornada del sopar per deixar a tothom al seu allotjament, sempre que es tracti de la zona de Palma o S'Arenal"
 msgstr "El servicio de buses intentará hacer rutas de regreso de la cena para dejar a todos en su alojamiento, siempre que se trate de la zona de Palma o S'Arenal"
 
 #: templates/contacts/excursion/new.html:34
+#: templates/contacts/excursion/update.html:41
 msgid "Remarks"
 msgstr "Observaciones"
 
-#: templates/contacts/excursion/new.html:61
+#: templates/contacts/excursion/new.html:59
 msgid "Validate"
 msgstr "Envía"
 
@@ -844,7 +863,7 @@ msgstr "¡Inscripción a la excursión i/o a la cena de gala registrada correcta
 #: templates/contacts/excursion/new_success.html:14
 #, python-format
 msgid "You will recieve a email to %(email)s with the instruccions"
-msgstr "Recibirás un correo a %(email)s con las instrucciones para completar la inscripción."
+msgstr "Hemos enviado un correo a la dirección %(email)s con las instrucciones para completar la inscripción."
 
 #: templates/contacts/excursion/new_success.html:19
 #, python-format
@@ -877,14 +896,18 @@ msgstr "Actualitza estat dels registres"
 msgid "Error"
 msgstr "Error"
 
-#: templates/contacts/excursion/update.html:24
+#: templates/contacts/excursion/update.html:45
+msgid "Payment"
+msgstr "Pago"
+
+#: templates/contacts/excursion/update.html:74
 #: templates/contacts/mailtemplate/update.html:16
 #: templates/contacts/person/revision.html:21
-#: templates/contacts/person/update.html:89
+#: templates/contacts/person/update.html:91
 msgid "Save"
 msgstr "Desa"
 
-#: templates/contacts/excursion/update.html:39
+#: templates/contacts/excursion/update.html:89
 msgid "Go to Inscription record"
 msgstr "Vés al registre d'inscripció"
 
@@ -957,17 +980,17 @@ msgid "Centre de feina"
 msgstr "Centre de feina"
 
 #: templates/contacts/person/detail.html:80
-#: templates/contacts/person/update.html:106
+#: templates/contacts/person/update.html:108
 msgid "Justificant de pagament"
 msgstr "Justificant de pagament"
 
 #: templates/contacts/person/detail.html:83
-#: templates/contacts/person/update.html:109
+#: templates/contacts/person/update.html:111
 msgid "Justificant de inscripcio"
 msgstr "Justificant d'inscripció"
 
 #: templates/contacts/person/detail.html:137
-#: templates/contacts/person/update.html:161
+#: templates/contacts/person/update.html:163
 msgid "You are about to send the mail with subject: "
 msgstr "Enviaràs un correu amb assumpte:"
 
@@ -1054,15 +1077,15 @@ msgstr "Informació laboral"
 msgid "Mail history"
 msgstr "Historial correus electrònics"
 
-#: templates/contacts/person/update.html:73
+#: templates/contacts/person/update.html:75
 msgid "Loading messages"
 msgstr "Carregant els correus"
 
-#: templates/contacts/person/update.html:74
+#: templates/contacts/person/update.html:76
 msgid "Loading"
 msgstr "Carregant"
 
-#: templates/contacts/person/update.html:78
+#: templates/contacts/person/update.html:80
 msgid "Error!"
 msgstr "Error!"
 
@@ -1089,6 +1112,9 @@ msgstr "Usuari no està autentificat"
 #: views/mailhistory.py:116
 msgid "Person does not exist in database"
 msgstr "La persona no existeix a la base de dades"
+
+#~ msgid "Accommodation"
+#~ msgstr "Alojamiento"
 
 #, fuzzy
 #~ msgid "Update records statusP"

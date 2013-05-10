@@ -210,6 +210,10 @@ class ExcursionCreateForm(ModelForm):
         self.fields['qty_celiac'].widget.attrs['class']  = 'input-mini'
 
         self.fields['alergies'].widget.attrs['class']  = 'input-xlarge'
+
+        self.fields['qty_bus'].widget = forms.Select(choices=  [ (i,i) for i in range(0,8) ])
+        self.fields['qty_bus'].widget.attrs['class']  = 'input-mini'
+
         self.fields['accommodation_name'].widget.attrs['class']  = 'input-xlarge'
         self.fields['accommodation_address'].widget.attrs['class']  = 'input-xlarge'
 
@@ -274,7 +278,7 @@ class ExcursionCreateForm(ModelForm):
         model = Excursion
         fields = ('first_name', 'last_name', 'email_address',
                   'qty_excursion','qty_dinner','qty_vegetarian','qty_celiac','alergies',
-                  'accommodation_name','accommodation_address','remarks')
+                  'qty_bus','accommodation_name','accommodation_address','remarks')
 
 class ExcursionUpdateForm(ModelForm):
     def __init__(self,*args,**kwrds):
@@ -290,6 +294,8 @@ class ExcursionUpdateForm(ModelForm):
         self.fields['qty_vegetarian'].widget.attrs['class']  = 'input-mini'
         self.fields['qty_celiac'].widget.attrs['class']  = 'input-mini'
         self.fields['alergies'].widget.attrs['class']  = 'input-xlarge'
+        self.fields['qty_bus'].widget = forms.Select(choices=  [ (i,i) for i in range(0,8) ])
+        self.fields['qty_bus'].widget.attrs['class']  = 'input-mini'
         self.fields['accommodation_name'].widget.attrs['class']  = 'input-xlarge'
         self.fields['accommodation_address'].widget.attrs['class']  = 'input-xlarge'
 
@@ -309,4 +315,4 @@ class ExcursionUpdateForm(ModelForm):
         model = Excursion
         fields = ('first_name', 'last_name', 'email_address',
                   'qty_excursion','qty_dinner','qty_vegetarian','qty_celiac','alergies',
-                  'accommodation_name','accommodation_address','remarks','date_registration','paid','date_paid')
+                  'qty_bus','accommodation_name','accommodation_address','remarks','date_registration','paid','date_paid')
