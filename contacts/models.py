@@ -426,6 +426,23 @@ class Excursion(models.Model):
         return u"%s %s" % (self.first_name, self.last_name)
 
     @property
+    def price(self):
+        dinner = self.qty_dinner
+        excursion = self.qty_excursion
+        bus = self.qty_bus
+
+        if self.person and self.person.contact_type in ['O','G']:
+            if dinner > 0:
+                dinner = dinner - 1
+            if excursion > 0:
+                excursion = excursion - 1
+            if bus > 0:
+                bus = bus - 1
+
+        return dinner * 47 + excursion * 5 + bus * 5
+
+
+    @property
     def get_label(self):
         label = ''
         if self.status == 'ok_notpaid':

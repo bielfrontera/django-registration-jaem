@@ -61,6 +61,14 @@
             {% if field.name == 'remarks' %}
                 </fieldset>
             {% endif %}
+            {% if field.name == 'paid' %}
+                <div class="control-group">
+                    <label class="control-label">{% trans "Amount to be paied" %}</label>
+                    <div class="controls">
+                        {{ object.price }} €
+                    </div>
+                </div>
+            {% endif %}
             {% if field.name == 'date_paid' %}
                 <b>{% trans "date mail not paid" %}:</b> {{ object.date_mailnotpaid|date:"d/m/Y" }}<br />
                 <b>{% trans "date mail registration" %}:</b> {{ object.date_mailregister|date:"d/m/Y" }}<br />
