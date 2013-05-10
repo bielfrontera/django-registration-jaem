@@ -209,7 +209,7 @@ class ExcursionCreateForm(ModelForm):
         self.fields['qty_celiac'].widget = forms.Select(choices=  [ (i,i) for i in range(0,8) ])
         self.fields['qty_celiac'].widget.attrs['class']  = 'input-mini'
 
-        self.fields['alergies'].widget.attrs['class']  = 'input-xlarge'
+        self.fields['alergies'].widget.attrs['class']  = 'input-xxlarge'
 
         self.fields['qty_bus'].widget = forms.Select(choices=  [ (i,i) for i in range(0,8) ])
         self.fields['qty_bus'].widget.attrs['class']  = 'input-mini'
@@ -296,7 +296,7 @@ class ExcursionUpdateForm(ModelForm):
         self.fields['qty_vegetarian'].widget.attrs['class']  = 'input-mini'
         self.fields['qty_celiac'].widget = forms.Select(choices=  [ (i,i) for i in range(0,8) ])
         self.fields['qty_celiac'].widget.attrs['class']  = 'input-mini'
-        self.fields['alergies'].widget.attrs['class']  = 'input-xlarge'
+        self.fields['alergies'].widget.attrs['class']  = 'input-xxlarge'
         self.fields['qty_bus'].widget = forms.Select(choices=  [ (i,i) for i in range(0,8) ])
         self.fields['qty_bus'].widget.attrs['class']  = 'input-mini'
         self.fields['accommodation_name'].widget.attrs['class']  = 'input-xlarge'
