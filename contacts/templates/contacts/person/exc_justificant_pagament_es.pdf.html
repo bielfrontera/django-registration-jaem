@@ -1,0 +1,38 @@
+{% extends "contacts/base_pdf_watermark.html" %}
+{% load i18n %}
+
+{% block title %}Justificante inscripción a Excursión y/o Cena de gala{% endblock %}
+
+{% block content_title %}
+    Justificante inscripción {% if object.qty_excursion > 0 %} excursión {% endif %} {% if object.qty_excursion > 0 and object.qty_dinner > 0  %} <br /> y {% endif %} {% if object.qty_dinner > 0 %} cena de gala {% endif %}
+{% endblock %}
+
+{% block content %}
+<br/>
+<br/>
+    <p>
+        Hemos recibido de <b>{{ object.first_name }} {{ object.last_name }}</b>, con DNI <b>{{ object.person.id_card }}</b>, la cantidad de {{ object.paid }} € en concepto de cuota de inscripción a  {% if object.qty_excursion > 0 %} la excursión {% endif %} {% if object.qty_excursion > 0 and object.qty_dinner > 0  %} y {% endif %} {% if object.qty_dinner > 0 %} cena de gala {% endif %} de las XVI JAEM (Jornadas sobre el Aprendizaje y la Enseñanza de las Matemáticas).
+</p>
+<br/>
+
+<b>Detalle de la inscripción:</b><br>
+{% if object.qty_excursion > 0 %} - Plazas excursión: {{ object.qty_excursion }}<br/>{% endif %}
+{% if object.qty_dinner > 0 %} - Plazas cena de gala: {{ object.qty_dinner }}<br/>{% endif %}
+{% if object.qty_bus > 0 %} - Plazas bus:  {{ object.qty_bus }}<br/>{% endif %}
+
+<p>
+<i>Palma, a {{ avui }}</i>
+</p>
+
+<table border="0" width="100%" align="center">
+        <tr class="header-row">
+        <td colspan="1">&nbsp;</td>
+        <td aling="center" width="400px"><center><img src="contactes/img/signatura_214x125_300ppp.png"  height="125" width="214" title="XVI JAEM" alt="Logo JAEM" />
+	<br>
+	<b>Josep Lluís Pol i Llompart</b><br/>
+	<i>Presidente del comité organizador</i></td></center>
+	</tr>
+</table>
+
+{% endblock %}
+

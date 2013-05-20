@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ca">
+{% load i18n %}
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% trans "Contacts" %}{% endblock %}</title>
+  {% block metas %}
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  {% endblock metas %}
+
+    <!-- Le styles -->
+  {% block css %}
+    <style type="text/css">
+      body {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        font-size: 150%;
+      }
+      .center{
+            text-align:center;
+       }
+      .header-row { padding-bottom: 30px;}
+      @page {
+        size: a4;
+        margin: 0cm;
+        background-image: url(contactes/img/watermark_ca.pdf);
+      }
+    </style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  {% endblock css %}
+  {% block page_css %}{% endblock page_css %}
+
+
+
+  </head>
+
+  <body>
+  <table border="0" width="85%" height="38px"><tr><td>&nbsp;</td></tr><table>
+    <table border="0" width="85%" height="" align="center">
+        <tr class="header-row" >
+        <td width="20%"><br/><br/><br/><br/><br/></td>
+        <td colspan="2" class="center"><h1><font size="18pt">&nbsp;&nbsp;&nbsp;{% block content_title %}{% endblock content_title %}</font></h1></td>
+        </tr>
+        <tr><td colspan="3" ><font face="times new roman" size="13pt">
+        {% block content %}{% endblock content %}
+        <br/><br/></font>
+        </td>
+        </tr>
+    </table>
+</html>

@@ -2,7 +2,7 @@
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponse, HttpResponseForbidden, HttpResponseServerError, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404, render
-from django.db.models import Count
+from django.db.models import Count, Sum
 from django.template import RequestContext
 from contacts.models import Person, CONTACT_TYPE_CHOICES, LANG_CHOICES, MATH_SOCIETY_CHOICES, Excursion
 from contacts.forms import StatsForm
@@ -73,7 +73,7 @@ def excursion(request,  template='contacts/excursion/stats.html'):
 
 
     inscription_stats = []
-    regs = Excursion.objects.all.values('status').annotate(Count("id")).order_by()
+    regs = Excursion.objects.all().values('status').annotate(Count("id"), Sum("qty_excursion"), Sum("qty_dinner"), Sum("qty_bus"), Sum("qty_vegetarian"),Sum("qty_celiac") ).order_by()
     stat = { 'regs' : regs  }
     inscription_stats.append(stat)
 

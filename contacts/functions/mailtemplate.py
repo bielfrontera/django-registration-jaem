@@ -47,8 +47,15 @@ def sendTemplateMail(context,code,recipients):
             return status
         else:
             email.attach(mailtemplate.attachment, result.getvalue(), 'application/pdf')
+            if settings.EMAIL_HOST == 'localhost':
+                #save file
+                file_name = 'generated_files/certificat_pagament_exc/certificat_pagament.pdf'
+                save_pdf = file(file_name,'wb')
+                save_pdf.write(result.getvalue())
+                save_pdf.close()
     try:
         email.send()
+        result.close()
         status = _('Mail sent')
     except Exception as inst:
         status = 'Error. Tipus: %s . Missatge: %s' % (type(inst) , inst)
