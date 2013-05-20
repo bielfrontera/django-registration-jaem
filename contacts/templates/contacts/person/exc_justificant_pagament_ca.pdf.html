@@ -11,7 +11,11 @@
 <br/>
 <br/>
     <p>
+{% if object.paid > 0 %}
 Hem rebut de <b>{{ object.first_name }} {{ object.last_name }}</b>, amb DNI <b>{{ object.person.id_card }}</b>, la quantitat de {{ object.paid }} € en concepte d'inscripció a {% if object.qty_excursion > 0 %} l'excursió {% endif %} {% if object.qty_excursion > 0 and object.qty_dinner > 0  %} i {% endif %} {% if object.qty_dinner > 0 %} sopar de gala {% endif %} de les XVI JAEM (Jornades per a l'Aprenentatge i l'Ensenyança de les Matemàtiques).
+{% else %}
+Confirmam la inscripció de <b>{{ object.first_name }} {{ object.last_name }}</b> a {% if object.qty_excursion > 0 %} l'excursió {% endif %} {% if object.qty_excursion > 0 and object.qty_dinner > 0  %} i {% endif %} {% if object.qty_dinner > 0 %} sopar de gala {% endif %} de les XVI JAEM (Jornades per a l'Aprenentatge i l'Ensenyança de les Matemàtiques).
+{% endif %}
 </p>
 <br/>
 

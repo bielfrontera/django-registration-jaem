@@ -11,7 +11,12 @@
 <br/>
 <br/>
     <p>
+        {% if object.paid > 0 %}
         Hemos recibido de <b>{{ object.first_name }} {{ object.last_name }}</b>, con DNI <b>{{ object.person.id_card }}</b>, la cantidad de {{ object.paid }} € en concepto de cuota de inscripción a  {% if object.qty_excursion > 0 %} la excursión {% endif %} {% if object.qty_excursion > 0 and object.qty_dinner > 0  %} y {% endif %} {% if object.qty_dinner > 0 %} cena de gala {% endif %} de las XVI JAEM (Jornadas sobre el Aprendizaje y la Enseñanza de las Matemáticas).
+        {% else %}
+        Confirmamos la inscripción de <b>{{ object.first_name }} {{ object.last_name }}</b> a {% if object.qty_excursion > 0 %} la excursión {% endif %} {% if object.qty_excursion > 0 and object.qty_dinner > 0  %} y {% endif %} {% if object.qty_dinner > 0 %} cena de gala {% endif %} de las XVI JAEM (Jornadas sobre el Aprendizaje y la Enseñanza de las Matemáticas).
+        {% endif %}
+
 </p>
 <br/>
 
