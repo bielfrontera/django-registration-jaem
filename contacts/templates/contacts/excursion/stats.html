@@ -22,6 +22,7 @@
         <th>Transport</th>
         <th>Menú vegetarià</th>
         <th>Menú celíacs</th>
+        <th>Total pagat</th>
         </tr>
     </thead>
     <tbody>
@@ -30,11 +31,12 @@
         <tr>
         <td>{{ reg.status|status_display }}</td>
         <td>{{ reg.id__count }}</td>
-        <td>{{ reg.qty_excursion__sum }}</td>
-        <td>{{ reg.qty_dinner__sum }}</td>
-        <td>{{ reg.qty_bus__sum }}</td>
-        <td>{{ reg.qty_vegetarian__sum }}</td>
-        <td>{{ reg.qty_celiac__sum }}</td>
+        <td>{{ reg.qty_excursion__sum|default_if_none:"0"  }}</td>
+        <td>{{ reg.qty_dinner__sum|default_if_none:"0"  }}</td>
+        <td>{{ reg.qty_bus__sum|default_if_none:"0"  }}</td>
+        <td>{{ reg.qty_vegetarian__sum|default_if_none:"0"  }}</td>
+        <td>{{ reg.qty_celiac__sum|default_if_none:"0"  }}</td>
+        <td>{{ reg.paid__sum|default_if_none:"0" }}</td>
         </tr>
         {% endfor %}
         {% endfor %}

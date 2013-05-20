@@ -59,8 +59,8 @@ class Command(NoArgsCommand):
             context = Context(kwvars)
             status = sendTemplateMail(context,mailtemplate,[excursion.email_address])
             if status == _('Mail sent'):
-                # excursion.date_mailregister = datetime.now()
-                # excursion.save()
+                excursion.date_mailregister = datetime.now()
+                excursion.save()
                 print "Mail sended to %s" % excursion.email_address
             else:
                 print "Error ocurred sendint to %s. Error message: %s" % (excursion.email_address, status )

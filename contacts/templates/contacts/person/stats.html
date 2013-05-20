@@ -28,6 +28,7 @@
         <th>{% trans "contact type" %}</th>
         <th>{% trans "status" %}</th>
         <th>Total</th>
+        <th>Import pagat</th>
         </tr>
     </thead>
     <tbody>
@@ -39,6 +40,7 @@
         {% endif %}
         <td>{{ reg.status|status_display }}</td>
         <td>{{ reg.id__count }}</td>
+        <td>{{ reg.paid__sum|default_if_none:"0" }}</td>
         </tr>
         {% endfor %}
         {% endfor %}

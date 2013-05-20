@@ -30,19 +30,19 @@ def inscription(request,  template='contacts/person/stats.html'):
     if stats_by == 'contact_type':
         contact_types = dict(CONTACT_TYPE_CHOICES)
         for key  in contact_types.keys():
-            regs = Person.objects.filter(contact_type=key).values('status').annotate(Count("id")).order_by()
+            regs = Person.objects.filter(contact_type=key).values('status').annotate(Count("id"),Sum("paid")).order_by()
             stat = {'contact_type': key,'contact_type_display': contact_types[key], 'regs' : regs  }
             inscription_stats.append(stat)
     elif stats_by == 'math_society':
         contact_types = dict(MATH_SOCIETY_CHOICES)
         for key  in contact_types.keys():
-            regs = Person.objects.filter(math_society=key).values('status').annotate(Count("id")).order_by()
+            regs = Person.objects.filter(math_society=key).values('status').annotate(Count("id"),Sum("paid")).order_by()
             stat = {'contact_type': key,'contact_type_display': contact_types[key], 'regs' : regs  }
             inscription_stats.append(stat)
     elif stats_by == 'lang':
         contact_types = dict(LANG_CHOICES)
         for key  in contact_types.keys():
-            regs = Person.objects.filter(lang=key).values('status').annotate(Count("id")).order_by()
+            regs = Person.objects.filter(lang=key).values('status').annotate(Count("id"),Sum("paid")).order_by()
             stat = {'contact_type': key,'contact_type_display': contact_types[key], 'regs' : regs  }
             inscription_stats.append(stat)
     elif stats_by == 'province':
@@ -51,7 +51,7 @@ def inscription(request,  template='contacts/person/stats.html'):
             provinces.add(person.home_province)
         provinces = sorted(provinces)
         for key  in provinces:
-            regs = Person.objects.filter(home_province=key).values('status').annotate(Count("id")).order_by()
+            regs = Person.objects.filter(home_province=key).values('status').annotate(Count("id"),Sum("paid")).order_by()
             stat = {'contact_type': key,'contact_type_display': key, 'regs' : regs  }
             inscription_stats.append(stat)
 
@@ -73,7 +73,7 @@ def excursion(request,  template='contacts/excursion/stats.html'):
 
 
     inscription_stats = []
-    regs = Excursion.objects.all().values('status').annotate(Count("id"), Sum("qty_excursion"), Sum("qty_dinner"), Sum("qty_bus"), Sum("qty_vegetarian"),Sum("qty_celiac") ).order_by()
+    regs = Excursion.objects.all().values('status').annotate(Count("id"), Sum("qty_excursion"), Sum("qty_dinner"), Sum("qty_bus"), Sum("qty_vegetarian"),Sum("qty_celiac"), Sum("paid") ).order_by()
     stat = { 'regs' : regs  }
     inscription_stats.append(stat)
 
