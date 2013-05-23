@@ -121,9 +121,6 @@ ul.pagination:after {
 ul.pagination:after {
   clear: both;
 }
-ul.pagination li {
-  display: inline;
-}
 ul.pagination a,
 ul.pagination span {
   display: inline-block;

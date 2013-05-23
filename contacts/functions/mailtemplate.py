@@ -55,7 +55,6 @@ def sendTemplateMail(context,code,recipients):
                 save_pdf.close()
     try:
         email.send()
-        result.close()
         status = _('Mail sent')
     except Exception as inst:
         status = 'Error. Tipus: %s . Missatge: %s' % (type(inst) , inst)
