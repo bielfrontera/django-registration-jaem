@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-11 00:09+0200\n"
-"PO-Revision-Date: 2013-05-11 00:09+0100\n"
+"POT-Creation-Date: 2013-05-26 15:46+0200\n"
+"PO-Revision-Date: 2013-05-26 15:47+0100\n"
 "Last-Translator: Biel Frontera <sindbili@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -142,23 +142,24 @@ msgstr "Idioma"
 msgid "stats by"
 msgstr "estadístiques per"
 
-#: forms.py:225
+#: forms.py:231
+#: views/excursion.py:178
 msgid "This email address doesn't exist in the inscription database"
 msgstr "Aquesta adreça de correu electrònic no existeix a la base de dades d'inscrits a les XVI JAEM. Revisa l'adreça que vares utiltizar per a la inscripció."
 
-#: forms.py:229
+#: forms.py:235
 msgid "Your excursion and gala dinner inscriptions already exists. If you want to modify your inscription, please send a message to inscripciones@jaem.es"
 msgstr "La teva inscripció a l'excursió i/o sopar de gala ja existeix. Si vols modificar la teva inscripció, envia un missatge a inscripciones@jaem.es."
 
-#: forms.py:243
+#: forms.py:249
 msgid "You have to select excursion, gala dinner or both"
 msgstr "No has marcat cap plaça ni d'excursió ni de sopar."
 
-#: forms.py:256
+#: forms.py:262
 msgid "There are more vegetarian options than dinners selected"
 msgstr "Has marcat més places de menú vegetarià que places de sopar."
 
-#: forms.py:270
+#: forms.py:276
 msgid "There are more celiac options than dinners selected"
 msgstr "Has marcat més places de menú per a celíacs que places de sopar."
 
@@ -425,9 +426,10 @@ msgstr "Mail no enviat"
 msgid "Error generating pdf"
 msgstr "Error al generar el pdf"
 
-#: functions/mailtemplate.py:52
-#: management/commands/sendJustificantPagament.py:63
-#: views/excursion.py:184
+#: functions/mailtemplate.py:58
+#: management/commands/sendExcJustificantPagament.py:61
+#: management/commands/sendJustificantPagament.py:66
+#: views/excursion.py:195
 #: views/reporting.py:221
 #: views/reporting.py:251
 #: views/reporting.py:294
@@ -435,7 +437,7 @@ msgstr "Error al generar el pdf"
 msgid "Mail sent"
 msgstr "Correu electrònic enviat"
 
-#: functions/mailtemplate.py:56
+#: functions/mailtemplate.py:62
 msgid "Error sending mail"
 msgstr "Ha hagut un error quan s'enviava el correu electrònic"
 
@@ -447,6 +449,7 @@ msgstr "Notes"
 #: templates/contacts/base_iframe.html:6
 #: templates/contacts/base_pdf.html:6
 #: templates/contacts/base_pdf_watermark.html:6
+#: templates/contacts/base_pdf_watermark_ca.html:6
 msgid "Contacts"
 msgstr "Inscripcions"
 
@@ -470,6 +473,25 @@ msgstr "L'usuari i contrasenya no són correctes"
 #: templates/contacts/login.html.py:24
 msgid "Login"
 msgstr "Identifica't"
+
+#: templates/contacts/errors/500.html:4
+#: templates/contacts/person/update.html:80
+msgid "Error!"
+msgstr "Error!"
+
+#: templates/contacts/errors/500.html:7
+#: templates/contacts/excursion/update.html:16
+#: templates/contacts/person/import.html:31
+msgid "Error"
+msgstr "Error"
+
+#: templates/contacts/errors/500.html:13
+msgid "Oops! An error has occurred!"
+msgstr "Ups! S'ha produit un error!"
+
+#: templates/contacts/errors/500.html:24
+msgid "Please, copy the above message and report this error to "
+msgstr "Per favor, copia el missatge que apareix adalt i envia'l a "
 
 #: templates/contacts/excursion/cancel.html:6
 #: templates/contacts/excursion/cancel.html:15
@@ -546,7 +568,7 @@ msgstr "Sí"
 #: templates/contacts/excursion/delete.html:36
 #: templates/contacts/excursion/detail.html:47
 #: templates/contacts/excursion/new.html:66
-#: templates/contacts/excursion/stats.html:36
+#: templates/contacts/excursion/stats.html:48
 #: templates/contacts/excursion/update.html:96
 #: templates/contacts/mailtemplate/create.html:23
 #: templates/contacts/mailtemplate/delete.html:36
@@ -558,7 +580,7 @@ msgstr "Sí"
 #: templates/contacts/person/detail.html:77
 #: templates/contacts/person/import.html:51
 #: templates/contacts/person/map.html:79
-#: templates/contacts/person/stats.html:50
+#: templates/contacts/person/stats.html:52
 #: templates/contacts/person/synchronize.html:29
 #: templates/contacts/person/update.html:105
 #: templates/contacts/person/update_status.html:21
@@ -883,18 +905,13 @@ msgstr "Informació rebuda"
 msgid "Excursion and gala dinner stats"
 msgstr "Estadísitques de l'excursió i el sopar de gala"
 
-#: templates/contacts/excursion/stats.html:37
+#: templates/contacts/excursion/stats.html:49
 #: templates/contacts/person/list.html:50
-#: templates/contacts/person/stats.html:51
+#: templates/contacts/person/stats.html:53
 #: templates/contacts/person/update_status.html:5
 #: templates/contacts/person/update_status.html:8
 msgid "Update records status"
 msgstr "Actualitza estat dels registres"
-
-#: templates/contacts/excursion/update.html:16
-#: templates/contacts/person/import.html:31
-msgid "Error"
-msgstr "Error"
 
 #: templates/contacts/excursion/update.html:45
 msgid "Payment"
@@ -1088,10 +1105,6 @@ msgstr "Carregant els correus"
 #: templates/contacts/person/update.html:76
 msgid "Loading"
 msgstr "Carregant"
-
-#: templates/contacts/person/update.html:80
-msgid "Error!"
-msgstr "Error!"
 
 #: templates/contacts/person/update_form_old.html:15
 msgid "Registration info"

@@ -1,0 +1,26 @@
+{% extends "contacts/base_iframe.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Error!" %}{% endblock %}
+
+{% block content_title %}
+       {% trans "Error" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="alert alert-error alert-block">
+    <h4>{% trans "Oops! An error has occurred!" %}</h4>
+    <p><b>Value</b>: {{ lvalue }} </p>
+    <p><b>Traceback</b>:
+        {% for trace in ltraceback %}
+        {% if 'contacts/views' in trace %}
+        {{ trace }} <br />
+        {% endif %}
+        {% endfor %}
+    </p>
+</div>
+<div class="well">
+    {% trans "Please, copy the above message and report this error to " %} <a href="mailto:info@jaem.es">info@jaem.es</a>
+</div>
+{% endblock %}

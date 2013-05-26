@@ -166,7 +166,18 @@ def create(request, template='contacts/excursion/create.html'):
 
         if form.is_valid():
             p = form.save(commit=False)
-            p.person = Person.objects.get(email_address=p.email_address)
+            person_list = Person.objects.filter(email_address__iexact=p.email_address)
+            person = None
+            if person_list.count() > 0:
+                for iter_person in person_list:
+                    if person is None: person = iter_person
+                    if iter_person.first_name.lower().strip() == p.first_name.lower().strip():
+                        person = iter_person
+                        break
+            else:
+                raise Exception( _("This email address doesn't exist in the inscription database"))
+
+            p.person = person
             p.user_add = user
             p.user_modify = user
             p.date_registration = datetime.now()

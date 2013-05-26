@@ -28,7 +28,7 @@ class Command(NoArgsCommand):
     )
 
     def handle_noargs(self, **options):
-        print "Enviament comunicacio OK per correu"
+        print "Generacio certificats aportacio acceptada"
 
         avui_cat = _date(datetime.now(), "d \d\e F \d\e Y")
 
@@ -53,18 +53,26 @@ class Command(NoArgsCommand):
 
 
 
-        with open('aportacions_acceptades.csv', 'rb') as infile:
+        with open('aportacions_acceptades_finals_2.csv', 'rb') as infile:
             aportacions = csv.DictReader(infile, delimiter=',')
             for aportacio in aportacions:
                 lang = '1'
                 status = 'pending'
                 # Miram si existeix la persona per correu electronic, per cercar si català (2) o castellà (1)
-                try:
-                    person = Person.objects.get(email_address__iexact=aportacio['email'])
+                person_list = Person.objects.filter(email_address__iexact=aportacio['email'])
+                if person_list.count() > 0:
+                    person = None
+                    for iter_person in person_list:
+                        if person is None: person = iter_person
+                        if iter_person.first_name in aportacio['autors'].decode('utf-8') and iter_person.last_name in aportacio['autors'].decode('utf-8'):
+                            person = iter_person
+                            print '     >> TROBA: %s. ' % person.fullname
+                            break
+
                     lang = person.lang
                     status = person.status
                     print '     >> SI troba registre persona: %s. ' % person.fullname
-                except Person.DoesNotExist:
+                else:
                     print '     << No ha trobat registre persona %s. Assumim castellà ' % aportacio['email']
 
                 tipologia = aportacio['tipologia']

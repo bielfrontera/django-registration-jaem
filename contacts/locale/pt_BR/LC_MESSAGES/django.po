@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-11 01:03+0100\n"
+"POT-Creation-Date: 2013-05-26 15:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,269 +17,354 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: forms.py:118 models.py:168 templates/contacts/person/detail.html:54
+#: forms.py:120 models.py:169 templates/contacts/person/detail.html:54
 msgid "laboral levels"
 msgstr ""
 
-#: forms.py:123 models.py:21
+#: forms.py:125 models.py:21
 msgid "Registrant"
 msgstr ""
 
-#: forms.py:124 models.py:22
+#: forms.py:126 models.py:22
 msgid "Guest"
 msgstr ""
 
-#: forms.py:125 models.py:23
+#: forms.py:127 models.py:23
 msgid "Sponsor"
 msgstr ""
 
-#: forms.py:126 models.py:24
+#: forms.py:128 models.py:24
 msgid "Organizer"
 msgstr ""
 
-#: forms.py:131 models.py:118
+#: forms.py:129 models.py:25
+msgid "Volunteer"
+msgstr ""
+
+#: forms.py:134 models.py:119
 msgid "Data ok"
 msgstr ""
 
-#: forms.py:132 models.py:119
+#: forms.py:135 models.py:120
 msgid "Incorrect data"
 msgstr ""
 
-#: forms.py:133 models.py:120
+#: forms.py:136 models.py:121
 msgid "Missed data"
 msgstr ""
 
-#: forms.py:134
+#: forms.py:137
 msgid "Unknown person"
 msgstr ""
 
-#: forms.py:138 models.py:143
+#: forms.py:141 forms.py:185 models.py:144 models.py:388
 msgid "last name"
 msgstr ""
 
-#: forms.py:139 forms.py:154 models.py:148
-#: templates/contacts/person/stats.html:28
-msgid "contact type"
-msgstr ""
-
-#: forms.py:140 models.py:150 tables.py:43
-msgid "ID card"
-msgstr ""
-
-#: forms.py:141 models.py:201 tables.py:22
-#: templates/contacts/person/stats.html:29
-msgid "status"
-msgstr ""
-
-#: forms.py:142
-msgid "mail not paid unsent"
-msgstr ""
-
-#: forms.py:143
-msgid "mail registration unsent"
-msgstr ""
-
-#: forms.py:155 models.py:186 templates/contacts/person/detail.html:30
-msgid "math society"
-msgstr ""
-
-#: forms.py:156 models.py:156 models.py:182
-msgid "province"
-msgstr ""
-
-#: forms.py:157 models.py:191 templates/contacts/person/detail.html:36
-msgid "lang"
-msgstr ""
-
-#: forms.py:162
-msgid "stats by"
-msgstr ""
-
-#: models.py:121
-msgid "Pendent"
-msgstr ""
-
-#: models.py:142
-msgid "first name"
-msgstr ""
-
-#: models.py:144
-msgid "nickname"
-msgstr ""
-
-#: models.py:145
-msgid "slug"
-msgstr ""
-
-#: models.py:146
-msgid "about"
-msgstr ""
-
-#: models.py:147
-msgid "photo"
-msgstr ""
-
-#: models.py:153 models.py:179 templates/contacts/person/detail.html:43
-#: templates/contacts/person/detail.html:65
-msgid "address"
-msgstr ""
-
-#: models.py:154 models.py:180
-msgid "postal code"
-msgstr ""
-
-#: models.py:155 models.py:181
-msgid "town"
-msgstr ""
-
-#: models.py:158 tables.py:16 tables.py:45
+#: forms.py:142 forms.py:186 models.py:159 models.py:389 tables.py:16
+#: tables.py:45 tables.py:55 tables.py:72
 #: templates/contacts/person/detail.html:45
 msgid "email address"
 msgstr ""
 
-#: models.py:159 models.py:183 tables.py:44
+#: forms.py:143 forms.py:158 models.py:149
+#: templates/contacts/person/stats.html:28
+msgid "contact type"
+msgstr ""
+
+#: forms.py:144 models.py:151 tables.py:43
+msgid "ID card"
+msgstr ""
+
+#: forms.py:145 forms.py:187 models.py:202 models.py:403 tables.py:22
+#: tables.py:65 templates/contacts/excursion/stats.html:18
+#: templates/contacts/person/stats.html:29
+msgid "status"
+msgstr ""
+
+#: forms.py:146 forms.py:188
+msgid "mail not paid unsent"
+msgstr ""
+
+#: forms.py:147 forms.py:189
+msgid "mail registration unsent"
+msgstr ""
+
+#: forms.py:159 models.py:187 templates/contacts/person/detail.html:30
+msgid "math society"
+msgstr ""
+
+#: forms.py:160 models.py:157 models.py:183
+msgid "province"
+msgstr ""
+
+#: forms.py:161 models.py:192 templates/contacts/person/detail.html:36
+msgid "lang"
+msgstr ""
+
+#: forms.py:166
+msgid "stats by"
+msgstr ""
+
+#: forms.py:231 views/excursion.py:178
+msgid "This email address doesn't exist in the inscription database"
+msgstr ""
+
+#: forms.py:235
+msgid ""
+"Your excursion and gala dinner inscriptions already exists. If you want to "
+"modify your inscription, please send a message to inscripciones@jaem.es"
+msgstr ""
+
+#: forms.py:249
+msgid "You have to select excursion, gala dinner or both"
+msgstr ""
+
+#: forms.py:262
+msgid "There are more vegetarian options than dinners selected"
+msgstr ""
+
+#: forms.py:276
+msgid "There are more celiac options than dinners selected"
+msgstr ""
+
+#: models.py:122
+msgid "Pendent"
+msgstr ""
+
+#: models.py:143 models.py:387
+msgid "first name"
+msgstr ""
+
+#: models.py:145
+msgid "nickname"
+msgstr ""
+
+#: models.py:146
+msgid "slug"
+msgstr ""
+
+#: models.py:147
+msgid "about"
+msgstr ""
+
+#: models.py:148
+msgid "photo"
+msgstr ""
+
+#: models.py:154 models.py:180 templates/contacts/person/detail.html:43
+#: templates/contacts/person/detail.html:65
+msgid "address"
+msgstr ""
+
+#: models.py:155 models.py:181
+msgid "postal code"
+msgstr ""
+
+#: models.py:156 models.py:182
+msgid "town"
+msgstr ""
+
+#: models.py:160 models.py:184 tables.py:44
 #: templates/contacts/person/detail.html:46
 #: templates/contacts/person/detail.html:67
 msgid "phone number"
 msgstr ""
 
-#: models.py:160 templates/contacts/person/detail.html:47
+#: models.py:161 templates/contacts/person/detail.html:47
 msgid "mobile number"
 msgstr ""
 
-#: models.py:161 templates/contacts/person/detail.html:48
+#: models.py:162 templates/contacts/person/detail.html:48
 msgid "twitter"
 msgstr ""
 
-#: models.py:164 templates/contacts/person/detail.html:53
+#: models.py:165 templates/contacts/person/detail.html:53
 msgid "laboral category"
 msgstr ""
 
-#: models.py:169 templates/contacts/person/detail.html:55
+#: models.py:170 templates/contacts/person/detail.html:55
 msgid "NRP"
 msgstr ""
 
-#: models.py:170 templates/contacts/person/detail.html:56
+#: models.py:171 templates/contacts/person/detail.html:56
 msgid "years experience"
 msgstr ""
 
-#: models.py:171 templates/contacts/person/detail.html:57
+#: models.py:172 templates/contacts/person/detail.html:57
 msgid "cos docent"
 msgstr ""
 
-#: models.py:173 templates/contacts/person/detail.html:58
+#: models.py:174 templates/contacts/person/detail.html:58
 msgid "degree"
 msgstr ""
 
-#: models.py:177 templates/contacts/person/detail.html:64
+#: models.py:178 templates/contacts/person/detail.html:64
 msgid "center name"
 msgstr ""
 
-#: models.py:178
+#: models.py:179
 msgid "center code"
 msgstr ""
 
-#: models.py:190 templates/contacts/person/detail.html:37
+#: models.py:191 models.py:399 templates/contacts/excursion/detail.html:30
+#: templates/contacts/excursion/new_success.html:44
+#: templates/contacts/person/detail.html:37
 msgid "remarks"
 msgstr ""
 
-#: models.py:192
+#: models.py:193
 msgid "external id"
 msgstr ""
 
-#: models.py:196
+#: models.py:197
 msgid "location"
 msgstr ""
 
-#: models.py:199 templates/contacts/person/detail.html:28
+#: models.py:200 models.py:402 templates/contacts/excursion/detail.html:21
+#: templates/contacts/excursion/new_success.html:35
+#: templates/contacts/person/detail.html:28
 msgid "date registration"
 msgstr ""
 
-#: models.py:200 templates/contacts/person/detail.html:31
+#: models.py:201 templates/contacts/person/detail.html:31
 msgid "revision"
 msgstr ""
 
-#: models.py:202 templates/contacts/person/detail.html:32
+#: models.py:203 models.py:404 templates/contacts/excursion/detail.html:35
+#: templates/contacts/person/detail.html:32
 msgid "paid"
 msgstr ""
 
-#: models.py:203 templates/contacts/person/detail.html:33
+#: models.py:204 models.py:405 templates/contacts/excursion/detail.html:36
+#: templates/contacts/person/detail.html:33
 msgid "date paid"
 msgstr ""
 
-#: models.py:204 templates/contacts/person/detail.html:34
+#: models.py:205 models.py:406 templates/contacts/excursion/detail.html:37
+#: templates/contacts/excursion/update.html:73
+#: templates/contacts/person/detail.html:34
+#: templates/contacts/person/update.html:58
 msgid "date mail not paid"
 msgstr ""
 
-#: models.py:205 templates/contacts/person/detail.html:35
+#: models.py:206 models.py:407 templates/contacts/excursion/detail.html:38
+#: templates/contacts/excursion/update.html:74
+#: templates/contacts/person/detail.html:35
+#: templates/contacts/person/update.html:59
 msgid "date mail registration"
 msgstr ""
 
-#: models.py:211 models.py:335
+#: models.py:212 models.py:336 models.py:410
 msgid "date added"
 msgstr ""
 
-#: models.py:214 models.py:337
+#: models.py:215 models.py:338 models.py:412
 msgid "date modified"
 msgstr ""
 
-#: models.py:221
+#: models.py:222
 msgid "person"
 msgstr ""
 
-#: models.py:222
+#: models.py:223
 msgid "people"
 msgstr ""
 
-#: models.py:328
+#: models.py:329
 msgid "code"
 msgstr ""
 
-#: models.py:329
+#: models.py:330
 msgid "subject"
 msgstr ""
 
-#: models.py:330
+#: models.py:331
 msgid "description"
 msgstr ""
 
-#: models.py:331
+#: models.py:332
 msgid "body"
 msgstr ""
 
-#: models.py:332
+#: models.py:333
 msgid "attachment"
 msgstr ""
 
-#: models.py:333
+#: models.py:334
 msgid "second attachment"
 msgstr ""
 
-#: models.py:342
+#: models.py:343
 msgid "Mail template"
 msgstr ""
 
-#: models.py:343
+#: models.py:344
 msgid "Mail templates"
 msgstr ""
 
-#: tables.py:12 tables.py:30
+#: models.py:390
+msgid "excursion qty"
+msgstr ""
+
+#: models.py:391
+msgid "dinner qty"
+msgstr ""
+
+#: models.py:392
+msgid "vegetarian qty"
+msgstr ""
+
+#: models.py:393
+msgid "celiac qty"
+msgstr ""
+
+#: models.py:394 templates/contacts/excursion/detail.html:26
+#: templates/contacts/excursion/new_success.html:40
+msgid "alergies"
+msgstr ""
+
+#: models.py:395
+msgid "bus qty"
+msgstr ""
+
+#: models.py:396
+msgid "accommodation name"
+msgstr ""
+
+#: models.py:397
+msgid "accommodation address"
+msgstr ""
+
+#: models.py:417
+msgid "Excursion and Dinner registration"
+msgstr ""
+
+#: models.py:418
+msgid "Excursion and Dinner registrations"
+msgstr ""
+
+#: tables.py:12 tables.py:30 tables.py:52
 msgid "Actions"
 msgstr ""
 
-#: functions/mailtemplate.py:26
+#: functions/mailtemplate.py:27
 msgid "Mail not sent"
 msgstr ""
 
-#: functions/mailtemplate.py:45
+#: functions/mailtemplate.py:46
 msgid "Error generating pdf"
 msgstr ""
 
-#: functions/mailtemplate.py:51 views/reporting.py:188 views/reporting.py:218
+#: functions/mailtemplate.py:58
+#: management/commands/sendExcJustificantPagament.py:61
+#: management/commands/sendJustificantPagament.py:66 views/excursion.py:195
+#: views/reporting.py:221 views/reporting.py:251 views/reporting.py:294
+#: views/reporting.py:324
 msgid "Mail sent"
 msgstr ""
 
-#: functions/mailtemplate.py:55
+#: functions/mailtemplate.py:62
 msgid "Error sending mail"
 msgstr ""
 
@@ -287,15 +372,18 @@ msgstr ""
 msgid "Notes"
 msgstr ""
 
-#: templates/contacts/base.html:6 templates/contacts/base_pdf.html:6
+#: templates/contacts/base.html:6 templates/contacts/base_iframe.html:6
+#: templates/contacts/base_pdf.html:6
+#: templates/contacts/base_pdf_watermark.html:6
+#: templates/contacts/base_pdf_watermark_ca.html:6
 msgid "Contacts"
 msgstr ""
 
-#: templates/contacts/base.html:63
+#: templates/contacts/base.html:64
 msgid "Logout"
 msgstr ""
 
-#: templates/contacts/base.html:90
+#: templates/contacts/base.html:91
 msgid "Latest records"
 msgstr ""
 
@@ -311,16 +399,102 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: templates/contacts/mailtemplate/create.html:5
-#: templates/contacts/mailtemplate/create.html:8
-msgid "Add a new mail template"
+#: templates/contacts/errors/500.html:4
+#: templates/contacts/person/update.html:80
+msgid "Error!"
 msgstr ""
 
-#: templates/contacts/mailtemplate/create.html:16
-#: templates/contacts/person/create.html:16
-msgid "Create and continue"
+#: templates/contacts/errors/500.html:7
+#: templates/contacts/excursion/update.html:16
+#: templates/contacts/person/import.html:31
+msgid "Error"
 msgstr ""
 
+#: templates/contacts/errors/500.html:13
+msgid "Oops! An error has occurred!"
+msgstr ""
+
+#: templates/contacts/errors/500.html:24
+msgid "Please, copy the above message and report this error to "
+msgstr ""
+
+#: templates/contacts/excursion/cancel.html:6
+#: templates/contacts/excursion/cancel.html:15
+#: templates/contacts/excursion/cancel.html:47
+#: templates/contacts/excursion/detail.html:56
+#: templates/contacts/excursion/update.html:106
+#: templates/contacts/person/cancel.html:6
+#: templates/contacts/person/cancel.html:15
+#: templates/contacts/person/cancel.html:47
+#: templates/contacts/person/detail.html:92
+#: templates/contacts/person/update.html:120
+msgid "Get inscription back"
+msgstr ""
+
+#: templates/contacts/excursion/cancel.html:8
+#: templates/contacts/excursion/cancel.html:17
+#: templates/contacts/excursion/cancel.html:49
+#: templates/contacts/excursion/detail.html:58
+#: templates/contacts/excursion/update.html:108
+#: templates/contacts/person/cancel.html:8
+#: templates/contacts/person/cancel.html:17
+#: templates/contacts/person/cancel.html:49
+#: templates/contacts/person/detail.html:94
+#: templates/contacts/person/update.html:122
+msgid "Cancel inscription"
+msgstr ""
+
+#: templates/contacts/excursion/cancel.html:25
+#: templates/contacts/excursion/delete.html:13
+#: templates/contacts/excursion/new_success.html:18
+#: templates/contacts/mailtemplate/delete.html:13
+#: templates/contacts/person/cancel.html:25
+#: templates/contacts/person/delete.html:13
+#: templates/contacts/person/list.html:16
+msgid "Warning!"
+msgstr ""
+
+#: templates/contacts/excursion/cancel.html:27
+#: templates/contacts/person/cancel.html:27
+msgid "You are about to get this inscription back. Do you want to continue?"
+msgstr ""
+
+#: templates/contacts/excursion/cancel.html:29
+#: templates/contacts/person/cancel.html:29
+msgid "You are about to cancel this inscription. Do you want to continue?"
+msgstr ""
+
+#: templates/contacts/excursion/cancel.html:36
+#: templates/contacts/excursion/delete.html:20
+#: templates/contacts/mailtemplate/delete.html:20
+#: templates/contacts/person/cancel.html:36
+#: templates/contacts/person/delete.html:20
+msgid "Confirm"
+msgstr ""
+
+#: templates/contacts/excursion/cancel.html:39
+#: templates/contacts/excursion/delete.html:23
+#: templates/contacts/mailtemplate/delete.html:23
+#: templates/contacts/person/cancel.html:39
+#: templates/contacts/person/delete.html:23
+msgid "No"
+msgstr ""
+
+#: templates/contacts/excursion/cancel.html:40
+#: templates/contacts/excursion/delete.html:24
+#: templates/contacts/mailtemplate/delete.html:24
+#: templates/contacts/person/cancel.html:40
+#: templates/contacts/person/delete.html:24
+msgid "Yes"
+msgstr ""
+
+#: templates/contacts/excursion/cancel.html:58
+#: templates/contacts/excursion/create.html:23
+#: templates/contacts/excursion/delete.html:36
+#: templates/contacts/excursion/detail.html:47
+#: templates/contacts/excursion/new.html:66
+#: templates/contacts/excursion/stats.html:48
+#: templates/contacts/excursion/update.html:96
 #: templates/contacts/mailtemplate/create.html:23
 #: templates/contacts/mailtemplate/delete.html:36
 #: templates/contacts/mailtemplate/detail.html:25
@@ -331,13 +505,48 @@ msgstr ""
 #: templates/contacts/person/detail.html:77
 #: templates/contacts/person/import.html:51
 #: templates/contacts/person/map.html:79
-#: templates/contacts/person/stats.html:50
+#: templates/contacts/person/stats.html:52
 #: templates/contacts/person/synchronize.html:29
-#: templates/contacts/person/update.html:103
+#: templates/contacts/person/update.html:105
 #: templates/contacts/person/update_status.html:21
 msgid "Return to list"
 msgstr ""
 
+#: templates/contacts/excursion/cancel.html:59
+#: templates/contacts/excursion/update.html:98
+#: templates/contacts/mailtemplate/update.html:26
+#: templates/contacts/person/cancel.html:59
+#: templates/contacts/person/update.html:106
+msgid "Read"
+msgstr ""
+
+#: templates/contacts/excursion/cancel.html:60
+#: templates/contacts/excursion/detail.html:48
+#: templates/contacts/excursion/update.html:5
+#: templates/contacts/mailtemplate/detail.html:26
+#: templates/contacts/mailtemplate/update.html:5
+#: templates/contacts/person/cancel.html:60
+#: templates/contacts/person/detail.html:78
+#: templates/contacts/person/update.html:5
+msgid "Edit"
+msgstr ""
+
+#: templates/contacts/excursion/create.html:5
+#: templates/contacts/excursion/create.html:8
+msgid "Add a new Excursion"
+msgstr ""
+
+#: templates/contacts/excursion/create.html:16
+#: templates/contacts/mailtemplate/create.html:16
+#: templates/contacts/person/create.html:16
+msgid "Create and continue"
+msgstr ""
+
+#: templates/contacts/excursion/delete.html:4
+#: templates/contacts/excursion/delete.html:7
+#: templates/contacts/excursion/delete.html:29
+#: templates/contacts/excursion/detail.html:60
+#: templates/contacts/excursion/update.html:110
 #: templates/contacts/mailtemplate/delete.html:4
 #: templates/contacts/mailtemplate/delete.html:7
 #: templates/contacts/mailtemplate/delete.html:29
@@ -347,38 +556,311 @@ msgstr ""
 #: templates/contacts/person/delete.html:7
 #: templates/contacts/person/delete.html:29
 #: templates/contacts/person/detail.html:96
-#: templates/contacts/person/update.html:122
+#: templates/contacts/person/update.html:124
 msgid "Delete"
 msgstr ""
 
-#: templates/contacts/mailtemplate/delete.html:13
-#: templates/contacts/person/cancel.html:25
-#: templates/contacts/person/delete.html:13
-#: templates/contacts/person/list.html:16
-msgid "Warning!"
-msgstr ""
-
+#: templates/contacts/excursion/delete.html:14
 #: templates/contacts/mailtemplate/delete.html:14
 #: templates/contacts/person/delete.html:14
 msgid "You are about to delete this record. Do you want to continue?"
 msgstr ""
 
-#: templates/contacts/mailtemplate/delete.html:20
-#: templates/contacts/person/cancel.html:36
-#: templates/contacts/person/delete.html:20
-msgid "Confirm"
+#: templates/contacts/excursion/detail.html:14
+#: templates/contacts/excursion/new_success.html:28
+#: templates/contacts/person/detail.html:16
+#: templates/contacts/person/update_form_old.html:3
+msgid "Personal Data"
 msgstr ""
 
-#: templates/contacts/mailtemplate/delete.html:23
-#: templates/contacts/person/cancel.html:39
-#: templates/contacts/person/delete.html:23
-msgid "No"
+#: templates/contacts/excursion/detail.html:15
+#: templates/contacts/excursion/new_success.html:29
+#: templates/contacts/person/detail.html:18
+msgid "Nom"
 msgstr ""
 
-#: templates/contacts/mailtemplate/delete.html:24
-#: templates/contacts/person/cancel.html:40
-#: templates/contacts/person/delete.html:24
-msgid "Yes"
+#: templates/contacts/excursion/detail.html:16
+#: templates/contacts/excursion/new_success.html:30
+msgid "Email address"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:20
+#: templates/contacts/excursion/new_success.html:34
+msgid "Excursion and gala dinner"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:22
+#: templates/contacts/excursion/new_success.html:36
+msgid "qty excursion"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:23
+#: templates/contacts/excursion/new_success.html:37
+msgid "qty dinner"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:24
+#: templates/contacts/excursion/new_success.html:38
+msgid "qty vegetarian"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:25
+#: templates/contacts/excursion/new_success.html:39
+msgid "qty celiac"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:27
+#: templates/contacts/excursion/new_success.html:41
+msgid "qty bus"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:28
+#: templates/contacts/excursion/new_success.html:42
+msgid "accommodation_name"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:29
+#: templates/contacts/excursion/new_success.html:43
+msgid "accommodation_address"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:34
+msgid "Status"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:42
+#: templates/contacts/excursion/update.html:86
+#: templates/contacts/mailtemplate/detail.html:20
+#: templates/contacts/mailtemplate/update.html:20
+#: templates/contacts/person/detail.html:72
+#: templates/contacts/person/update.html:95
+msgid "Record created in"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:42
+#: templates/contacts/excursion/update.html:86
+#: templates/contacts/mailtemplate/detail.html:20
+#: templates/contacts/mailtemplate/update.html:20
+#: templates/contacts/person/detail.html:72
+#: templates/contacts/person/update.html:95
+msgid "by"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:42
+#: templates/contacts/excursion/update.html:86
+#: templates/contacts/mailtemplate/detail.html:20
+#: templates/contacts/mailtemplate/update.html:20
+#: templates/contacts/person/detail.html:72
+#: templates/contacts/person/update.html:95
+msgid "Modified in"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:50
+#: templates/contacts/excursion/detail.html:66
+#: templates/contacts/excursion/update.html:100
+#: templates/contacts/excursion/update.html:115
+#: templates/contacts/person/detail.html:86
+#: templates/contacts/person/detail.html:105
+#: templates/contacts/person/update.html:114
+#: templates/contacts/person/update.html:133
+msgid "Send mail inscription ok"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:53
+#: templates/contacts/excursion/detail.html:80
+#: templates/contacts/excursion/update.html:103
+#: templates/contacts/excursion/update.html:128
+#: templates/contacts/person/detail.html:89
+#: templates/contacts/person/detail.html:119
+#: templates/contacts/person/update.html:117
+#: templates/contacts/person/update.html:146
+msgid "Send mail payment overdue"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:68
+#: templates/contacts/excursion/update.html:117
+#: templates/contacts/person/detail.html:107
+#: templates/contacts/person/update.html:135
+msgid "You are about to send the inscription ok mail"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:70
+#: templates/contacts/excursion/detail.html:84
+#: templates/contacts/excursion/update.html:119
+#: templates/contacts/excursion/update.html:132
+#: templates/contacts/person/detail.html:109
+#: templates/contacts/person/detail.html:123
+#: templates/contacts/person/detail.html:136
+#: templates/contacts/person/update.html:137
+#: templates/contacts/person/update.html:150
+#: templates/contacts/person/update.html:162
+msgid "Close"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:71
+#: templates/contacts/excursion/detail.html:85
+#: templates/contacts/excursion/update.html:120
+#: templates/contacts/excursion/update.html:133
+#: templates/contacts/person/detail.html:110
+#: templates/contacts/person/detail.html:124
+#: templates/contacts/person/detail.html:138
+#: templates/contacts/person/update.html:138
+#: templates/contacts/person/update.html:151
+#: templates/contacts/person/update.html:164
+msgid "sending"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:71
+#: templates/contacts/excursion/detail.html:85
+#: templates/contacts/excursion/update.html:120
+#: templates/contacts/excursion/update.html:133
+#: templates/contacts/person/detail.html:99
+#: templates/contacts/person/detail.html:110
+#: templates/contacts/person/detail.html:124
+#: templates/contacts/person/detail.html:135
+#: templates/contacts/person/update.html:127
+#: templates/contacts/person/update.html:138
+#: templates/contacts/person/update.html:151
+#: templates/contacts/person/update.html:161
+msgid "Send mail"
+msgstr ""
+
+#: templates/contacts/excursion/detail.html:82
+#: templates/contacts/excursion/update.html:130
+#: templates/contacts/person/detail.html:121
+#: templates/contacts/person/update.html:148
+msgid "You are about to send a payment overdue mail"
+msgstr ""
+
+#: templates/contacts/excursion/list.html:5
+#: templates/contacts/excursion/list.html:8
+msgid "List of excursion registrations"
+msgstr ""
+
+#: templates/contacts/excursion/list.html:19
+#: templates/contacts/excursion/list.html:26
+#: templates/contacts/person/list.html:27
+#: templates/contacts/person/list.html:36
+#: templates/contacts/person/map.html:16 templates/contacts/person/map.html:28
+msgid "Filter"
+msgstr ""
+
+#: templates/contacts/excursion/list.html:34
+#: templates/contacts/mailtemplate/list.html:18
+#: templates/contacts/person/list.html:44
+msgid "Create"
+msgstr ""
+
+#: templates/contacts/excursion/list.html:35
+#: templates/contacts/person/list.html:46
+msgid "Export"
+msgstr ""
+
+#: templates/contacts/excursion/list.html:36
+#: templates/contacts/person/list.html:49
+#: templates/contacts/person/stats.html:6
+#: templates/contacts/person/stats.html:9
+#: templates/contacts/person/update_status.html:22
+msgid "Inscription stats"
+msgstr ""
+
+#: templates/contacts/excursion/new.html:5
+#: templates/contacts/excursion/new.html:8
+msgid "Excursion and gala dinner registration"
+msgstr ""
+
+#: templates/contacts/excursion/new.html:17
+#: templates/contacts/excursion/update.html:25
+msgid "Personal data"
+msgstr ""
+
+#: templates/contacts/excursion/new.html:21
+#: templates/contacts/excursion/update.html:29
+msgid "Excursion"
+msgstr ""
+
+#: templates/contacts/excursion/new.html:25
+#: templates/contacts/excursion/update.html:33
+msgid "Gala Dinner"
+msgstr ""
+
+#: templates/contacts/excursion/new.html:29
+#: templates/contacts/excursion/update.html:37
+msgid "Transport"
+msgstr ""
+
+#: templates/contacts/excursion/new.html:30
+msgid ""
+"El servei de busos intentarà fer rutes de tornada del sopar per deixar a "
+"tothom al seu allotjament, sempre que es tracti de la zona de Palma o "
+"S'Arenal"
+msgstr ""
+
+#: templates/contacts/excursion/new.html:34
+#: templates/contacts/excursion/update.html:41
+msgid "Remarks"
+msgstr ""
+
+#: templates/contacts/excursion/new.html:59
+msgid "Validate"
+msgstr ""
+
+#: templates/contacts/excursion/new_success.html:7
+msgid "Inscription to excursion and gala dinner successful!"
+msgstr ""
+
+#: templates/contacts/excursion/new_success.html:14
+#, python-format
+msgid "You will recieve a email to %(email)s with the instruccions"
+msgstr ""
+
+#: templates/contacts/excursion/new_success.html:19
+#, python-format
+msgid ""
+"There was an error sending the automatic mail to %(email)s with the "
+"instruccions. <br/>\n"
+"            Error message: %(error_msg)s"
+msgstr ""
+
+#: templates/contacts/excursion/new_success.html:25
+msgid "Data received"
+msgstr ""
+
+#: templates/contacts/excursion/stats.html:6
+#: templates/contacts/excursion/stats.html:9
+msgid "Excursion and gala dinner stats"
+msgstr ""
+
+#: templates/contacts/excursion/stats.html:49
+#: templates/contacts/person/list.html:50
+#: templates/contacts/person/stats.html:53
+#: templates/contacts/person/update_status.html:5
+#: templates/contacts/person/update_status.html:8
+msgid "Update records status"
+msgstr ""
+
+#: templates/contacts/excursion/update.html:45
+msgid "Payment"
+msgstr ""
+
+#: templates/contacts/excursion/update.html:66
+msgid "Amount to be paied"
+msgstr ""
+
+#: templates/contacts/excursion/update.html:82
+#: templates/contacts/mailtemplate/update.html:16
+#: templates/contacts/person/revision.html:21
+#: templates/contacts/person/update.html:91
+msgid "Save"
+msgstr ""
+
+#: templates/contacts/excursion/update.html:97
+msgid "Go to Inscription record"
+msgstr ""
+
+#: templates/contacts/mailtemplate/create.html:5
+#: templates/contacts/mailtemplate/create.html:8
+msgid "Add a new mail template"
 msgstr ""
 
 #: templates/contacts/mailtemplate/detail.html:12
@@ -405,35 +887,6 @@ msgstr ""
 msgid "Second attachment"
 msgstr ""
 
-#: templates/contacts/mailtemplate/detail.html:20
-#: templates/contacts/mailtemplate/update.html:20
-#: templates/contacts/person/detail.html:72
-#: templates/contacts/person/update.html:93
-msgid "Record created in"
-msgstr ""
-
-#: templates/contacts/mailtemplate/detail.html:20
-#: templates/contacts/mailtemplate/update.html:20
-#: templates/contacts/person/detail.html:72
-#: templates/contacts/person/update.html:93
-msgid "by"
-msgstr ""
-
-#: templates/contacts/mailtemplate/detail.html:20
-#: templates/contacts/mailtemplate/update.html:20
-#: templates/contacts/person/detail.html:72
-#: templates/contacts/person/update.html:93
-msgid "Modified in"
-msgstr ""
-
-#: templates/contacts/mailtemplate/detail.html:26
-#: templates/contacts/mailtemplate/update.html:5
-#: templates/contacts/person/cancel.html:60
-#: templates/contacts/person/detail.html:78
-#: templates/contacts/person/update.html:5
-msgid "Edit"
-msgstr ""
-
 #: templates/contacts/mailtemplate/detail.html:27
 #: templates/contacts/mailtemplate/update.html:27
 msgid "Copy"
@@ -444,59 +897,9 @@ msgstr ""
 msgid "List of mail templates"
 msgstr ""
 
-#: templates/contacts/mailtemplate/list.html:18
-#: templates/contacts/person/list.html:43
-msgid "Create"
-msgstr ""
-
-#: templates/contacts/mailtemplate/update.html:16
-#: templates/contacts/person/revision.html:21
-#: templates/contacts/person/update.html:89
-msgid "Save"
-msgstr ""
-
-#: templates/contacts/mailtemplate/update.html:26
-#: templates/contacts/person/cancel.html:59
-#: templates/contacts/person/update.html:104
-msgid "Read"
-msgstr ""
-
-#: templates/contacts/person/cancel.html:6
-#: templates/contacts/person/cancel.html:15
-#: templates/contacts/person/cancel.html:47
-#: templates/contacts/person/detail.html:92
-#: templates/contacts/person/update.html:118
-msgid "Get inscription back"
-msgstr ""
-
-#: templates/contacts/person/cancel.html:8
-#: templates/contacts/person/cancel.html:17
-#: templates/contacts/person/cancel.html:49
-#: templates/contacts/person/detail.html:94
-#: templates/contacts/person/update.html:120
-msgid "Cancel inscription"
-msgstr ""
-
-#: templates/contacts/person/cancel.html:27
-msgid "You are about to get this inscription back. Do you want to continue?"
-msgstr ""
-
-#: templates/contacts/person/cancel.html:29
-msgid "You are about to cancel this inscription. Do you want to continue?"
-msgstr ""
-
 #: templates/contacts/person/create.html:5
 #: templates/contacts/person/create.html:8
 msgid "Add a new Person"
-msgstr ""
-
-#: templates/contacts/person/detail.html:16
-#: templates/contacts/person/update_form_old.html:3
-msgid "Personal Data"
-msgstr ""
-
-#: templates/contacts/person/detail.html:18
-msgid "Nom"
 msgstr ""
 
 #: templates/contacts/person/detail.html:23
@@ -524,80 +927,23 @@ msgid "Centre de feina"
 msgstr ""
 
 #: templates/contacts/person/detail.html:80
-#: templates/contacts/person/update.html:106
+#: templates/contacts/person/update.html:108
 msgid "Justificant de pagament"
 msgstr ""
 
 #: templates/contacts/person/detail.html:83
-#: templates/contacts/person/update.html:109
+#: templates/contacts/person/update.html:111
 msgid "Justificant de inscripcio"
 msgstr ""
 
-#: templates/contacts/person/detail.html:86
-#: templates/contacts/person/detail.html:105
-#: templates/contacts/person/update.html:112
-#: templates/contacts/person/update.html:131
-msgid "Send mail inscription ok"
-msgstr ""
-
-#: templates/contacts/person/detail.html:89
-#: templates/contacts/person/detail.html:119
-#: templates/contacts/person/update.html:115
-#: templates/contacts/person/update.html:144
-msgid "Send mail payment overdue"
-msgstr ""
-
-#: templates/contacts/person/detail.html:99
-#: templates/contacts/person/detail.html:110
-#: templates/contacts/person/detail.html:124
-#: templates/contacts/person/detail.html:135
-#: templates/contacts/person/update.html:125
-#: templates/contacts/person/update.html:136
-#: templates/contacts/person/update.html:149
-#: templates/contacts/person/update.html:159
-msgid "Send mail"
-msgstr ""
-
-#: templates/contacts/person/detail.html:107
-#: templates/contacts/person/update.html:133
-msgid "You are about to send the inscription ok mail"
-msgstr ""
-
-#: templates/contacts/person/detail.html:109
-#: templates/contacts/person/detail.html:123
-#: templates/contacts/person/detail.html:136
-#: templates/contacts/person/update.html:135
-#: templates/contacts/person/update.html:148
-#: templates/contacts/person/update.html:160
-msgid "Close"
-msgstr ""
-
-#: templates/contacts/person/detail.html:110
-#: templates/contacts/person/detail.html:124
-#: templates/contacts/person/detail.html:138
-#: templates/contacts/person/update.html:136
-#: templates/contacts/person/update.html:149
-#: templates/contacts/person/update.html:162
-msgid "sending"
-msgstr ""
-
-#: templates/contacts/person/detail.html:121
-#: templates/contacts/person/update.html:146
-msgid "You are about to send a payment overdue mail"
-msgstr ""
-
 #: templates/contacts/person/detail.html:137
-#: templates/contacts/person/update.html:161
+#: templates/contacts/person/update.html:163
 msgid "You are about to send the mail with subject: "
 msgstr ""
 
 #: templates/contacts/person/import.html:4
 #: templates/contacts/person/import.html:7
 msgid "Import people from CSV"
-msgstr ""
-
-#: templates/contacts/person/import.html:31
-msgid "Error"
 msgstr ""
 
 #: templates/contacts/person/import.html:37
@@ -609,41 +955,17 @@ msgid "List of contacts"
 msgstr ""
 
 #: templates/contacts/person/list.html:17
-#: templates/contacts/person/list.html:44
+#: templates/contacts/person/list.html:45
 #: templates/contacts/person/synchronize.html:23
 msgid "Synchronize"
 msgstr ""
 
-#: templates/contacts/person/list.html:27
-#: templates/contacts/person/list.html:35
-#: templates/contacts/person/map.html:16 templates/contacts/person/map.html:28
-msgid "Filter"
-msgstr ""
-
-#: templates/contacts/person/list.html:45
-msgid "Export"
-msgstr ""
-
-#: templates/contacts/person/list.html:46
+#: templates/contacts/person/list.html:47
 msgid "Import"
 msgstr ""
 
-#: templates/contacts/person/list.html:47
-msgid "Map"
-msgstr ""
-
 #: templates/contacts/person/list.html:48
-#: templates/contacts/person/stats.html:6
-#: templates/contacts/person/stats.html:9
-#: templates/contacts/person/update_status.html:22
-msgid "Inscription stats"
-msgstr ""
-
-#: templates/contacts/person/list.html:49
-#: templates/contacts/person/stats.html:51
-#: templates/contacts/person/update_status.html:5
-#: templates/contacts/person/update_status.html:8
-msgid "Update records status"
+msgid "Map"
 msgstr ""
 
 #: templates/contacts/person/map.html:4 templates/contacts/person/map.html:7
@@ -700,16 +1022,12 @@ msgstr ""
 msgid "Mail history"
 msgstr ""
 
-#: templates/contacts/person/update.html:73
+#: templates/contacts/person/update.html:75
 msgid "Loading messages"
 msgstr ""
 
-#: templates/contacts/person/update.html:74
+#: templates/contacts/person/update.html:76
 msgid "Loading"
-msgstr ""
-
-#: templates/contacts/person/update.html:78
-msgid "Error!"
 msgstr ""
 
 #: templates/contacts/person/update_form_old.html:15
@@ -728,10 +1046,10 @@ msgstr ""
 msgid "Mail login incorrect"
 msgstr ""
 
-#: views/mailhistory.py:102
+#: views/mailhistory.py:110
 msgid "User is not authenticated"
 msgstr ""
 
-#: views/mailhistory.py:108
+#: views/mailhistory.py:116
 msgid "Person does not exist in database"
 msgstr ""

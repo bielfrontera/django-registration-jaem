@@ -219,13 +219,19 @@ class ExcursionCreateForm(ModelForm):
 
     def clean_email_address(self):
         data = self.cleaned_data['email_address']
-        try:
-            person = Person.objects.get(email_address=data)
-        except Person.DoesNotExist:
+        person_list = Person.objects.filter(email_address__iexact=data)
+        person = None
+        if person_list.count() > 0:
+            for iter_person in person_list:
+                if person is None: person = iter_person
+                if iter_person.first_name.lower().strip() == self.cleaned_data['first_name'].lower().strip():
+                    person = iter_person
+                    break
+        else:
             raise forms.ValidationError( _("This email address doesn't exist in the inscription database"))
 
         try:
-            excursion = Excursion.objects.get(email_address=data)
+            excursion = Excursion.objects.get(person_id__exact=person.id)
             raise forms.ValidationError( _("Your excursion and gala dinner inscriptions already exists. If you want to modify your inscription, please send a message to inscripciones@jaem.es"))
         except Excursion.DoesNotExist:
             pass
