@@ -219,7 +219,7 @@ def calculaStatus(excursion):
     else:
         status = 'pendent'
         # Revisam si fa molt de temps
-        if (datetime.now() - excursion.date_registration).days > 15:
+        if (datetime.now() - excursion.date_registration).days > 5:
             status = 'notpaid_late'
 
     return status

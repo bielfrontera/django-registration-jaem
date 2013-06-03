@@ -457,13 +457,13 @@ def calculaStatus(person):
             else:
                 status = 'ok_notpaid'
                 # Revisam si fa molt de temps
-                if (datetime.now() - person.date_registration).days > 15:
+                if (datetime.now() - person.date_registration).days > 5:
                     status = 'notpaid_late'
         else:
             if person.date_paid and person.paid:
                 status = 'nook_paid'
             else:
-                if (datetime.now() - person.date_registration).days > 15:
+                if (datetime.now() - person.date_registration).days > 5:
                     status = 'notpaid_late'
             # else (status = 'pendent')
     else:
