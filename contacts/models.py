@@ -507,3 +507,109 @@ class Excursion(models.Model):
             'id': self.id,
         })
 
+class Taller(models.Model):
+    title = models.CharField(_('title'), max_length=200)
+    authors = models.CharField(_('authors'), max_length=250)
+    day_scheduled = models.IntegerField(_('day'),null=True, blank=True)
+    time_scheduled = models.CharField(_('time'), max_length=20)
+    building = models.CharField(_('building'), max_length=20)
+    room = models.CharField(_('room'), max_length=20)
+    max_attendants = models.IntegerField(_('max attendants'),null=True, blank=True)
+
+    class Meta:
+        db_table = 'contacts_taller'
+        verbose_name = _('Taller')
+        verbose_name_plural = _('Tallers')
+
+    def __unicode__(self):
+        return  u"Dia %s %s: %s" % (self.day_scheduled, self.time_scheduled, self.title)
+
+    @property
+    def num_attendants(self):
+        return self.tallerrelation_set.filter(assigned=True).count()
+
+    @property
+    def attendants(self):
+        return self.tallerrelation_set.filter(assigned=True)
+
+    @property
+    def num_registrations(self):
+        return self.taller_registrations.all().count()
+
+    @property
+    def registrations(self):
+        return self.taller_registrations.all()
+
+
+class TallerRegistration(models.Model):
+    # DADES PERSONALS
+    first_name = models.CharField(_('first name'), max_length=100)
+    last_name = models.CharField(_('last name'), max_length=200)
+    email_address = models.EmailField(_('email address'), db_index=True, blank=True)
+    tallers = models.ManyToManyField(Taller,related_name='taller_registrations',through='TallerRelation')
+    password = models.CharField(_('password'), max_length=20)
+    remarks =  models.TextField(_('remarks'), null=True,blank=True)
+    # Revisio
+    date_registration = models.DateTimeField(_('date registration'),null=True, blank=True)
+
+    person = models.OneToOneField(Person, blank=True, null=True)
+    date_added = models.DateTimeField(_('date added'), auto_now_add=True)
+    user_add = models.ForeignKey(User, blank=True, null=True, related_name='regtaller-add')
+    date_modified = models.DateTimeField(_('date modified'), auto_now=True)
+    user_modify = models.ForeignKey(User, blank=True, null=True, related_name='regtaller-modified')
+
+    class Meta:
+        db_table = 'contacts_regtaller'
+        verbose_name = _('Taller registration')
+        verbose_name_plural = _('Tallers registrations')
+
+    def __unicode__(self):
+        return  u"%s" % (self.fullname)
+
+
+    @property
+    def fullname(self):
+        return u"%s %s" % (self.first_name, self.last_name)
+
+    @property
+    def num_tallers_assigned(self):
+        return self.tallerrelation_set.filter(assigned=True).count()
+
+    @property
+    def tallers_assigned(self):
+        return self.tallerrelation_set.filter(assigned=True)
+
+    @property
+    def num_tallers(self):
+        return self.tallers.count()
+
+
+    @permalink
+    def get_absolute_url(self):
+        return ('contacts_regtaller_detail', None, {
+            'id': self.id,
+        })
+
+    @permalink
+    def get_update_url(self):
+        return ('contacts_regtaller_update', None, {
+            'id': self.id,
+        })
+
+    @permalink
+    def get_delete_url(self):
+        return ('contacts_regtaller_delete', None, {
+            'id': self.id,
+        })
+
+    @permalink
+    def get_cancel_url(self):
+        return ('contacts_regtaller_cancel', None, {
+            'id': self.id,
+        })
+
+class TallerRelation(models.Model):
+    taller_registration = models.ForeignKey(TallerRegistration)
+    taller = models.ForeignKey(Taller)
+    preference_order = models.IntegerField(_('preference order'),null=True, blank=True, default=100)
+    assigned = models.BooleanField(default=False)

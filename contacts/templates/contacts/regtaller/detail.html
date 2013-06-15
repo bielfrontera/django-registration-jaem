@@ -1,0 +1,31 @@
+{% extends "contacts/regtaller/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }}: {{ object }}{% endblock %}
+
+{% block content_title %}
+        <span class="fn">{{ object }}</span>
+{% endblock %}
+
+
+{% block content %}
+    <p>
+        <h3>{% trans "Personal Data" %}</h3>
+        <b>{% trans "Nom" %}:</b> {{ object.first_name }} {{ object.last_name }}<br />
+        <b>{% trans "Email address" %}:</b> {{ object.email_address }}<br />
+    </p>
+    <hr/>
+    <small>
+        {% trans 'Record created in' %} {{ object.date_added }}{% if object.user_add %} {% trans 'by' %} {{ object.user_add }}{% endif %}. {% trans 'Modified in' %} {{ object.date_modified }}{% if object.user_modify %} {% trans 'by' %} {{ object.user_modify }}{% endif %}.
+    </small>
+{% endblock %}
+
+{% block actions %}
+    <a href="{%  url contacts_regtaller_list %}"  class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+    <a href="{{ object.get_update_url }}" class="btn"><i class="icon-edit"></i> {% trans "Edit" %}</a>
+    <a href="{{ object.get_delete_url }}" class="btn"><i class="icon-trash"></i> {% trans "Delete" %}</a>
+{% endblock %}
+
+{% block page_js %}
+
+{% endblock page_js %}

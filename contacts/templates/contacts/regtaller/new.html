@@ -1,0 +1,61 @@
+{% extends "contacts/base_iframe.html" %}
+{% load i18n %}
+{% load bootstrap_toolkit %}
+
+{% block title %}{% trans "Tallers registration" %}{% endblock %}
+
+{% block content_title %}
+    {% trans "Tallers registration" %}
+{% endblock %}
+
+{% block content %}
+{% if form.errors  %}
+    <div class="alert alert-error alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>{% trans 'Check this errors' %}</h4>
+        {{ form.errors }}
+    </div>
+{% endif %}
+
+
+    <form action="." method="post" accept-charset="utf-8"  class="form-horizontal">
+        {% csrf_token %}
+        {% for field in form %}
+            {% if field.name == 'first_name' %}
+                <fieldset>
+                    <legend>{% trans "Personal data" %}</legend>
+            {% endif %}
+            {% if field.name == 'tallers' %}
+                <fieldset>
+                    <legend>{% trans "Tallers" %}</legend>
+                    <p>{% trans "Select as many tallers as you want, ordered by preference" %}</p>
+            {% endif %}
+            {% include "bootstrap_toolkit/field.html" %}
+            {% if field.name == 'email_address' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'taller' %}
+                <button id="add_taller" type="button" value="Add" class="btn btn-inverse" style="display:none"><i class="icon-white icon-plus"></i> {% trans 'Add' %}</button>
+                <button id="remove_taller" type="button" value="Remove" class="btn btn-inverse" style="display:none"><i class="icon-white icon-remove"></i> {% trans 'Remove' %}</button>
+                <h4>{% trans "Selected tallers" %}</h4>
+                <ul id="tallers_selected">
+                </ul>
+                </fieldset>
+            {% endif %}
+
+        {% endfor %}
+
+        <div class="form-actions">
+            <button type="submit" value="Submit" class="btn btn-primary">{% trans 'Validate' %} <i class="icon-white icon-chevron-right"></i></button>
+        </div>
+    </form>
+{% endblock %}
+
+
+{% block actions %}
+<a href="{%  url contacts_regtaller_list %}"  class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+{% endblock %}
+
+{% block page_js %}
+    <script src="/contactes/js/regtaller.js"></script>
+{% endblock page_js %}

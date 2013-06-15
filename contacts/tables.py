@@ -40,9 +40,22 @@ class ExportPersonTable(tables.Table):
     last_name = tables.Column()
     first_name = tables.Column()
     contact_type = tables.TemplateColumn('{{ record.get_contact_type_display }}')
-    id_card  = tables.Column(verbose_name=_('ID card'),sortable=False)
     phone_number  = tables.Column(verbose_name=_('phone number'),sortable=False)
     email_address = tables.Column(sortable=False, verbose_name=_('email address'))
+    id_card = tables.Column(verbose_name=_('DNI'))
+    home_address = tables.Column()
+    home_postalcode = tables.Column()
+    home_town = tables.Column()
+    home_province = tables.Column()
+    phone_number = tables.Column()
+    mobile_number = tables.Column()
+    twitter = tables.Column()
+    math_society = tables.TemplateColumn('{{ record.get_math_society_display_mini }}')
+    status = tables.TemplateColumn('{{ record.get_status_display }}')
+    paid = tables.Column()
+    date_modified = tables.TemplateColumn('{{ record.date_modified|date:"Y/m/d" }}')
+    remarks = tables.Column()
+
 
 
 class ExcursionTable(tables.Table):
@@ -78,4 +91,22 @@ class ExportExcursionTable(tables.Table):
     accommodation_name = tables.Column()
     accommodation_address = tables.Column()
     status = tables.Column()
+
+class TallerRegistrationTable(tables.Table):
+    template_actions = "<div style='width: 75px;'><a href='{{ record.get_update_url }}' title='Edit'><i class='icon-edit'></i></a> " + \
+        "<a href='{{ record.get_absolute_url }}' title='Read'><i class='icon-eye-open'></i></a> " + \
+        "<a href='{{ record.get_delete_url }}'title='Delete'><i class='icon-trash'></i></a></div>"
+    actions = tables.TemplateColumn(template_actions, sortable=False, verbose_name=_('Actions'))
+
+    fullname = tables.LinkColumn('contacts_regtaller_update',args=[A('id')])
+    email = tables.TemplateColumn('<a href="mailto:{{ record.email_address }}">{{ record.email_address }}</a>', sortable=False, verbose_name=_('email address'))
+    date_registration = tables.DateColumn()
+
+
+class ExportTallerRegistrationTable(tables.Table):
+    fullname = tables.Column()
+    last_name = tables.Column()
+    first_name = tables.Column()
+    email_address = tables.Column(sortable=False, verbose_name=_('email address'))
+    date_registration = tables.DateColumn()
 

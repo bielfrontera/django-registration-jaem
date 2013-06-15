@@ -48,6 +48,7 @@
                 <ul class="nav">
                 <li><a href="{% url contacts_person_list %}">Llistat d'<b>inscrits</b></a></li>
                 <li><a href="{% url contacts_excursion_list %}">Sopar de gala i excursió</a></li>
+                <li><a href="{% url contacts_regtaller_list %}">Inscripció <b>tallers</b></a></li>
                 <!-- li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Revisar <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -60,7 +61,7 @@
                 <div id="usuari" class="pull-right">
                     {% if user.username %}
                     <ul class="nav">
-                    <li class="navbar-text">Usuari identificat: <span>{{ user.username }}</span></li>
+                    <li class="navbar-text">Usuari: <span>{{ user.username }}</span></li>
                     <li><a href="{% url django.contrib.auth.views.logout %}"><i class="icon-off icon-white"></i> {% trans 'Logout' %}</a></li>
                     </ul>
                     {% endif %}

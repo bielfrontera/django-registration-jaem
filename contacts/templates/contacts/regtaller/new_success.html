@@ -1,0 +1,39 @@
+{% extends "contacts/base_iframe.html" %}
+{% load i18n %}
+
+{% block title %}{{ object }}{% endblock %}
+
+{% block content_title %}
+       {% trans "Taller registration successful!" %}
+{% endblock %}
+
+
+{% block content %}
+    <p>
+        {% if mail_ok %}
+        {% blocktrans with object.email_address as email %}You will recieve a email to {{ email }} with the instruccions{% endblocktrans %} <br />
+        {% else %}
+        <div class="alert alert-info alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>{% trans "Warning!" %}</h4>
+            {% blocktrans with object.email_address as email and mail_status as error_msg  %}There was an error sending the automatic mail to {{ email }} with the instruccions. <br/>
+            Error message: {{ error_msg }}{% endblocktrans %}
+        </div>
+        {% endif %}
+    </p>
+    <hr />
+    <h2>{% trans "Data received" %}</h2>
+
+    <p>
+        <h3>{% trans "Personal Data" %}</h3>
+        <b>{% trans "Nom" %}:</b> {{ object.first_name }} {{ object.last_name }}<br />
+        <b>{% trans "Email address" %}:</b> {{ object.email_address }}<br />
+    </p>
+    <hr/>
+
+{% endblock %}
+
+
+{% block page_js %}
+
+{% endblock page_js %}

@@ -1,0 +1,74 @@
+{% extends "contacts/regtaller/base.html" %}
+{% load i18n %}
+{% load bootstrap_toolkit %}
+
+{% block title %}{{ block.super }}: {% trans "Edit" %} {{ object }}{% endblock %}
+
+{% block content_title %}
+    {{ object }}
+{% endblock %}
+
+{% block content %}
+{% if form.errors  %}
+    <div class="alert alert-error alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>{% trans 'Error' %}</h4>
+        {{ form.errors }}
+    </div>
+{% endif %}
+    <form action="." method="post" accept-charset="utf-8" enctype="multipart/form-data" class="form-horizontal">
+        {% csrf_token %}
+        {% for field in form %}
+            {% if field.name == 'first_name' %}
+                <fieldset>
+                    <legend>{% trans "Personal data" %}</legend>
+            {% endif %}
+            {% if field.name == 'remarks' %}
+                <fieldset>
+                    <legend>{% trans "Remarks" %}</legend>
+            {% endif %}
+            {% if field.name == 'date_registration' %}
+                <fieldset>
+                    <legend>{% trans "Registration" %}</legend>
+            {% endif %}
+
+            {% include "bootstrap_toolkit/field.html" %}
+            {% if field.name == 'email_address' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'tallers' %}
+                </fieldset>
+            {% endif %}
+            {% if field.name == 'remarks' %}
+                </fieldset>
+            {% endif %}
+
+        {% endfor %}
+        <div class="form-actions">
+            <button type="submit" value="Submit" class="btn btn-primary"><i class="icon-white icon-ok"></i> {% trans 'Save' %}</button>
+        </div>
+    </form>
+    <small>
+        {% trans 'Record created in' %} {{ object.date_added }}{% if object.user_add %} {% trans 'by' %} {{ object.user_add }}{% endif %}. {% trans 'Modified in' %} {{ object.date_modified }}{% if object.user_modify %} {% trans 'by' %} {{ object.user_modify }}{% endif %}.
+    </small>
+
+
+
+{% endblock %}
+
+{% block actions %}
+
+
+<a href="{%  url contacts_regtaller_list %}" class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+<a href="{{ object.person.get_absolute_url }}" class="btn"><i class="icon-eye-open"></i> {% trans "Go to Inscription record" %}</a>
+<a href="{{ object.get_absolute_url }}" class="btn"><i class="icon-eye-open"></i> {% trans "Read" %}</a>
+<a href="{{ object.get_delete_url }}" class="btn"><i class="icon-trash"></i> {% trans "Delete" %}</a>
+
+{% endblock %}
+{% block page_js %}
+    <script type="text/javascript">
+    $(function() {
+        $('#id_date_registration').datepicker({ format: 'dd/mm/yyyy',weekStart: 1 });
+    });
+    </script>
+{% endblock page_js %}

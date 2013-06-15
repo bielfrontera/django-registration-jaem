@@ -4,7 +4,7 @@ from django import forms
 from django.forms import ModelForm, Form, TextInput
 from django.utils.translation import ugettext as _
 
-from contacts.models import Person, LABORAL_LEVEL_CHOICES, MailTemplate, Excursion
+from contacts.models import Person, LABORAL_LEVEL_CHOICES, MailTemplate, Excursion, TallerRegistration, Taller
 from contacts.widgets import ColumnCheckboxSelectMultiple
 from bootstrap_toolkit.widgets import BootstrapTextInput, BootstrapDateInput
 
@@ -325,3 +325,66 @@ class ExcursionUpdateForm(ModelForm):
         fields = ('first_name', 'last_name', 'email_address',
                   'qty_excursion','qty_dinner','qty_vegetarian','qty_celiac','alergies',
                   'qty_bus','accommodation_name','accommodation_address','remarks','date_registration','paid','date_paid')
+
+class TallerRegistrationFilterForm(Form):
+    last_name = forms.CharField(label=_('last name'),required = False)
+    email_address = forms.CharField(label=_('email address'),required = False)
+
+class TallerRegistrationCreateForm(ModelForm):
+    def __init__(self,*args,**kwrds):
+        super(ModelForm,self).__init__(*args,**kwrds)
+        self.fields['first_name'].widget.attrs['class']  = 'input-large'
+        self.fields['last_name'].widget.attrs['class']  = 'input-large'
+        self.fields['email_address'].widget.attrs['class']  = 'input-large'
+        self.fields['tallers'] = forms.CharField()
+        self.fields['tallers'].widget = forms.HiddenInput()
+        self.fields['taller'] = forms.ModelChoiceField(queryset=Taller.objects.order_by('day_scheduled', 'time_scheduled'),empty_label='-')
+        self.fields['taller'].widget.attrs['class']  = 'input-xxlarge'
+
+    def clean_email_address(self):
+        data = self.cleaned_data['email_address']
+        person_list = Person.objects.filter(email_address__iexact=data)
+        person = None
+        if person_list.count() > 0:
+            for iter_person in person_list:
+                if person is None: person = iter_person
+                if iter_person.first_name.lower().strip() == self.cleaned_data['first_name'].lower().strip():
+                    person = iter_person
+                    break
+        else:
+            raise forms.ValidationError( _("This email address doesn't exist in the inscription database"))
+
+        try:
+            regtaller = TallerRegistration.objects.get(person_id__exact=person.id)
+            raise forms.ValidationError( _("Your taller registration already exists. If you want to modify your registration, please send a message to inscripciones@jaem.es"))
+        except TallerRegistration.DoesNotExist:
+            pass
+
+        # Always return the cleaned data, whether you have changed it or
+        # not.
+        return data
+
+
+    class Meta:
+        model = TallerRegistration
+        fields = ('first_name', 'last_name', 'email_address')
+
+class TallerRegistrationUpdateForm(ModelForm):
+    def __init__(self,*args,**kwrds):
+        super(ModelForm,self).__init__(*args,**kwrds)
+        self.fields['remarks'].widget.attrs['rows']  = 8
+        self.fields['remarks'].widget.attrs['cols']  = 75
+        self.fields['remarks'].widget.attrs['class']  = 'input-xxlarge'
+        self.fields['first_name'].widget.attrs['class']  = 'input-large'
+        self.fields['last_name'].widget.attrs['class']  = 'input-large'
+
+        self.fields['date_registration'].widget.format = '%d/%m/%Y'
+        self.fields['date_registration'].input_formats = ['%d/%m/%Y']
+        self.fields['date_registration'].widget.attrs['class']  = 'input-small'
+
+
+    class Meta:
+        model = TallerRegistration
+        fields = ('first_name', 'last_name', 'email_address','remarks','date_registration')
+
+

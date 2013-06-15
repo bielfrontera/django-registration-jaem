@@ -1,0 +1,33 @@
+{% extends "contacts/regtaller/base.html" %}
+{% load i18n %}
+{% load django_tables2 %}
+
+{% block title %}{{ block.super }}: {% trans "List of taller registrations" %}{% endblock %}
+
+{% block content_title %}
+    {% trans "List of taller registrations" %}
+{% endblock %}
+
+{% block content %}
+
+
+<form action="." method="get" accept-charset="utf-8" class="form-inline form-filtre">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {% csrf_token %}
+        {{ form.errors }}
+        <fieldset id="filter" class="filter">
+            <legend>{% trans "Filter" %}</legend>
+            <div><label for="id_last_name">{{ form.last_name.label }}</label> {{  form.last_name }}</div>
+            <div><label for="id_email_address">{{ form.email_address.label }}</label> {{  form.email_address }}</div>
+        </fieldset>
+        <button type="submit" value="Submit" class="btn btn-primary"><i class="icon-white icon-search"></i> {% trans "Filter" %}</button>
+    </form>
+    <div class="table table-hover">
+    {% render_table table %}
+    </div>
+{% endblock %}
+
+{% block actions %}
+    <a href="{%  url contacts_regtaller_create %}" class="btn"><i class="icon-plus"></i> {% trans "Create" %}</a>
+    <a href="{%  url contacts_regtaller_export %}" class="btn"><i class="icon-arrow-up"></i> {% trans "Export" %}</a>
+{% endblock %}
