@@ -65,12 +65,31 @@ $(function() {
     $("#tallers_selected").sortable({
         cursor: "move",
         stop: function(event, ui) {
-            var tallers_sel = $(this).sortable( "toArray" );
+            var tallers_sel = $(this).sortable("toArray");
             for (var i = 0, l = tallers_sel.length; i < l; i++) {
                 $("#tallers_selected").find('#' + tallers_sel[i] + ' span.preferencia_taller').html(i + 1);
             }
-            $('#id_tallers').val(tallers_sel.join(',').replace(/taller/g,''));
+            $('#id_tallers').val(tallers_sel.join(',').replace(/taller/g, ''));
         }
     });
+
+    // Add selected tallers (if the page is load after some error)
+
+    function showSelectedTallers() {
+        var tallers_sel = $('#id_tallers').val().split(',');
+        if (tallers_sel.length > 0 && tallers_sel[0] != '') {
+            var tallers = $('#id_taller option');
+            var position = 0;
+            for (var i = 0, l = tallers.length; i < l; i++) {
+                var taller = tallers[i];
+                if (taller.value > 0 && tallers_sel.indexOf(taller.value) > -1) {
+                    var position = position + 1;
+                    $("#tallers_selected").append('<li class="btn btn-info" id="taller' + taller.value + '"><span class="preferencia_taller" >' + position + '</span> ' + $(taller).text() + '</li>');
+                }
+            }
+        }
+    }
+    showSelectedTallers();
+
 
 });
