@@ -40,7 +40,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for reltaller in object.tallerrelation_set.all %}
+            {% for reltaller in object.tallers_ordered %}
             <tr>
             <td>{{ reltaller.preference_order }}</td>
             <td>{{ reltaller.taller.title }}</td>

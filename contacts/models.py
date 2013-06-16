@@ -580,6 +580,11 @@ class TallerRegistration(models.Model):
         return self.tallerrelation_set.filter(assigned=True)
 
     @property
+    def tallers_ordered(self):
+        return self.tallerrelation_set.order_by('preference_order')
+
+
+    @property
     def num_tallers(self):
         return self.tallers.count()
 
