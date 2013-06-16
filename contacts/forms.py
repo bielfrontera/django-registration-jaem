@@ -354,11 +354,11 @@ class TallerRegistrationCreateForm(ModelForm):
         else:
             raise forms.ValidationError( _("This email address doesn't exist in the inscription database"))
 
-        try:
-            regtaller = TallerRegistration.objects.get(person_id__exact=person.id)
-            raise forms.ValidationError( _("Your taller registration already exists. If you want to modify your registration, please send a message to inscripciones@jaem.es"))
-        except TallerRegistration.DoesNotExist:
-            pass
+        # try:
+        #     regtaller = TallerRegistration.objects.get(person_id__exact=person.id)
+        #     raise forms.ValidationError( _("Your taller registration already exists. If you want to modify your registration, please send a message to inscripciones@jaem.es"))
+        # except TallerRegistration.DoesNotExist:
+        #     pass
 
         # Always return the cleaned data, whether you have changed it or
         # not.

@@ -1,4 +1,4 @@
-{% extends "contacts/base_iframe.html" %}
+{% extends "contacts/base_public.html" %}
 {% load i18n %}
 
 {% block title %}{{ object }}{% endblock %}
@@ -11,7 +11,7 @@
 {% block content %}
     <p>
         {% if mail_ok %}
-        {% blocktrans with object.email_address as email %}You will recieve a email to {{ email }} with the instruccions{% endblocktrans %} <br />
+        {% blocktrans with object.email_address as email %}You will recieve a email to {{ email }} with this information{% endblocktrans %} <br />
         {% else %}
         <div class="alert alert-info alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -30,6 +30,26 @@
         <b>{% trans "Email address" %}:</b> {{ object.email_address }}<br />
     </p>
     <hr/>
+    <p>
+        <h3>{% trans "Selected tallers" %}</h3>
+        <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+            <th>{% trans "Preference order" %}</th>
+            <th>{% trans "Taller title" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reltaller in object.tallerrelation_set.all %}
+            <tr>
+            <td>{{ reltaller.preference_order }}</td>
+            <td>{{ reltaller.taller.title }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+    </p>
 
 {% endblock %}
 

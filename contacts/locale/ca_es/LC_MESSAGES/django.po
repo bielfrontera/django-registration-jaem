@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-26 15:46+0200\n"
+"POT-Creation-Date: 2013-06-16 14:15+0200\n"
 "PO-Revision-Date: 2011-09-17 16:07+0100\n"
 "Last-Translator: Biel Frontera <sindbili@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,13 +56,14 @@ msgstr ""
 msgid "Unknown person"
 msgstr ""
 
-#: forms.py:141 forms.py:185 models.py:144 models.py:388
+#: forms.py:141 forms.py:185 forms.py:330 models.py:144 models.py:388
+#: models.py:547
 msgid "last name"
 msgstr ""
 
-#: forms.py:142 forms.py:186 models.py:159 models.py:389 tables.py:16
-#: tables.py:45 tables.py:55 tables.py:72
-#: templates/contacts/person/detail.html:45
+#: forms.py:142 forms.py:186 forms.py:331 models.py:159 models.py:389
+#: models.py:548 tables.py:16 tables.py:44 tables.py:68 tables.py:85
+#: tables.py:102 tables.py:110 templates/contacts/person/detail.html:45
 msgid "email address"
 msgstr ""
 
@@ -71,12 +72,12 @@ msgstr ""
 msgid "contact type"
 msgstr ""
 
-#: forms.py:144 models.py:151 tables.py:43
+#: forms.py:144 models.py:151
 msgid "ID card"
 msgstr ""
 
 #: forms.py:145 forms.py:187 models.py:202 models.py:403 tables.py:22
-#: tables.py:65 templates/contacts/excursion/stats.html:18
+#: tables.py:78 templates/contacts/excursion/stats.html:18
 #: templates/contacts/person/stats.html:29
 msgid "status"
 msgstr ""
@@ -105,7 +106,7 @@ msgstr ""
 msgid "stats by"
 msgstr ""
 
-#: forms.py:231 views/excursion.py:178
+#: forms.py:231 forms.py:355 views/excursion.py:178 views/regtaller.py:168
 msgid "This email address doesn't exist in the inscription database"
 msgstr ""
 
@@ -131,7 +132,7 @@ msgstr ""
 msgid "Pendent"
 msgstr ""
 
-#: models.py:143 models.py:387
+#: models.py:143 models.py:387 models.py:546
 msgid "first name"
 msgstr ""
 
@@ -164,7 +165,7 @@ msgstr ""
 msgid "town"
 msgstr ""
 
-#: models.py:160 models.py:184 tables.py:44
+#: models.py:160 models.py:184 tables.py:43
 #: templates/contacts/person/detail.html:46
 #: templates/contacts/person/detail.html:67
 msgid "phone number"
@@ -206,7 +207,8 @@ msgstr ""
 msgid "center code"
 msgstr ""
 
-#: models.py:191 models.py:399 templates/contacts/excursion/detail.html:30
+#: models.py:191 models.py:399 models.py:551
+#: templates/contacts/excursion/detail.html:30
 #: templates/contacts/excursion/new_success.html:44
 #: templates/contacts/person/detail.html:37
 msgid "remarks"
@@ -220,7 +222,8 @@ msgstr ""
 msgid "location"
 msgstr ""
 
-#: models.py:200 models.py:402 templates/contacts/excursion/detail.html:21
+#: models.py:200 models.py:402 models.py:553
+#: templates/contacts/excursion/detail.html:21
 #: templates/contacts/excursion/new_success.html:35
 #: templates/contacts/person/detail.html:28
 msgid "date registration"
@@ -254,11 +257,11 @@ msgstr ""
 msgid "date mail registration"
 msgstr ""
 
-#: models.py:212 models.py:336 models.py:410
+#: models.py:212 models.py:336 models.py:410 models.py:556
 msgid "date added"
 msgstr ""
 
-#: models.py:215 models.py:338 models.py:412
+#: models.py:215 models.py:338 models.py:412 models.py:558
 msgid "date modified"
 msgstr ""
 
@@ -343,8 +346,64 @@ msgstr ""
 msgid "Excursion and Dinner registrations"
 msgstr ""
 
-#: tables.py:12 tables.py:30 tables.py:52
+#: models.py:511
+msgid "title"
+msgstr ""
+
+#: models.py:512
+msgid "authors"
+msgstr ""
+
+#: models.py:513
+msgid "day"
+msgstr ""
+
+#: models.py:514
+msgid "time"
+msgstr ""
+
+#: models.py:515
+msgid "building"
+msgstr ""
+
+#: models.py:516
+msgid "room"
+msgstr ""
+
+#: models.py:517
+msgid "max attendants"
+msgstr ""
+
+#: models.py:521
+msgid "Taller"
+msgstr ""
+
+#: models.py:522 templates/contacts/regtaller/new.html:30
+msgid "Tallers"
+msgstr ""
+
+#: models.py:550
+msgid "password"
+msgstr ""
+
+#: models.py:563
+msgid "Taller registration"
+msgstr ""
+
+#: models.py:564
+msgid "Tallers registrations"
+msgstr ""
+
+#: models.py:614
+msgid "preference order"
+msgstr ""
+
+#: tables.py:12 tables.py:30 tables.py:65 tables.py:99
 msgid "Actions"
+msgstr ""
+
+#: tables.py:45
+msgid "DNI"
 msgstr ""
 
 #: functions/mailtemplate.py:27
@@ -358,8 +417,8 @@ msgstr ""
 #: functions/mailtemplate.py:58
 #: management/commands/sendExcJustificantPagament.py:61
 #: management/commands/sendJustificantPagament.py:66 views/excursion.py:195
-#: views/reporting.py:221 views/reporting.py:251 views/reporting.py:294
-#: views/reporting.py:324
+#: views/regtaller.py:200 views/reporting.py:221 views/reporting.py:251
+#: views/reporting.py:294 views/reporting.py:324
 msgid "Mail sent"
 msgstr ""
 
@@ -375,14 +434,15 @@ msgstr ""
 #: templates/contacts/base_pdf.html:6
 #: templates/contacts/base_pdf_watermark.html:6
 #: templates/contacts/base_pdf_watermark_ca.html:6
+#: templates/contacts/base_public.html:6
 msgid "Contacts"
 msgstr ""
 
-#: templates/contacts/base.html:64
+#: templates/contacts/base.html:65
 msgid "Logout"
 msgstr ""
 
-#: templates/contacts/base.html:91
+#: templates/contacts/base.html:92
 msgid "Latest records"
 msgstr ""
 
@@ -406,6 +466,7 @@ msgstr ""
 #: templates/contacts/errors/500.html:7
 #: templates/contacts/excursion/update.html:16
 #: templates/contacts/person/import.html:31
+#: templates/contacts/regtaller/update.html:15
 msgid "Error"
 msgstr ""
 
@@ -450,6 +511,8 @@ msgstr ""
 #: templates/contacts/person/cancel.html:25
 #: templates/contacts/person/delete.html:13
 #: templates/contacts/person/list.html:16
+#: templates/contacts/regtaller/delete.html:13
+#: templates/contacts/regtaller/new_success.html:18
 msgid "Warning!"
 msgstr ""
 
@@ -468,6 +531,7 @@ msgstr ""
 #: templates/contacts/mailtemplate/delete.html:20
 #: templates/contacts/person/cancel.html:36
 #: templates/contacts/person/delete.html:20
+#: templates/contacts/regtaller/delete.html:20
 msgid "Confirm"
 msgstr ""
 
@@ -476,6 +540,7 @@ msgstr ""
 #: templates/contacts/mailtemplate/delete.html:23
 #: templates/contacts/person/cancel.html:39
 #: templates/contacts/person/delete.html:23
+#: templates/contacts/regtaller/delete.html:23
 msgid "No"
 msgstr ""
 
@@ -484,6 +549,7 @@ msgstr ""
 #: templates/contacts/mailtemplate/delete.html:24
 #: templates/contacts/person/cancel.html:40
 #: templates/contacts/person/delete.html:24
+#: templates/contacts/regtaller/delete.html:24
 msgid "Yes"
 msgstr ""
 
@@ -508,6 +574,11 @@ msgstr ""
 #: templates/contacts/person/synchronize.html:29
 #: templates/contacts/person/update.html:105
 #: templates/contacts/person/update_status.html:21
+#: templates/contacts/regtaller/create.html:23
+#: templates/contacts/regtaller/delete.html:36
+#: templates/contacts/regtaller/detail.html:54
+#: templates/contacts/regtaller/new.html:56
+#: templates/contacts/regtaller/update.html:62
 msgid "Return to list"
 msgstr ""
 
@@ -516,6 +587,7 @@ msgstr ""
 #: templates/contacts/mailtemplate/update.html:26
 #: templates/contacts/person/cancel.html:59
 #: templates/contacts/person/update.html:106
+#: templates/contacts/regtaller/update.html:64
 msgid "Read"
 msgstr ""
 
@@ -527,6 +599,8 @@ msgstr ""
 #: templates/contacts/person/cancel.html:60
 #: templates/contacts/person/detail.html:78
 #: templates/contacts/person/update.html:5
+#: templates/contacts/regtaller/detail.html:55
+#: templates/contacts/regtaller/update.html:5
 msgid "Edit"
 msgstr ""
 
@@ -538,6 +612,7 @@ msgstr ""
 #: templates/contacts/excursion/create.html:16
 #: templates/contacts/mailtemplate/create.html:16
 #: templates/contacts/person/create.html:16
+#: templates/contacts/regtaller/create.html:16
 msgid "Create and continue"
 msgstr ""
 
@@ -556,12 +631,18 @@ msgstr ""
 #: templates/contacts/person/delete.html:29
 #: templates/contacts/person/detail.html:96
 #: templates/contacts/person/update.html:124
+#: templates/contacts/regtaller/delete.html:4
+#: templates/contacts/regtaller/delete.html:7
+#: templates/contacts/regtaller/delete.html:29
+#: templates/contacts/regtaller/detail.html:56
+#: templates/contacts/regtaller/update.html:65
 msgid "Delete"
 msgstr ""
 
 #: templates/contacts/excursion/delete.html:14
 #: templates/contacts/mailtemplate/delete.html:14
 #: templates/contacts/person/delete.html:14
+#: templates/contacts/regtaller/delete.html:14
 msgid "You are about to delete this record. Do you want to continue?"
 msgstr ""
 
@@ -569,17 +650,23 @@ msgstr ""
 #: templates/contacts/excursion/new_success.html:28
 #: templates/contacts/person/detail.html:16
 #: templates/contacts/person/update_form_old.html:3
+#: templates/contacts/regtaller/detail.html:13
+#: templates/contacts/regtaller/new_success.html:28
 msgid "Personal Data"
 msgstr ""
 
 #: templates/contacts/excursion/detail.html:15
 #: templates/contacts/excursion/new_success.html:29
 #: templates/contacts/person/detail.html:18
+#: templates/contacts/regtaller/detail.html:14
+#: templates/contacts/regtaller/new_success.html:29
 msgid "Nom"
 msgstr ""
 
 #: templates/contacts/excursion/detail.html:16
 #: templates/contacts/excursion/new_success.html:30
+#: templates/contacts/regtaller/detail.html:15
+#: templates/contacts/regtaller/new_success.html:30
 msgid "Email address"
 msgstr ""
 
@@ -633,6 +720,8 @@ msgstr ""
 #: templates/contacts/mailtemplate/update.html:20
 #: templates/contacts/person/detail.html:72
 #: templates/contacts/person/update.html:95
+#: templates/contacts/regtaller/detail.html:49
+#: templates/contacts/regtaller/update.html:52
 msgid "Record created in"
 msgstr ""
 
@@ -642,6 +731,8 @@ msgstr ""
 #: templates/contacts/mailtemplate/update.html:20
 #: templates/contacts/person/detail.html:72
 #: templates/contacts/person/update.html:95
+#: templates/contacts/regtaller/detail.html:49
+#: templates/contacts/regtaller/update.html:52
 msgid "by"
 msgstr ""
 
@@ -651,6 +742,8 @@ msgstr ""
 #: templates/contacts/mailtemplate/update.html:20
 #: templates/contacts/person/detail.html:72
 #: templates/contacts/person/update.html:95
+#: templates/contacts/regtaller/detail.html:49
+#: templates/contacts/regtaller/update.html:52
 msgid "Modified in"
 msgstr ""
 
@@ -741,17 +834,21 @@ msgstr ""
 #: templates/contacts/person/list.html:27
 #: templates/contacts/person/list.html:36
 #: templates/contacts/person/map.html:16 templates/contacts/person/map.html:28
+#: templates/contacts/regtaller/list.html:19
+#: templates/contacts/regtaller/list.html:23
 msgid "Filter"
 msgstr ""
 
 #: templates/contacts/excursion/list.html:34
 #: templates/contacts/mailtemplate/list.html:18
 #: templates/contacts/person/list.html:44
+#: templates/contacts/regtaller/list.html:31
 msgid "Create"
 msgstr ""
 
 #: templates/contacts/excursion/list.html:35
 #: templates/contacts/person/list.html:46
+#: templates/contacts/regtaller/list.html:32
 msgid "Export"
 msgstr ""
 
@@ -770,6 +867,8 @@ msgstr ""
 
 #: templates/contacts/excursion/new.html:17
 #: templates/contacts/excursion/update.html:25
+#: templates/contacts/regtaller/new.html:26
+#: templates/contacts/regtaller/update.html:24
 msgid "Personal data"
 msgstr ""
 
@@ -797,10 +896,13 @@ msgstr ""
 
 #: templates/contacts/excursion/new.html:34
 #: templates/contacts/excursion/update.html:41
+#: templates/contacts/regtaller/detail.html:20
+#: templates/contacts/regtaller/update.html:28
 msgid "Remarks"
 msgstr ""
 
 #: templates/contacts/excursion/new.html:59
+#: templates/contacts/regtaller/new.html:49
 msgid "Validate"
 msgstr ""
 
@@ -814,6 +916,7 @@ msgid "You will recieve a email to %(email)s with the instruccions"
 msgstr ""
 
 #: templates/contacts/excursion/new_success.html:19
+#: templates/contacts/regtaller/new_success.html:19
 #, python-format
 msgid ""
 "There was an error sending the automatic mail to %(email)s with the "
@@ -822,6 +925,7 @@ msgid ""
 msgstr ""
 
 #: templates/contacts/excursion/new_success.html:25
+#: templates/contacts/regtaller/new_success.html:25
 msgid "Data received"
 msgstr ""
 
@@ -850,10 +954,12 @@ msgstr ""
 #: templates/contacts/mailtemplate/update.html:16
 #: templates/contacts/person/revision.html:21
 #: templates/contacts/person/update.html:91
+#: templates/contacts/regtaller/update.html:48
 msgid "Save"
 msgstr ""
 
 #: templates/contacts/excursion/update.html:97
+#: templates/contacts/regtaller/update.html:63
 msgid "Go to Inscription record"
 msgstr ""
 
@@ -1040,6 +1146,73 @@ msgstr "Contacte"
 
 #: templates/contacts/person/update_form_old.html:34
 msgid "Location"
+msgstr ""
+
+#: templates/contacts/regtaller/create.html:5
+#: templates/contacts/regtaller/create.html:8
+msgid "Add a new Taller registration"
+msgstr ""
+
+#: templates/contacts/regtaller/detail.html:26
+#: templates/contacts/regtaller/new_success.html:34
+msgid "Selected tallers"
+msgstr ""
+
+#: templates/contacts/regtaller/detail.html:30
+#: templates/contacts/regtaller/new_success.html:38
+msgid "Preference order"
+msgstr ""
+
+#: templates/contacts/regtaller/detail.html:31
+msgid "Assigned"
+msgstr ""
+
+#: templates/contacts/regtaller/detail.html:32
+#: templates/contacts/regtaller/new_success.html:39
+msgid "Taller title"
+msgstr ""
+
+#: templates/contacts/regtaller/list.html:5
+#: templates/contacts/regtaller/list.html:8
+msgid "List of taller registrations"
+msgstr ""
+
+#: templates/contacts/regtaller/new.html:5
+#: templates/contacts/regtaller/new.html:8
+msgid "Tallers registration"
+msgstr ""
+
+#: templates/contacts/regtaller/new.html:15
+msgid "Check this errors"
+msgstr ""
+
+#: templates/contacts/regtaller/new.html:31
+msgid "Select as many tallers as you want, ordered by preference"
+msgstr ""
+
+#: templates/contacts/regtaller/new.html:38
+msgid "Add"
+msgstr ""
+
+#: templates/contacts/regtaller/new.html:39
+msgid "Remove"
+msgstr ""
+
+#: templates/contacts/regtaller/new.html:40
+msgid "Selected tallers (drag and drop to alter the preference order)"
+msgstr ""
+
+#: templates/contacts/regtaller/new_success.html:7
+msgid "Taller registration successful!"
+msgstr ""
+
+#: templates/contacts/regtaller/new_success.html:14
+#, python-format
+msgid "You will recieve a email to %(email)s with this information"
+msgstr ""
+
+#: templates/contacts/regtaller/update.html:32
+msgid "Registration"
 msgstr ""
 
 #: views/mailhistory.py:37

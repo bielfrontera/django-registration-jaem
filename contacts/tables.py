@@ -98,7 +98,7 @@ class TallerRegistrationTable(tables.Table):
         "<a href='{{ record.get_delete_url }}'title='Delete'><i class='icon-trash'></i></a></div>"
     actions = tables.TemplateColumn(template_actions, sortable=False, verbose_name=_('Actions'))
 
-    fullname = tables.LinkColumn('contacts_regtaller_update',args=[A('id')])
+    fullname = tables.LinkColumn('contacts_regtaller_detail',args=[A('id')])
     email = tables.TemplateColumn('<a href="mailto:{{ record.email_address }}">{{ record.email_address }}</a>', sortable=False, verbose_name=_('email address'))
     date_registration = tables.DateColumn()
 

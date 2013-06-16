@@ -150,10 +150,11 @@ def create(request, template='contacts/regtaller/create.html'):
     if request.method == 'POST':
         form = TallerRegistrationCreateForm(request.POST)
 
-        print "Abans de fer form is_valid"
 
         if form.is_valid():
-            print "Abans de fer form save"
+
+
+
             p = form.save(commit=False)
             person_list = Person.objects.filter(email_address__iexact=p.email_address)
             person = None
@@ -167,6 +168,12 @@ def create(request, template='contacts/regtaller/create.html'):
                 raise Exception( _("This email address doesn't exist in the inscription database"))
 
             p.person = person
+            # delete previous registration
+            try:
+                regtaller = TallerRegistration.objects.get(person_id__exact=person.id)
+                regtaller.delete()
+            except TallerRegistration.DoesNotExist:
+                pass
 
             p.user_add = user
             p.user_modify = user
@@ -175,15 +182,13 @@ def create(request, template='contacts/regtaller/create.html'):
 
             # tallers
             order = 0
-            print "Abans de fer for taller_id"
             for taller_id in form.cleaned_data['tallers'].split(','):
                 order = order + 1
                 trelation = TallerRelation(taller_id=taller_id, taller_registration_id=p.id,preference_order=order)
                 trelation.save()
-                print "Ha fet save de relation"
 
             if user.is_authenticated() and user.first_name != 'Anonymous':
-                return HttpResponseRedirect(p.get_update_url())
+                return HttpResponseRedirect(p.get_absolute_url())
             else:
                 # Enviam correu OK + Mostram success
                 kwvars = {
@@ -191,8 +196,7 @@ def create(request, template='contacts/regtaller/create.html'):
                 }
                 context = Context(kwvars)
                 mailtemplate = 'tll_registration_es' if p.person.lang != '2' else 'tll_registration_ca'
-                status = "Pendent"
-                # status = sendTemplateMail(context,mailtemplate,[p.email_address])
+                status = sendTemplateMail(context,mailtemplate,[p.email_address])
                 if status == _('Mail sent'):
                     mail_ok = True
                 else:

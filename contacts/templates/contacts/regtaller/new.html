@@ -1,4 +1,4 @@
-{% extends "contacts/base_iframe.html" %}
+{% extends "contacts/base_public.html" %}
 {% load i18n %}
 {% load bootstrap_toolkit %}
 
@@ -37,7 +37,7 @@
             {% if field.name == 'taller' %}
                 <button id="add_taller" type="button" value="Add" class="btn btn-inverse" style="display:none"><i class="icon-white icon-plus"></i> {% trans 'Add' %}</button>
                 <button id="remove_taller" type="button" value="Remove" class="btn btn-inverse" style="display:none"><i class="icon-white icon-remove"></i> {% trans 'Remove' %}</button>
-                <h4>{% trans "Selected tallers" %}</h4>
+                <h4>{% trans "Selected tallers (drag and drop to alter the preference order)" %}</h4>
                 <ul id="tallers_selected">
                 </ul>
                 </fieldset>

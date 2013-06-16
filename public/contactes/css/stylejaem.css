@@ -236,3 +236,21 @@ footer{
   margin-left: 10px;
   color: #d74614;
 }
+
+#tallers_selected li{
+  width: 90%;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+#tallers_selected li span.preferencia_taller{
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #DDD;
+}
+
+.public-header{
+  height: 180px;
+  overflow: hidden;
+  background: #ffffff url('http://xvi.jaem.es/themes/theme_maparaan/img/bg-header.jpg') top center no-repeat;
+}

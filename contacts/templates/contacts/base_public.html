@@ -40,13 +40,15 @@
   </head>
 
   <body>
+    <div class="public-header">
+    </div>
     <div id="wrap">
-        <div class="span7">
+      <div class="container">
             <div class="page-header">
                 <h2>{% block content_title %}{% endblock content_title %}</h2>
             </div>
             {% block content %}{% endblock content %}
-        </div>
+      </div>
     </div>
 
     <!-- Le javascript

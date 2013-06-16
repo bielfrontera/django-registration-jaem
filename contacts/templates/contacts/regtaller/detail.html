@@ -15,6 +15,36 @@
         <b>{% trans "Email address" %}:</b> {{ object.email_address }}<br />
     </p>
     <hr/>
+    {% if object.remarks %}
+    <p>
+        <h3>{% trans "Remarks" %}</h3>
+        {{ object.remarks|linebreaks }}
+    </p>
+    <hr/>
+    {% endif %}
+    <p>
+        <h3>{% trans "Selected tallers" %}</h3>
+        <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+            <th>{% trans "Preference order" %}</th>
+            <th>{% trans "Assigned" %}</th>
+            <th>{% trans "Taller title" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reltaller in object.tallerrelation_set.all %}
+            <tr>
+            <td>{{ reltaller.preference_order }}</td>
+            <td>{{ reltaller.assigned }}</td>
+            <td>{{ reltaller.taller.title }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+    </p>
+
     <small>
         {% trans 'Record created in' %} {{ object.date_added }}{% if object.user_add %} {% trans 'by' %} {{ object.user_add }}{% endif %}. {% trans 'Modified in' %} {{ object.date_modified }}{% if object.user_modify %} {% trans 'by' %} {{ object.user_modify }}{% endif %}.
     </small>
