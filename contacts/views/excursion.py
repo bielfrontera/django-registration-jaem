@@ -53,7 +53,7 @@ def list(request, page=1, template='contacts/excursion/list.html'):
                 excursion_list = excursion_list.filter(date_mailregister__isnull = True, status='ok_all')
 
             if form.cleaned_data['email_address']:
-                excursion_list = person_list.filter(email_address=form.cleaned_data['email_address'])
+                excursion_list = excursion_list.filter(email_address=form.cleaned_data['email_address'])
     else:
         form = ExcursionFilterForm()
 

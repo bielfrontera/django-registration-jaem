@@ -55,14 +55,6 @@
             <div class="pull-right">
                 <img src="/contactes/img/logo_jaem_simple.png" title="XVI JAEM" alt="Logo JAEM" />
             </div>
-        {% if request.session.viewed %}
-        <h2>{% trans 'Latest records' %}</h2>
-        <ul>
-            {% for person in request.session.viewed %}
-                <li><a href="{{ person.get_absolute_url }}">{{ person.fullname }}</a></li>
-            {% endfor %}
-        </ul>
-        {% endif %}
         </div>
     </footer>
 

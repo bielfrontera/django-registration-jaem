@@ -12,8 +12,8 @@ from datetime import date, datetime, timedelta
 import csv
 from django.conf import settings
 from contacts.models import TallerRelation, Taller, TallerRegistration, Person
-from contacts.forms import TallerRegistrationCreateForm, TallerRegistrationUpdateForm, TallerRegistrationFilterForm
-from contacts.tables import TallerRegistrationTable, ExportTallerRegistrationTable
+from contacts.forms import TallerRegistrationCreateForm, TallerRegistrationUpdateForm, TallerRegistrationFilterForm, TallerFilterForm
+from contacts.tables import TallerRegistrationTable, ExportTallerRegistrationTable, TallerTable
 from django.utils.translation import ugettext as _
 
 from contacts.functions.mailtemplate import sendTemplateMail
@@ -39,7 +39,7 @@ def list(request, page=1, template='contacts/regtaller/list.html'):
                 regtaller_list = regtaller_list.filter(last_name__istartswith=form.cleaned_data['last_name'])
 
             if form.cleaned_data['email_address']:
-                regtaller_list = person_list.filter(email_address=form.cleaned_data['email_address'])
+                regtaller_list = regtaller_list.filter(email_address=form.cleaned_data['email_address'])
     else:
         form = TallerRegistrationFilterForm()
 
@@ -52,6 +52,42 @@ def list(request, page=1, template='contacts/regtaller/list.html'):
     }
 
     return render_to_response(template, kwvars, RequestContext(request))
+
+
+def list_tallers(request, page=1, template='contacts/taller/list.html'):
+    """List of all Tallers.
+
+    :param template: Add a custom template.
+    """
+
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/login/?next=%s' % request.path)
+
+    taller_list = Taller.objects.all()
+
+    if request.method == 'GET':
+        form = TallerFilterForm(request.GET)
+        if form.is_valid():
+            if form.cleaned_data['title']:
+                taller_list = taller_list.filter(title__icontains=form.cleaned_data['title'])
+
+            if form.cleaned_data['authors']:
+                taller_list = taller_list.filter(authors__icontains=form.cleaned_data['authors'])
+
+    else:
+        form = TallerFilterForm()
+
+    table = TallerTable(taller_list, order_by = request.GET.get("sort",'id') )
+    table.paginate(page=request.GET.get("page", 1), per_page=30)
+
+    kwvars = {
+        'table' : table,
+        'form': form,
+    }
+
+    return render_to_response(template, kwvars, RequestContext(request))
+
+
 
 def export(request):
     """ Export tallerRegistrations to csv

@@ -330,6 +330,10 @@ class TallerRegistrationFilterForm(Form):
     last_name = forms.CharField(label=_('last name'),required = False)
     email_address = forms.CharField(label=_('email address'),required = False)
 
+class TallerFilterForm(Form):
+    title = forms.CharField(label=_('title'),required = False)
+    authors = forms.CharField(label=_('authors'),required = False)
+
 class TallerRegistrationCreateForm(ModelForm):
     def __init__(self,*args,**kwrds):
         super(ModelForm,self).__init__(*args,**kwrds)

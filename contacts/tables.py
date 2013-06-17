@@ -101,7 +101,27 @@ class TallerRegistrationTable(tables.Table):
     fullname = tables.LinkColumn('contacts_regtaller_detail',args=[A('id')])
     email = tables.TemplateColumn('<a href="mailto:{{ record.email_address }}">{{ record.email_address }}</a>', sortable=False, verbose_name=_('email address'))
     date_registration = tables.DateColumn()
+    num_tallers = tables.Column()
+    num_tallers_assigned = tables.Column()
+    
 
+class TallerTable(tables.Table):
+    # template_actions = "<div style='width: 75px;'><a href='{{ record.get_update_url }}' title='Edit'><i class='icon-edit'></i></a> " + \
+    #     "<a href='{{ record.get_absolute_url }}' title='Read'><i class='icon-eye-open'></i></a> " + \
+    #     "<a href='{{ record.get_delete_url }}'title='Delete'><i class='icon-trash'></i></a></div>"
+    # actions = tables.TemplateColumn(template_actions, sortable=False, verbose_name=_('Actions'))
+
+    id = tables.Column()
+    title = tables.Column()
+    authors = tables.Column()
+    day_scheduled = tables.Column()
+    time_scheduled = tables.Column()
+    building = tables.Column()
+    room = tables.Column()
+    max_attendants = tables.Column()
+    num_attendants = tables.Column()
+    num_registrations = tables.Column()
+    
 
 class ExportTallerRegistrationTable(tables.Table):
     fullname = tables.Column()
