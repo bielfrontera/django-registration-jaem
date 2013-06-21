@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 14:15+0200\n"
-"PO-Revision-Date: 2013-06-16 15:22+0100\n"
+"POT-Creation-Date: 2013-06-22 00:58+0200\n"
+"PO-Revision-Date: 2013-06-22 01:00+0100\n"
 "Last-Translator: Biel Frontera <sindbili@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -72,7 +72,7 @@ msgstr "Persona desconeguda"
 #: forms.py:330
 #: models.py:144
 #: models.py:388
-#: models.py:547
+#: models.py:552
 msgid "last name"
 msgstr "Apellidos"
 
@@ -81,13 +81,13 @@ msgstr "Apellidos"
 #: forms.py:331
 #: models.py:159
 #: models.py:389
-#: models.py:548
+#: models.py:553
 #: tables.py:16
 #: tables.py:44
 #: tables.py:68
 #: tables.py:85
 #: tables.py:102
-#: tables.py:110
+#: tables.py:132
 #: templates/contacts/person/detail.html:45
 msgid "email address"
 msgstr "Correo electrónico"
@@ -148,9 +148,9 @@ msgid "stats by"
 msgstr "estadístiques per"
 
 #: forms.py:231
-#: forms.py:355
+#: forms.py:359
 #: views/excursion.py:178
-#: views/regtaller.py:168
+#: views/regtaller.py:243
 msgid "This email address doesn't exist in the inscription database"
 msgstr "Esta dirección de correo no existe en la base de datos de inscritos en las XVI JAEM.Revisa la dirección que utilizaste en la inscripción."
 
@@ -170,13 +170,23 @@ msgstr "Has marcado más plazas de menú vegetariano que de cena,"
 msgid "There are more celiac options than dinners selected"
 msgstr "Has marcado más plazas de menú para celíacos que de cena,"
 
+#: forms.py:334
+#: models.py:511
+msgid "title"
+msgstr "Título"
+
+#: forms.py:335
+#: models.py:512
+msgid "authors"
+msgstr "autores"
+
 #: models.py:122
 msgid "Pendent"
 msgstr "Pendent"
 
 #: models.py:143
 #: models.py:387
-#: models.py:546
+#: models.py:551
 msgid "first name"
 msgstr "Nombre"
 
@@ -267,7 +277,7 @@ msgstr "Codi del centre"
 
 #: models.py:191
 #: models.py:399
-#: models.py:551
+#: models.py:556
 #: templates/contacts/excursion/detail.html:30
 #: templates/contacts/excursion/new_success.html:44
 #: templates/contacts/person/detail.html:37
@@ -284,7 +294,7 @@ msgstr "ubicació"
 
 #: models.py:200
 #: models.py:402
-#: models.py:553
+#: models.py:558
 #: templates/contacts/excursion/detail.html:21
 #: templates/contacts/excursion/new_success.html:35
 #: templates/contacts/person/detail.html:28
@@ -331,14 +341,14 @@ msgstr "Data correu de registre ok"
 #: models.py:212
 #: models.py:336
 #: models.py:410
-#: models.py:556
+#: models.py:561
 msgid "date added"
 msgstr "Afegit en data"
 
 #: models.py:215
 #: models.py:338
 #: models.py:412
-#: models.py:558
+#: models.py:563
 msgid "date modified"
 msgstr "Modificat en data"
 
@@ -424,14 +434,6 @@ msgstr "Inscripción a la excursió y cena de gala"
 msgid "Excursion and Dinner registrations"
 msgstr "Inscripcions a l'excursió i al sopar de gala"
 
-#: models.py:511
-msgid "title"
-msgstr "Título"
-
-#: models.py:512
-msgid "authors"
-msgstr "autores"
-
 #: models.py:513
 msgid "day"
 msgstr "dia"
@@ -457,23 +459,23 @@ msgid "Taller"
 msgstr "Taller"
 
 #: models.py:522
-#: templates/contacts/regtaller/new.html:30
+#: templates/contacts/regtaller/new.html:27
 msgid "Tallers"
 msgstr "Talleres"
 
-#: models.py:550
+#: models.py:555
 msgid "password"
 msgstr "contraseña"
 
-#: models.py:563
+#: models.py:568
 msgid "Taller registration"
 msgstr "Preinscripción a los talleres"
 
-#: models.py:564
+#: models.py:569
 msgid "Tallers registrations"
 msgstr "Preinscripciones a los talleres"
 
-#: models.py:614
+#: models.py:629
 msgid "preference order"
 msgstr "Orden de preferencia"
 
@@ -500,7 +502,7 @@ msgstr "Error al generar el pdf"
 #: management/commands/sendExcJustificantPagament.py:61
 #: management/commands/sendJustificantPagament.py:66
 #: views/excursion.py:195
-#: views/regtaller.py:200
+#: views/regtaller.py:275
 #: views/reporting.py:221
 #: views/reporting.py:251
 #: views/reporting.py:294
@@ -600,6 +602,7 @@ msgstr "Cancel·la la inscripció"
 #: templates/contacts/person/delete.html:13
 #: templates/contacts/person/list.html:16
 #: templates/contacts/regtaller/delete.html:13
+#: templates/contacts/regtaller/new.html:14
 #: templates/contacts/regtaller/new_success.html:18
 msgid "Warning!"
 msgstr "¡Atención!"
@@ -665,7 +668,7 @@ msgstr "Sí"
 #: templates/contacts/regtaller/create.html:23
 #: templates/contacts/regtaller/delete.html:36
 #: templates/contacts/regtaller/detail.html:54
-#: templates/contacts/regtaller/new.html:56
+#: templates/contacts/regtaller/new.html:53
 #: templates/contacts/regtaller/update.html:62
 msgid "Return to list"
 msgstr "Torna a la llista"
@@ -925,6 +928,8 @@ msgstr "Llista d'inscripcions a l'excursió i al sopar de gala"
 #: templates/contacts/person/map.html:28
 #: templates/contacts/regtaller/list.html:19
 #: templates/contacts/regtaller/list.html:23
+#: templates/contacts/taller/list.html:19
+#: templates/contacts/taller/list.html:23
 msgid "Filter"
 msgstr "Filtra"
 
@@ -938,6 +943,7 @@ msgstr "Crea"
 #: templates/contacts/excursion/list.html:35
 #: templates/contacts/person/list.html:46
 #: templates/contacts/regtaller/list.html:32
+#: templates/contacts/taller/list.html:32
 msgid "Export"
 msgstr "Exporta"
 
@@ -956,7 +962,7 @@ msgstr "Inscripción a la excursión y a la cena de gala"
 
 #: templates/contacts/excursion/new.html:17
 #: templates/contacts/excursion/update.html:25
-#: templates/contacts/regtaller/new.html:26
+#: templates/contacts/regtaller/new.html:23
 #: templates/contacts/regtaller/update.html:24
 msgid "Personal data"
 msgstr "Datos personales"
@@ -988,7 +994,7 @@ msgid "Remarks"
 msgstr "Observaciones"
 
 #: templates/contacts/excursion/new.html:59
-#: templates/contacts/regtaller/new.html:49
+#: templates/contacts/regtaller/new.html:46
 msgid "Validate"
 msgstr "Envía"
 
@@ -1262,8 +1268,15 @@ msgstr "Título del taller"
 
 #: templates/contacts/regtaller/list.html:5
 #: templates/contacts/regtaller/list.html:8
+#: templates/contacts/taller/list.html:31
 msgid "List of taller registrations"
 msgstr "Lista de preinscripciones"
+
+#: templates/contacts/regtaller/list.html:33
+#: templates/contacts/taller/list.html:5
+#: templates/contacts/taller/list.html:8
+msgid "List of tallers"
+msgstr "Llista de talleres"
 
 #: templates/contacts/regtaller/new.html:5
 #: templates/contacts/regtaller/new.html:8
@@ -1271,22 +1284,22 @@ msgid "Tallers registration"
 msgstr "Preinscripción a los talleres"
 
 #: templates/contacts/regtaller/new.html:15
-msgid "Check this errors"
-msgstr "Revisa estos errores"
+msgid "Taller registration closed. It will be reopened after the taller raffle to allow registration in vacancies"
+msgstr "Preinscripción a los talleres cerrada. Se volverá a abrir después del sorteo para permitir el registro en aquellos talleres con plazas vacantes."
 
-#: templates/contacts/regtaller/new.html:31
+#: templates/contacts/regtaller/new.html:28
 msgid "Select as many tallers as you want, ordered by preference"
 msgstr "Selecciona tantos talleres como quieras, ordenándolos por preferencia"
 
-#: templates/contacts/regtaller/new.html:38
+#: templates/contacts/regtaller/new.html:35
 msgid "Add"
 msgstr "Añade"
 
-#: templates/contacts/regtaller/new.html:39
+#: templates/contacts/regtaller/new.html:36
 msgid "Remove"
 msgstr "Elimina"
 
-#: templates/contacts/regtaller/new.html:40
+#: templates/contacts/regtaller/new.html:37
 msgid "Selected tallers (drag and drop to alter the preference order)"
 msgstr "Talleres seleccionados (puedes reordenarlos haciendo 'drag and drop')"
 
@@ -1314,6 +1327,9 @@ msgstr "Usuari no està autentificat"
 #: views/mailhistory.py:116
 msgid "Person does not exist in database"
 msgstr "La persona no existeix a la base de dades"
+
+#~ msgid "Check this errors"
+#~ msgstr "Revisa estos errores"
 
 #~ msgid "Accommodation"
 #~ msgstr "Alojamiento"

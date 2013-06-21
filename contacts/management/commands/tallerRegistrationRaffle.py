@@ -35,7 +35,7 @@ class Command(NoArgsCommand):
                             registration.assigned = True
                             registration.discarted = False
                             registration.save()
-                            # Discart all registrations of their range
+                            # Discard all registrations of this range
                             registration.discard_others()
                             print "                 +++++ Selecciona %s " % registration.taller
                             break

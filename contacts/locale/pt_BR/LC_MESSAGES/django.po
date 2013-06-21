@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 14:15+0200\n"
+"POT-Creation-Date: 2013-06-22 00:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,13 +58,13 @@ msgid "Unknown person"
 msgstr ""
 
 #: forms.py:141 forms.py:185 forms.py:330 models.py:144 models.py:388
-#: models.py:547
+#: models.py:552
 msgid "last name"
 msgstr ""
 
 #: forms.py:142 forms.py:186 forms.py:331 models.py:159 models.py:389
-#: models.py:548 tables.py:16 tables.py:44 tables.py:68 tables.py:85
-#: tables.py:102 tables.py:110 templates/contacts/person/detail.html:45
+#: models.py:553 tables.py:16 tables.py:44 tables.py:68 tables.py:85
+#: tables.py:102 tables.py:132 templates/contacts/person/detail.html:45
 msgid "email address"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "stats by"
 msgstr ""
 
-#: forms.py:231 forms.py:355 views/excursion.py:178 views/regtaller.py:168
+#: forms.py:231 forms.py:359 views/excursion.py:178 views/regtaller.py:243
 msgid "This email address doesn't exist in the inscription database"
 msgstr ""
 
@@ -129,11 +129,19 @@ msgstr ""
 msgid "There are more celiac options than dinners selected"
 msgstr ""
 
+#: forms.py:334 models.py:511
+msgid "title"
+msgstr ""
+
+#: forms.py:335 models.py:512
+msgid "authors"
+msgstr ""
+
 #: models.py:122
 msgid "Pendent"
 msgstr ""
 
-#: models.py:143 models.py:387 models.py:546
+#: models.py:143 models.py:387 models.py:551
 msgid "first name"
 msgstr ""
 
@@ -208,7 +216,7 @@ msgstr ""
 msgid "center code"
 msgstr ""
 
-#: models.py:191 models.py:399 models.py:551
+#: models.py:191 models.py:399 models.py:556
 #: templates/contacts/excursion/detail.html:30
 #: templates/contacts/excursion/new_success.html:44
 #: templates/contacts/person/detail.html:37
@@ -223,7 +231,7 @@ msgstr ""
 msgid "location"
 msgstr ""
 
-#: models.py:200 models.py:402 models.py:553
+#: models.py:200 models.py:402 models.py:558
 #: templates/contacts/excursion/detail.html:21
 #: templates/contacts/excursion/new_success.html:35
 #: templates/contacts/person/detail.html:28
@@ -258,11 +266,11 @@ msgstr ""
 msgid "date mail registration"
 msgstr ""
 
-#: models.py:212 models.py:336 models.py:410 models.py:556
+#: models.py:212 models.py:336 models.py:410 models.py:561
 msgid "date added"
 msgstr ""
 
-#: models.py:215 models.py:338 models.py:412 models.py:558
+#: models.py:215 models.py:338 models.py:412 models.py:563
 msgid "date modified"
 msgstr ""
 
@@ -347,14 +355,6 @@ msgstr ""
 msgid "Excursion and Dinner registrations"
 msgstr ""
 
-#: models.py:511
-msgid "title"
-msgstr ""
-
-#: models.py:512
-msgid "authors"
-msgstr ""
-
 #: models.py:513
 msgid "day"
 msgstr ""
@@ -379,23 +379,23 @@ msgstr ""
 msgid "Taller"
 msgstr ""
 
-#: models.py:522 templates/contacts/regtaller/new.html:30
+#: models.py:522 templates/contacts/regtaller/new.html:27
 msgid "Tallers"
 msgstr ""
 
-#: models.py:550
+#: models.py:555
 msgid "password"
 msgstr ""
 
-#: models.py:563
+#: models.py:568
 msgid "Taller registration"
 msgstr ""
 
-#: models.py:564
+#: models.py:569
 msgid "Tallers registrations"
 msgstr ""
 
-#: models.py:614
+#: models.py:629
 msgid "preference order"
 msgstr ""
 
@@ -418,7 +418,7 @@ msgstr ""
 #: functions/mailtemplate.py:58
 #: management/commands/sendExcJustificantPagament.py:61
 #: management/commands/sendJustificantPagament.py:66 views/excursion.py:195
-#: views/regtaller.py:200 views/reporting.py:221 views/reporting.py:251
+#: views/regtaller.py:275 views/reporting.py:221 views/reporting.py:251
 #: views/reporting.py:294 views/reporting.py:324
 msgid "Mail sent"
 msgstr ""
@@ -513,6 +513,7 @@ msgstr ""
 #: templates/contacts/person/delete.html:13
 #: templates/contacts/person/list.html:16
 #: templates/contacts/regtaller/delete.html:13
+#: templates/contacts/regtaller/new.html:14
 #: templates/contacts/regtaller/new_success.html:18
 msgid "Warning!"
 msgstr ""
@@ -578,7 +579,7 @@ msgstr ""
 #: templates/contacts/regtaller/create.html:23
 #: templates/contacts/regtaller/delete.html:36
 #: templates/contacts/regtaller/detail.html:54
-#: templates/contacts/regtaller/new.html:56
+#: templates/contacts/regtaller/new.html:53
 #: templates/contacts/regtaller/update.html:62
 msgid "Return to list"
 msgstr ""
@@ -837,6 +838,8 @@ msgstr ""
 #: templates/contacts/person/map.html:16 templates/contacts/person/map.html:28
 #: templates/contacts/regtaller/list.html:19
 #: templates/contacts/regtaller/list.html:23
+#: templates/contacts/taller/list.html:19
+#: templates/contacts/taller/list.html:23
 msgid "Filter"
 msgstr ""
 
@@ -850,6 +853,7 @@ msgstr ""
 #: templates/contacts/excursion/list.html:35
 #: templates/contacts/person/list.html:46
 #: templates/contacts/regtaller/list.html:32
+#: templates/contacts/taller/list.html:32
 msgid "Export"
 msgstr ""
 
@@ -868,7 +872,7 @@ msgstr ""
 
 #: templates/contacts/excursion/new.html:17
 #: templates/contacts/excursion/update.html:25
-#: templates/contacts/regtaller/new.html:26
+#: templates/contacts/regtaller/new.html:23
 #: templates/contacts/regtaller/update.html:24
 msgid "Personal data"
 msgstr ""
@@ -903,7 +907,7 @@ msgid "Remarks"
 msgstr ""
 
 #: templates/contacts/excursion/new.html:59
-#: templates/contacts/regtaller/new.html:49
+#: templates/contacts/regtaller/new.html:46
 msgid "Validate"
 msgstr ""
 
@@ -1174,7 +1178,13 @@ msgstr ""
 
 #: templates/contacts/regtaller/list.html:5
 #: templates/contacts/regtaller/list.html:8
+#: templates/contacts/taller/list.html:31
 msgid "List of taller registrations"
+msgstr ""
+
+#: templates/contacts/regtaller/list.html:33
+#: templates/contacts/taller/list.html:5 templates/contacts/taller/list.html:8
+msgid "List of tallers"
 msgstr ""
 
 #: templates/contacts/regtaller/new.html:5
@@ -1183,22 +1193,24 @@ msgid "Tallers registration"
 msgstr ""
 
 #: templates/contacts/regtaller/new.html:15
-msgid "Check this errors"
+msgid ""
+"Taller registration closed. It will be reopened after the taller raffle to "
+"allow registration in vacancies"
 msgstr ""
 
-#: templates/contacts/regtaller/new.html:31
+#: templates/contacts/regtaller/new.html:28
 msgid "Select as many tallers as you want, ordered by preference"
 msgstr ""
 
-#: templates/contacts/regtaller/new.html:38
+#: templates/contacts/regtaller/new.html:35
 msgid "Add"
 msgstr ""
 
-#: templates/contacts/regtaller/new.html:39
+#: templates/contacts/regtaller/new.html:36
 msgid "Remove"
 msgstr ""
 
-#: templates/contacts/regtaller/new.html:40
+#: templates/contacts/regtaller/new.html:37
 msgid "Selected tallers (drag and drop to alter the preference order)"
 msgstr ""
 

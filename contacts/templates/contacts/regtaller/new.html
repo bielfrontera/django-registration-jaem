@@ -9,6 +9,11 @@
 {% endblock %}
 
 {% block content %}
+        <div class="alert alert-info alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>{% trans "Warning!" %}</h4>
+            {% trans "Taller registration closed. It will be reopened after the taller raffle to allow registration in vacancies" %}.
+        </div>
 
     <form action="." method="post" accept-charset="utf-8"  class="form-horizontal">
         {% csrf_token %}
@@ -37,9 +42,9 @@
 
         {% endfor %}
 
-        <div class="form-actions">
+        <!-- div class="form-actions">
             <button type="submit" value="Submit" class="btn btn-primary">{% trans 'Validate' %} <i class="icon-white icon-chevron-right"></i></button>
-        </div>
+        </div -->
     </form>
 {% endblock %}
 
