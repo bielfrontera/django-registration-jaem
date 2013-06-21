@@ -101,9 +101,9 @@ class TallerRegistrationTable(tables.Table):
     fullname = tables.LinkColumn('contacts_regtaller_detail',args=[A('id')])
     email = tables.TemplateColumn('<a href="mailto:{{ record.email_address }}">{{ record.email_address }}</a>', sortable=False, verbose_name=_('email address'))
     date_registration = tables.DateColumn()
-    num_tallers = tables.Column()
-    num_tallers_assigned = tables.Column()
-    num_tallers_discarted = tables.Column()
+    num_tallers = tables.Column(sortable=False)
+    num_tallers_assigned = tables.Column(sortable=False)
+    num_tallers_discarted = tables.Column(sortable=False)
 
 
 class TallerTable(tables.Table):
@@ -120,9 +120,9 @@ class TallerTable(tables.Table):
     building = tables.Column()
     room = tables.Column()
     max_attendants = tables.Column()
-    num_registrations = tables.Column()
-    num_attendants = tables.Column()
-    num_discarted = tables.Column()
+    num_registrations = tables.Column(sortable=False)
+    num_attendants = tables.Column(sortable=False)
+    num_discarted = tables.Column(sortable=False)
 
 
 class ExportTallerRegistrationTable(tables.Table):
@@ -131,4 +131,22 @@ class ExportTallerRegistrationTable(tables.Table):
     first_name = tables.Column()
     email_address = tables.Column(sortable=False, verbose_name=_('email address'))
     date_registration = tables.DateColumn()
+    num_tallers = tables.Column(sortable=False)
+    num_tallers_assigned = tables.Column(sortable=False)
+    num_tallers_discarted = tables.Column(sortable=False)
+
+
+class ExportTallerTable(tables.Table):
+    id = tables.Column()
+    title = tables.Column()
+    authors = tables.Column()
+    day_scheduled = tables.Column()
+    time_scheduled = tables.Column()
+    building = tables.Column()
+    room = tables.Column()
+    max_attendants = tables.Column()
+    num_registrations = tables.Column()
+    num_attendants = tables.Column()
+    num_discarted = tables.Column()
+
 

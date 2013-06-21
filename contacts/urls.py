@@ -216,6 +216,11 @@ urlpatterns = patterns('contacts.views',
         view = 'regtaller.list_tallers',
         name = 'contacts_taller_list',
     ),
+    url(r'^tallers/export/$',
+        view = 'regtaller.export_tallers',
+        name = 'contacts_taller_export',
+    ),
+
 
     url(r'^regtaller/$',
         view = 'regtaller.list',

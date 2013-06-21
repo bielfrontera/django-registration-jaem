@@ -29,14 +29,16 @@ class Command(NoArgsCommand):
                             registration.save()
                             print "       ---- Descarta %s " % registration.taller
                     else:
-                        count_assigned = count_assigned +1
-                        registration.assigned = True
-                        registration.discarted = False
-                        registration.save()
-                        # Discart all registrations of their range
-                        registration.discard_others()
-                        print "                 +++++ Selecciona %s " % registration.taller
-                        break
+                        if registration.taller.max_attendants > registration.taller.num_attendants:
+                            # Hi ha places disponibles per aquest taller. L'assignam, i sortim.
+                            count_assigned = count_assigned +1
+                            registration.assigned = True
+                            registration.discarted = False
+                            registration.save()
+                            # Discart all registrations of their range
+                            registration.discard_others()
+                            print "                 +++++ Selecciona %s " % registration.taller
+                            break
 
         print "Final: S'han assignat un total de %d tallers" % count_assigned
 

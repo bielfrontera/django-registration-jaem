@@ -13,7 +13,7 @@ import csv
 from django.conf import settings
 from contacts.models import TallerRelation, Taller, TallerRegistration, Person
 from contacts.forms import TallerRegistrationCreateForm, TallerRegistrationUpdateForm, TallerRegistrationFilterForm, TallerFilterForm
-from contacts.tables import TallerRegistrationTable, ExportTallerRegistrationTable, TallerTable
+from contacts.tables import TallerRegistrationTable, ExportTallerRegistrationTable, TallerTable, ExportTallerTable
 from django.utils.translation import ugettext as _
 
 from contacts.functions.mailtemplate import sendTemplateMail
@@ -116,7 +116,46 @@ def export(request):
     for obj in table.rows:
         row = []
         for value in obj:
-            row.append(value.encode('utf8'))
+            if isinstance(value, basestring):
+                row.append(value.encode('utf8'))
+            else:
+                row.append(value)
+        writer.writerow(row)
+
+    # Return CSV file to browser as download
+    return response
+
+def export_tallers(request):
+    """ Export tallers to csv
+    """
+
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/login/?next=%s' % request.path)
+
+    filename = 'export-tallers-%s.csv' % date.today().strftime("%y-%m-%d")
+
+    regtaller_list = Taller.objects.all()
+
+    table = ExportTallerTable(regtaller_list)
+    table.order_by = request.GET.get("sort",'id')
+
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=%s' % filename
+    writer = csv.writer(response)
+    # Write headers to CSV file
+    headers = []
+    for column in table.columns:
+        headers.append(column.header.encode('utf8'))
+    writer.writerow(headers)
+
+    # Write data to CSV file
+    for obj in table.rows:
+        row = []
+        for value in obj:
+            if isinstance(value, basestring):
+                row.append(value.encode('utf8'))
+            else:
+                row.append(value)
         writer.writerow(row)
 
     # Return CSV file to browser as download
