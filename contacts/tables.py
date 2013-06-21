@@ -103,7 +103,8 @@ class TallerRegistrationTable(tables.Table):
     date_registration = tables.DateColumn()
     num_tallers = tables.Column()
     num_tallers_assigned = tables.Column()
-    
+    num_tallers_discarted = tables.Column()
+
 
 class TallerTable(tables.Table):
     # template_actions = "<div style='width: 75px;'><a href='{{ record.get_update_url }}' title='Edit'><i class='icon-edit'></i></a> " + \
@@ -119,9 +120,10 @@ class TallerTable(tables.Table):
     building = tables.Column()
     room = tables.Column()
     max_attendants = tables.Column()
-    num_attendants = tables.Column()
     num_registrations = tables.Column()
-    
+    num_attendants = tables.Column()
+    num_discarted = tables.Column()
+
 
 class ExportTallerRegistrationTable(tables.Table):
     fullname = tables.Column()

@@ -536,9 +536,14 @@ class Taller(models.Model):
     def num_registrations(self):
         return self.taller_registrations.all().count()
 
+
     @property
     def registrations(self):
         return self.taller_registrations.all()
+
+    @property
+    def num_discarted(self):
+        return self.tallerrelation_set.filter(discarted=True).count()
 
 
 class TallerRegistration(models.Model):
@@ -580,6 +585,11 @@ class TallerRegistration(models.Model):
         return self.tallerrelation_set.filter(assigned=True)
 
     @property
+    def num_tallers_discarted(self):
+        return self.tallerrelation_set.filter(discarted=True).count()
+
+
+    @property
     def tallers_ordered(self):
         return self.tallerrelation_set.order_by('preference_order')
 
@@ -618,3 +628,44 @@ class TallerRelation(models.Model):
     taller = models.ForeignKey(Taller)
     preference_order = models.IntegerField(_('preference order'),null=True, blank=True, default=100)
     assigned = models.BooleanField(default=False)
+    discarted = models.BooleanField(default=False)
+
+    def has_preference_with(self,taller_relation):
+        if self.taller.day_scheduled != taller_relation.taller.day_scheduled:
+            return None
+
+        if self.taller.time_scheduled != taller_relation.taller.time_scheduled:
+            return None
+
+        if self.preference_order < taller_relation.preference_order:
+            return True
+        else:
+            return False
+
+    @property
+    def has_preferenced_assigned(self):
+        has_preferenced = False
+        for other_taller_relation in self.taller_registration.tallerrelation_set.all():
+            if other_taller_relation.id != self.id and other_taller_relation.assigned:
+                result = self.has_preference_with(other_taller_relation)
+                if result is None:
+                    continue
+
+                if not result:
+                    has_preferenced = True
+                    break
+
+        return has_preferenced
+
+    def discard_others(self):
+        for other_taller_relation in self.taller_registration.tallerrelation_set.all():
+            if not other_taller_relation.discarted:
+                result = self.has_preference_with(other_taller_relation)
+                if result is None:
+                    continue
+                if result:
+                    other_taller_relation.assigned = False
+                    other_taller_relation.discarted = True
+                    other_taller_relation.save()
+
+
