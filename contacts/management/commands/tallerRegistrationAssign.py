@@ -6,6 +6,9 @@ from django.template.context import Context
 from django.conf import settings
 from contacts.models import Taller, TallerRelation, TallerRegistration
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 class Command(NoArgsCommand):
 

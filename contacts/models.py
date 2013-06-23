@@ -515,6 +515,7 @@ class Taller(models.Model):
     building = models.CharField(_('building'), max_length=20)
     room = models.CharField(_('room'), max_length=20)
     max_attendants = models.IntegerField(_('max attendants'),null=True, blank=True)
+    full = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'contacts_taller'

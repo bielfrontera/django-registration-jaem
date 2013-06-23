@@ -193,7 +193,7 @@ def importCSV(request, template='contacts/person/import.html'):
                 person.contact_type = row[3]
                 person.id_card = row[5]
 
-                base_slug = slugify("%s %s %s" % (p.first_name, p.last_name, p.secondlast_name))
+                base_slug = slugify("%s %s %s" % (p.first_name, p.last_name))
                 # hem de comprovar que no existeix cap persona amb aquest nom. Si no, hem d'afegir -1
                 tmp_slug = base_slug
                 trobat = True
