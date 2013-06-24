@@ -557,6 +557,7 @@ class TallerRegistration(models.Model):
     remarks =  models.TextField(_('remarks'), null=True,blank=True)
     # Revisio
     date_registration = models.DateTimeField(_('date registration'),null=True, blank=True)
+    date_mailassignation= models.DateTimeField(_('date mail assignation'),null=True, blank=True)
 
     person = models.OneToOneField(Person, blank=True, null=True)
     date_added = models.DateTimeField(_('date added'), auto_now_add=True)
