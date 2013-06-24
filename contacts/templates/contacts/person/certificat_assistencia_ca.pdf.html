@@ -1,0 +1,44 @@
+{% load i18n %}
+<html lang="ca">
+{% load i18n %}
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Certificat Assistència XVI JAEM{% endblock %}</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <!-- Le styles -->
+    <style type="text/css">
+      body {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        font-size: 150%;
+      }
+      .center{
+            text-align:center;
+       }
+       .texte{
+            text-align: justify;
+       }
+      .header-row { padding-bottom: 150px;}
+      @page {
+        size: a4;
+        margin: 0cm;
+        background-image: url(contactes/img/watermark_certificat_assistencia_ca.pdf);
+      }
+    </style>
+  </head>
+
+  <body>
+  <table border="0" width="85%" height="68px"><tr class="header-row"><td>&nbsp;</td></tr><table>
+  <table border="0" width="75%" align="center">
+    <tr><td colspan="3" class="texte"><font face="Droid Serif" size="12pt">
+        <b>Josep Lluís Pol i Llompart</b>, President del Comitè Organitzador de les XVI JAEM,<br/><br/>
+        <b>CERTIFICA que:</b><br/><br/>
+        {{ object.fullname }} amb DNI {{ object.id_card }} ha participat a l'activitat denominada "<b>XVI Jornades per a l'Aprenentatge i l'Ensenyament de les Matemàtiques</b>" convocada per la Federación Española de Sociedades de Profesores de Matemáticas (FESPM) i organitzada per la Societat Balear de Matemàtiques SBM-XEIX celebrades a Palma els dies 2, 3, 4 i 5 de juliol de 2013.
+        <br /><br /><br />
+        Palma, a 5 de juliol de 2013
+    </font>
+    </td>
+    </tr>
+  </table>
+</html>
