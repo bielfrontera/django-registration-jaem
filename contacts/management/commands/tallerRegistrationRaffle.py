@@ -20,7 +20,7 @@ class Command(NoArgsCommand):
     def handle_noargs(self, **options):
         print "Sorteig (després d'haver fet l'assignació de tallers amb places suficients)"
         count_assigned = 0
-        registration_list = TallerRegistration.objects.order_by('?')
+        registration_list = TallerRegistration.objects.filter(date_mailassignation__isnull = True).order_by('?')
         for regtaller in registration_list:
             print "    Persona %s" % (regtaller.fullname)
             for registration in regtaller.tallers_ordered:
