@@ -29,7 +29,8 @@ class Command(NoArgsCommand):
 
     def handle_noargs(self, **options):
         person_list = Person.objects.all()
-        person_list = person_list.exclude(status='cancelled')[:10]
+        person_list = person_list.exclude(status='cancelled')
+        person_list = person_list.exclude(contact_type='V')
 
 
 

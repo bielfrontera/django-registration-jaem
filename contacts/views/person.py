@@ -163,7 +163,10 @@ def export(request):
     for obj in table.rows:
         row = []
         for value in obj:
-            row.append(value.encode('utf8'))
+            if isinstance(value, basestring):
+                row.append(value.encode('utf8'))
+            else:
+                row.append(value)
         writer.writerow(row)
 
     # Return CSV file to browser as download
