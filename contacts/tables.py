@@ -113,7 +113,7 @@ class TallerTable(tables.Table):
     # actions = tables.TemplateColumn(template_actions, sortable=False, verbose_name=_('Actions'))
 
     id = tables.Column()
-    title = tables.Column()
+    title = tables.LinkColumn('contacts_taller_detail',args=[A('id')])
     authors = tables.Column()
     day_scheduled = tables.Column()
     time_scheduled = tables.Column()
