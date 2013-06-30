@@ -33,7 +33,7 @@ class Command(NoArgsCommand):
 
             new_page_llistat = template_llistat
             new_page_llistat = new_page_llistat.replace('%taller%', taller.title[0:65].encode('utf-8'))
-            new_page_llistat = new_page_llistat.replace('%autors%', taller.authors[0:90].encode('utf-8'))
+            new_page_llistat = new_page_llistat.replace('%autors%', taller.authors[0:80].encode('utf-8'))
             datalloc = "Dia %s %s - %s. %s " % (taller.day_scheduled, taller.time_scheduled , taller.building, taller.room )
             new_page_llistat = new_page_llistat.replace('%datalloc%', datalloc.encode('utf-8'))
             new_page_llistat = new_page_llistat.replace('%max%', str(taller.max_attendants))
@@ -44,7 +44,7 @@ class Command(NoArgsCommand):
             for relation in taller.attendants:
                 people.append(relation.taller_registration.person)
 
-            people = sorted(people, key=lambda person: person.last_name)
+            people = sorted(people, key=lambda person: person.last_name.lower())
 
             for person in people:
                 name = "%s, %s" % (person.last_name, person.first_name)
@@ -60,7 +60,7 @@ class Command(NoArgsCommand):
 
                     new_page_llistat = template_llistat
                     new_page_llistat = new_page_llistat.replace('%taller%', taller.title[0:65].encode('utf-8'))
-                    new_page_llistat = new_page_llistat.replace('%autors%', taller.authors[0:90].encode('utf-8'))
+                    new_page_llistat = new_page_llistat.replace('%autors%', taller.authors[0:80].encode('utf-8'))
                     datalloc = "Dia %s %s - %s. %s " % (taller.day_scheduled, taller.time_scheduled , taller.building, taller.room )
                     new_page_llistat = new_page_llistat.replace('%datalloc%', datalloc.encode('utf-8'))
                     new_page_llistat = new_page_llistat.replace('%max%', str(taller.max_attendants))

@@ -1,0 +1,54 @@
+{% extends "contacts/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }}: {{ object }}{% endblock %}
+
+{% block content_title %}
+        <span class="fn">{{ object }}</span>
+{% endblock %}
+
+    title = models.CharField(_('title'), max_length=200)
+    authors = models.CharField(_('authors'), max_length=250)
+    day_scheduled = models.IntegerField(_('day'),null=True, blank=True)
+    time_scheduled = models.CharField(_('time'), max_length=20)
+    building = models.CharField(_('building'), max_length=20)
+    room = models.CharField(_('room'), max_length=20)
+    max_attendants = models.IntegerField(_('max attendants'),null=True, blank=True)
+    full = models.BooleanField(default=False)
+
+{% block content %}
+    <p>
+        <h3>{% trans "Taller information" %}</h3>
+        <b>{% trans "Title" %}:</b> {{ object.title }}<br />
+        <b>{% trans "Authors" %}:</b> {{ object.authors }}<br />
+        <b>{% trans "Scheduled" %}:</b> {{ object.day_scheduled }} / {{ object.time_scheduled }}<br />
+        <b>{% trans "Place" %}:</b> {{ object.building }} / {{ object.room }}<br />
+    </p>
+    <hr/>
+    <p>
+        <h3>{% trans "Taller registration" %}</h3>
+        <b>{% trans "Max attendants" %}:</b> {{ object.max_attendants }}<br />
+        <b>{% trans "Attendants" %}:</b> {{ object.num_attendants }}<br />
+    </p>
+
+    <p>
+        <h3>{% trans "List of attendants" %}</h3>
+        <ul>
+            {% for reltaller in object.attendants %}
+            <li>
+            {{ reltaller.taller_registration.person.fullname }}
+            </li>
+            {% endfor %}
+        </ul>
+
+    </p>
+
+{% endblock %}
+
+{% block actions %}
+    <a href="{%  url contacts_taller_list %}"  class="btn"><i class="icon-arrow-left"></i> {% trans "Return to list" %}</a>
+{% endblock %}
+
+{% block page_js %}
+
+{% endblock page_js %}

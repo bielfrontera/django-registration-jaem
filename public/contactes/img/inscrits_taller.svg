@@ -160,9 +160,9 @@
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="2.3548227"
-     inkscape:cx="496.87669"
-     inkscape:cy="954.40654"
+     inkscape:zoom="1.1774114"
+     inkscape:cx="477.16911"
+     inkscape:cy="857.73254"
      inkscape:window-x="-1"
      inkscape:window-y="-10"
      inkscape:window-maximized="1"
@@ -197,6 +197,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:32px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -214,6 +215,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:32px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -227,6 +229,7 @@
      x="92.315781"
      y="-833.82593"
      style="font-size:11.19999981px">Autors: %autors%</tspan></text>
+
 
 
 
@@ -336,19 +339,21 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:32px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-   x="112.88766"
+   x="122.48764"
    y="-777.87762"
    id="text3207-1-3"
    sodipodi:linespacing="125%"
    transform="scale(1,-1)"><tspan
      sodipodi:role="line"
      id="tspan3209-4-9"
-     x="112.88766"
+     x="122.48764"
      y="-777.87762"
      style="font-size:11.19999981px">NOM</tspan></text>
+
 
 
 
@@ -370,6 +375,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -383,6 +389,7 @@
      x="97.230164"
      y="-751.33936"
      style="font-size:8.8px">%n0%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -398,6 +405,7 @@
      y="-751.33936"
      style="font-size:11.19999981px">%nom0%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -411,6 +419,7 @@
      x="97.230164"
      y="-725.46033"
      style="font-size:8.8px">%n1%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -426,6 +435,7 @@
      y="-725.46033"
      style="font-size:11.19999981px">%nom1%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -439,6 +449,7 @@
      x="97.230164"
      y="-699.58136"
      style="font-size:8.8px">%n2%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -454,6 +465,7 @@
      y="-699.58136"
      style="font-size:11.19999981px">%nom2%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -467,6 +479,7 @@
      x="97.230164"
      y="-673.83582"
      style="font-size:8.8px">%n3%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -482,6 +495,7 @@
      y="-673.83582"
      style="font-size:11.19999981px">%nom3%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -495,6 +509,7 @@
      x="97.230164"
      y="-646.8905"
      style="font-size:8.8px">%n4%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -510,6 +525,7 @@
      y="-646.8905"
      style="font-size:11.19999981px">%nom4%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -523,6 +539,7 @@
      x="97.230164"
      y="-621.01154"
      style="font-size:8.8px">%n5%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -538,6 +555,7 @@
      y="-621.01154"
      style="font-size:11.19999981px">%nom5%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -551,6 +569,7 @@
      x="97.230164"
      y="-595.13251"
      style="font-size:8.8px">%n6%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -566,6 +585,7 @@
      y="-595.13251"
      style="font-size:11.19999981px">%nom6%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -579,6 +599,7 @@
      x="97.230164"
      y="-569.38696"
      style="font-size:8.8px">%n7%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -594,6 +615,7 @@
      y="-569.38696"
      style="font-size:11.19999981px">%nom7%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -607,6 +629,7 @@
      x="97.230164"
      y="-543.51447"
      style="font-size:8.8px">%n8%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -622,6 +645,7 @@
      y="-543.51447"
      style="font-size:11.19999981px">%nom8%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -635,6 +659,7 @@
      x="97.230164"
      y="-517.63544"
      style="font-size:8.8px">%n9%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -650,6 +675,7 @@
      y="-517.63544"
      style="font-size:11.19999981px">%nom9%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -663,6 +689,7 @@
      x="97.230164"
      y="-491.75647"
      style="font-size:8.8px">%n10%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -678,6 +705,7 @@
      y="-491.75647"
      style="font-size:11.19999981px">%nom10%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -691,6 +719,7 @@
      x="97.230164"
      y="-466.01089"
      style="font-size:8.8px">%n11%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -706,6 +735,7 @@
      y="-466.01089"
      style="font-size:11.19999981px">%nom11%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -719,6 +749,7 @@
      x="97.230164"
      y="-438.87814"
      style="font-size:8.8px">%n12%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -734,6 +765,7 @@
      y="-438.87814"
      style="font-size:11.19999981px">%nom12%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -747,6 +779,7 @@
      x="97.230164"
      y="-412.99911"
      style="font-size:8.8px">%n13%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -762,6 +795,7 @@
      y="-412.99911"
      style="font-size:11.19999981px">%nom13%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -775,6 +809,7 @@
      x="97.230164"
      y="-387.12012"
      style="font-size:8.8px">%n14%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -790,6 +825,7 @@
      y="-387.12012"
      style="font-size:11.19999981px">%nom14%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -803,6 +839,7 @@
      x="97.230164"
      y="-361.37457"
      style="font-size:8.8px">%n15%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -818,6 +855,7 @@
      y="-361.37457"
      style="font-size:11.19999981px">%nom15%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -831,6 +869,7 @@
      x="97.230164"
      y="-333.56235"
      style="font-size:8.8px">%n16%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -846,6 +885,7 @@
      y="-333.56235"
      style="font-size:11.19999981px">%nom16%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -859,6 +899,7 @@
      x="97.230164"
      y="-307.68335"
      style="font-size:8.8px">%n17%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -874,6 +915,7 @@
      y="-307.68335"
      style="font-size:11.19999981px">%nom17%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -887,6 +929,7 @@
      x="97.230164"
      y="-281.80435"
      style="font-size:8.8px">%n18%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -902,6 +945,7 @@
      y="-281.80435"
      style="font-size:11.19999981px">%nom18%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -915,6 +959,7 @@
      x="97.230164"
      y="-256.05878"
      style="font-size:8.8px">%n19%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -930,6 +975,7 @@
      y="-256.05878"
      style="font-size:11.19999981px">%nom19%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:8.8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -943,6 +989,7 @@
      x="97.230164"
      y="-230.94164"
      style="font-size:8.8px">%n20%</tspan></text>
+
 
 <text
    xml:space="preserve"
@@ -958,6 +1005,7 @@
      y="-230.94164"
      style="font-size:11.19999981px">%nom20%</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:32px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -971,4 +1019,5 @@
      x="483.90585"
      y="-813.81702"
      style="font-size:11.19999981px">Max. inscrits: %max%</tspan></text>
+
 </g></g></svg>
