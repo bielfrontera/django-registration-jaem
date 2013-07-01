@@ -36,6 +36,7 @@ class MailTemplateTable(tables.Table):
 
 
 class ExportPersonTable(tables.Table):
+    id = tables.Column()
     fullname = tables.Column()
     last_name = tables.Column()
     first_name = tables.Column()
